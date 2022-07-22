@@ -23,6 +23,8 @@
 		0431614E288A7E040050DB2A /* ListActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431614D288A7E040050DB2A /* ListActivityView.swift */; };
 		04316150288A97410050DB2A /* HomeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431614F288A97410050DB2A /* HomeEventView.swift */; };
 		04316152288AA7240050DB2A /* HomeBusinessPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */; };
+		04316158288AED870050DB2A /* ListBusinessPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316157288AED870050DB2A /* ListBusinessPartnerView.swift */; };
+		0431615A288AEEDB0050DB2A /* BusinessPartner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316159288AEEDB0050DB2A /* BusinessPartner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		0431614D288A7E040050DB2A /* ListActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListActivityView.swift; sourceTree = "<group>"; };
 		0431614F288A97410050DB2A /* HomeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventView.swift; sourceTree = "<group>"; };
 		04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBusinessPartnerView.swift; sourceTree = "<group>"; };
+		04316157288AED870050DB2A /* ListBusinessPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBusinessPartnerView.swift; sourceTree = "<group>"; };
+		04316159288AEEDB0050DB2A /* BusinessPartner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessPartner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,13 +104,14 @@
 			children = (
 				0431612A28897FCE0050DB2A /* JacarandaTabView.swift */,
 				0431613B288982710050DB2A /* JacarandaHomeView.swift */,
-				0431613D2889828E0050DB2A /* JacarandaWalletView.swift */,
-				0431613F288982A50050DB2A /* JacarandaProfileView.swift */,
 				043161412889950C0050DB2A /* HomeBalanceView.swift */,
 				04316143288A693D0050DB2A /* HomeActivityView.swift */,
-				0431614D288A7E040050DB2A /* ListActivityView.swift */,
 				0431614F288A97410050DB2A /* HomeEventView.swift */,
 				04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */,
+				0431613D2889828E0050DB2A /* JacarandaWalletView.swift */,
+				0431613F288982A50050DB2A /* JacarandaProfileView.swift */,
+				0431614D288A7E040050DB2A /* ListActivityView.swift */,
+				04316157288AED870050DB2A /* ListBusinessPartnerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				04316149288A6C5D0050DB2A /* Activity.swift */,
+				04316159288AEEDB0050DB2A /* BusinessPartner.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,12 +225,14 @@
 				0431613C288982710050DB2A /* JacarandaHomeView.swift in Sources */,
 				04316152288AA7240050DB2A /* HomeBusinessPartnerView.swift in Sources */,
 				0431613E2889828E0050DB2A /* JacarandaWalletView.swift in Sources */,
+				0431615A288AEEDB0050DB2A /* BusinessPartner.swift in Sources */,
 				0431614E288A7E040050DB2A /* ListActivityView.swift in Sources */,
 				043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */,
 				04316148288A6C3C0050DB2A /* ActivityDataService.swift in Sources */,
 				04316144288A693D0050DB2A /* HomeActivityView.swift in Sources */,
 				04316150288A97410050DB2A /* HomeEventView.swift in Sources */,
 				0431614A288A6C5D0050DB2A /* Activity.swift in Sources */,
+				04316158288AED870050DB2A /* ListBusinessPartnerView.swift in Sources */,
 				0431612B28897FCE0050DB2A /* JacarandaTabView.swift in Sources */,
 				0431612928897FCE0050DB2A /* Jacaranda_CardApp.swift in Sources */,
 			);

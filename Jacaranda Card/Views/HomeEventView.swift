@@ -53,6 +53,5 @@ struct HomeEventView_Previews: PreviewProvider {
     static var previews: some View {
         HomeEventView()
             .previewLayout(.sizeThatFits)
-            .previewInterfaceOrientation(.portraitUpsideDown)
     }
 }

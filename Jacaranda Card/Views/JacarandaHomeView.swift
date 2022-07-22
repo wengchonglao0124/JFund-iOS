@@ -58,6 +58,9 @@ struct JacarandaHomeView: View {
                     HomeEventView()
                         .cornerRadius(16)
                         .padding(.bottom, 30)
+                    
+                    // MARK: Business Partner Section
+                    HomeBusinessPartnerView()
                 }
             }
             .background(Color("screenBg"))
