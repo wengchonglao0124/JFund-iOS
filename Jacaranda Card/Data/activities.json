@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Dribbble",
+        "date": "15 Jul",
+        "amount": -19
+    },
+    {
+        "name": "Payoneer",
+        "date": "10 Jul",
+        "amount": 120
+    },
+    {
+        "name": "Uber",
+        "date": "9 Jul",
+        "amount": -16.23
+    },
+    {
+        "name": "Apple inc.",
+        "date": "20 Jun",
+        "amount": -124.35
+    },
+    {
+        "name": "Maru",
+        "date": "15 Jun",
+        "amount": -50.49
+    }
+]

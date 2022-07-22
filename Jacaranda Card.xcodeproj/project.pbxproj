@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0431612928897FCE0050DB2A /* Jacaranda_CardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431612828897FCE0050DB2A /* Jacaranda_CardApp.swift */; };
+		0431612B28897FCE0050DB2A /* JacarandaTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431612A28897FCE0050DB2A /* JacarandaTabView.swift */; };
+		0431612D28897FCF0050DB2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0431612C28897FCF0050DB2A /* Assets.xcassets */; };
+		0431613028897FCF0050DB2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0431612F28897FCF0050DB2A /* Preview Assets.xcassets */; };
+		0431613C288982710050DB2A /* JacarandaHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431613B288982710050DB2A /* JacarandaHomeView.swift */; };
+		0431613E2889828E0050DB2A /* JacarandaWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431613D2889828E0050DB2A /* JacarandaWalletView.swift */; };
+		04316140288982A50050DB2A /* JacarandaProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431613F288982A50050DB2A /* JacarandaProfileView.swift */; };
+		043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043161412889950C0050DB2A /* HomeBalanceView.swift */; };
+		04316144288A693D0050DB2A /* HomeActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316143288A693D0050DB2A /* HomeActivityView.swift */; };
+		04316146288A6A230050DB2A /* activities.json in Resources */ = {isa = PBXBuildFile; fileRef = 04316145288A6A230050DB2A /* activities.json */; };
+		04316148288A6C3C0050DB2A /* ActivityDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316147288A6C3C0050DB2A /* ActivityDataService.swift */; };
+		0431614A288A6C5D0050DB2A /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316149288A6C5D0050DB2A /* Activity.swift */; };
+		0431614C288A70080050DB2A /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431614B288A70080050DB2A /* ActivityModel.swift */; };
+		0431614E288A7E040050DB2A /* ListActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431614D288A7E040050DB2A /* ListActivityView.swift */; };
+		04316150288A97410050DB2A /* HomeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431614F288A97410050DB2A /* HomeEventView.swift */; };
+		04316152288AA7240050DB2A /* HomeBusinessPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0431612528897FCE0050DB2A /* Jacaranda Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jacaranda Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0431612828897FCE0050DB2A /* Jacaranda_CardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jacaranda_CardApp.swift; sourceTree = "<group>"; };
+		0431612A28897FCE0050DB2A /* JacarandaTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaTabView.swift; sourceTree = "<group>"; };
+		0431612C28897FCF0050DB2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0431612F28897FCF0050DB2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0431613B288982710050DB2A /* JacarandaHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaHomeView.swift; sourceTree = "<group>"; };
+		0431613D2889828E0050DB2A /* JacarandaWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaWalletView.swift; sourceTree = "<group>"; };
+		0431613F288982A50050DB2A /* JacarandaProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaProfileView.swift; sourceTree = "<group>"; };
+		043161412889950C0050DB2A /* HomeBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalanceView.swift; sourceTree = "<group>"; };
+		04316143288A693D0050DB2A /* HomeActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeActivityView.swift; sourceTree = "<group>"; };
+		04316145288A6A230050DB2A /* activities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = activities.json; sourceTree = "<group>"; };
+		04316147288A6C3C0050DB2A /* ActivityDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDataService.swift; sourceTree = "<group>"; };
+		04316149288A6C5D0050DB2A /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		0431614B288A70080050DB2A /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		0431614D288A7E040050DB2A /* ListActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListActivityView.swift; sourceTree = "<group>"; };
+		0431614F288A97410050DB2A /* HomeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventView.swift; sourceTree = "<group>"; };
+		04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBusinessPartnerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0431612228897FCE0050DB2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0431611C28897FCE0050DB2A = {
+			isa = PBXGroup;
+			children = (
+				0431612728897FCE0050DB2A /* Jacaranda Card */,
+				0431612628897FCE0050DB2A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0431612628897FCE0050DB2A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0431612528897FCE0050DB2A /* Jacaranda Card.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0431612728897FCE0050DB2A /* Jacaranda Card */ = {
+			isa = PBXGroup;
+			children = (
+				043161392889814D0050DB2A /* Models */,
+				04316136288981160050DB2A /* Views */,
+				0431613A288981570050DB2A /* ViewModels */,
+				04316138288981410050DB2A /* Data */,
+				04316137288981320050DB2A /* Services */,
+				0431612828897FCE0050DB2A /* Jacaranda_CardApp.swift */,
+				0431612C28897FCF0050DB2A /* Assets.xcassets */,
+				0431612E28897FCF0050DB2A /* Preview Content */,
+			);
+			path = "Jacaranda Card";
+			sourceTree = "<group>";
+		};
+		0431612E28897FCF0050DB2A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0431612F28897FCF0050DB2A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		04316136288981160050DB2A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0431612A28897FCE0050DB2A /* JacarandaTabView.swift */,
+				0431613B288982710050DB2A /* JacarandaHomeView.swift */,
+				0431613D2889828E0050DB2A /* JacarandaWalletView.swift */,
+				0431613F288982A50050DB2A /* JacarandaProfileView.swift */,
+				043161412889950C0050DB2A /* HomeBalanceView.swift */,
+				04316143288A693D0050DB2A /* HomeActivityView.swift */,
+				0431614D288A7E040050DB2A /* ListActivityView.swift */,
+				0431614F288A97410050DB2A /* HomeEventView.swift */,
+				04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		04316137288981320050DB2A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				04316147288A6C3C0050DB2A /* ActivityDataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		04316138288981410050DB2A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				04316145288A6A230050DB2A /* activities.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		043161392889814D0050DB2A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				04316149288A6C5D0050DB2A /* Activity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0431613A288981570050DB2A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0431614B288A70080050DB2A /* ActivityModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0431612428897FCE0050DB2A /* Jacaranda Card */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0431613328897FCF0050DB2A /* Build configuration list for PBXNativeTarget "Jacaranda Card" */;
+			buildPhases = (
+				0431612128897FCE0050DB2A /* Sources */,
+				0431612228897FCE0050DB2A /* Frameworks */,
+				0431612328897FCE0050DB2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Jacaranda Card";
+			productName = "Jacaranda Card";
+			productReference = 0431612528897FCE0050DB2A /* Jacaranda Card.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0431611D28897FCE0050DB2A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					0431612428897FCE0050DB2A = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 0431612028897FCE0050DB2A /* Build configuration list for PBXProject "Jacaranda Card" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0431611C28897FCE0050DB2A;
+			productRefGroup = 0431612628897FCE0050DB2A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0431612428897FCE0050DB2A /* Jacaranda Card */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0431612328897FCE0050DB2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0431613028897FCF0050DB2A /* Preview Assets.xcassets in Resources */,
+				0431612D28897FCF0050DB2A /* Assets.xcassets in Resources */,
+				04316146288A6A230050DB2A /* activities.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0431612128897FCE0050DB2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0431614C288A70080050DB2A /* ActivityModel.swift in Sources */,
+				04316140288982A50050DB2A /* JacarandaProfileView.swift in Sources */,
+				0431613C288982710050DB2A /* JacarandaHomeView.swift in Sources */,
+				04316152288AA7240050DB2A /* HomeBusinessPartnerView.swift in Sources */,
+				0431613E2889828E0050DB2A /* JacarandaWalletView.swift in Sources */,
+				0431614E288A7E040050DB2A /* ListActivityView.swift in Sources */,
+				043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */,
+				04316148288A6C3C0050DB2A /* ActivityDataService.swift in Sources */,
+				04316144288A693D0050DB2A /* HomeActivityView.swift in Sources */,
+				04316150288A97410050DB2A /* HomeEventView.swift in Sources */,
+				0431614A288A6C5D0050DB2A /* Activity.swift in Sources */,
+				0431612B28897FCE0050DB2A /* JacarandaTabView.swift in Sources */,
+				0431612928897FCE0050DB2A /* Jacaranda_CardApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0431613128897FCF0050DB2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0431613228897FCF0050DB2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0431613428897FCF0050DB2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Jacaranda Card/Preview Content\"";
+				DEVELOPMENT_TEAM = S7HBQ7384D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jacarandait.Jacaranda-Card";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0431613528897FCF0050DB2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Jacaranda Card/Preview Content\"";
+				DEVELOPMENT_TEAM = S7HBQ7384D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jacarandait.Jacaranda-Card";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0431612028897FCE0050DB2A /* Build configuration list for PBXProject "Jacaranda Card" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0431613128897FCF0050DB2A /* Debug */,
+				0431613228897FCF0050DB2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0431613328897FCF0050DB2A /* Build configuration list for PBXNativeTarget "Jacaranda Card" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0431613428897FCF0050DB2A /* Debug */,
+				0431613528897FCF0050DB2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0431611D28897FCE0050DB2A /* Project object */;
+}
