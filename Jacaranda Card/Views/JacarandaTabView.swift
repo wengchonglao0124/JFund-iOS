@@ -39,16 +39,16 @@ struct JacarandaTabView: View {
             .tag(1)
             
             // MARK: Wallet View
-            JacarandaWalletView()
+            JacarandaActivityView(activities: ActivityModel().activies)
                 .tabItem({
                     VStack {
                         if selectionIndex == 2 {
-                            Image("walletSelected")
+                            Image("activitySelected")
                         }
                         else {
-                            Image("wallet")
+                            Image("activity")
                         }
-                        Text("Wallet")
+                        Text("Activity")
                     }
                 })
                 .tag(2)
@@ -76,6 +76,7 @@ struct JacarandaTabView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             JacarandaTabView()
+            
             JacarandaTabView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
         }

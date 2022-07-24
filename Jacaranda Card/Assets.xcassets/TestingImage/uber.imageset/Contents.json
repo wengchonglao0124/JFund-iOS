@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "walletSelected.png",
+      "filename" : "uber.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "walletSelected@2x.png",
+      "filename" : "uber@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "walletSelected@3x.png",
+      "filename" : "uber@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

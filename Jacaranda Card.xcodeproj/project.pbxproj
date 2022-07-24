@@ -12,7 +12,7 @@
 		0431612D28897FCF0050DB2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0431612C28897FCF0050DB2A /* Assets.xcassets */; };
 		0431613028897FCF0050DB2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0431612F28897FCF0050DB2A /* Preview Assets.xcassets */; };
 		0431613C288982710050DB2A /* JacarandaHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431613B288982710050DB2A /* JacarandaHomeView.swift */; };
-		0431613E2889828E0050DB2A /* JacarandaWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431613D2889828E0050DB2A /* JacarandaWalletView.swift */; };
+		0431613E2889828E0050DB2A /* JacarandaActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431613D2889828E0050DB2A /* JacarandaActivityView.swift */; };
 		04316140288982A50050DB2A /* JacarandaProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431613F288982A50050DB2A /* JacarandaProfileView.swift */; };
 		043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043161412889950C0050DB2A /* HomeBalanceView.swift */; };
 		04316144288A693D0050DB2A /* HomeActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316143288A693D0050DB2A /* HomeActivityView.swift */; };
@@ -32,7 +32,7 @@
 		04316166288AFE190050DB2A /* TourismDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316165288AFE190050DB2A /* TourismDataService.swift */; };
 		04316168288AFE630050DB2A /* BusinessPartnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316167288AFE630050DB2A /* BusinessPartnerModel.swift */; };
 		0431616A288B03800050DB2A /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = 04316169288B03800050DB2A /* restaurants.json */; };
-		04316170288BF2960050DB2A /* HomeBusinessPartnerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431616F288BF2960050DB2A /* HomeBusinessPartnerHeaderView.swift */; };
+		04316173288D921D0050DB2A /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316172288D921D0050DB2A /* DateService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +42,7 @@
 		0431612C28897FCF0050DB2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0431612F28897FCF0050DB2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0431613B288982710050DB2A /* JacarandaHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaHomeView.swift; sourceTree = "<group>"; };
-		0431613D2889828E0050DB2A /* JacarandaWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaWalletView.swift; sourceTree = "<group>"; };
+		0431613D2889828E0050DB2A /* JacarandaActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaActivityView.swift; sourceTree = "<group>"; };
 		0431613F288982A50050DB2A /* JacarandaProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaProfileView.swift; sourceTree = "<group>"; };
 		043161412889950C0050DB2A /* HomeBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalanceView.swift; sourceTree = "<group>"; };
 		04316143288A693D0050DB2A /* HomeActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeActivityView.swift; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		04316165288AFE190050DB2A /* TourismDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourismDataService.swift; sourceTree = "<group>"; };
 		04316167288AFE630050DB2A /* BusinessPartnerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessPartnerModel.swift; sourceTree = "<group>"; };
 		04316169288B03800050DB2A /* restaurants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = restaurants.json; sourceTree = "<group>"; };
-		0431616F288BF2960050DB2A /* HomeBusinessPartnerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBusinessPartnerHeaderView.swift; sourceTree = "<group>"; };
+		04316172288D921D0050DB2A /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,11 +124,10 @@
 				04316143288A693D0050DB2A /* HomeActivityView.swift */,
 				0431614F288A97410050DB2A /* HomeEventView.swift */,
 				04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */,
-				0431613D2889828E0050DB2A /* JacarandaWalletView.swift */,
+				0431613D2889828E0050DB2A /* JacarandaActivityView.swift */,
 				0431613F288982A50050DB2A /* JacarandaProfileView.swift */,
 				0431614D288A7E040050DB2A /* ListActivityView.swift */,
 				04316157288AED870050DB2A /* ListBusinessPartnerView.swift */,
-				0431616F288BF2960050DB2A /* HomeBusinessPartnerHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,6 +139,7 @@
 				04316161288AFCF40050DB2A /* RestaurantDataService.swift */,
 				04316163288AFDDA0050DB2A /* BeautyDataService.swift */,
 				04316165288AFE190050DB2A /* TourismDataService.swift */,
+				04316172288D921D0050DB2A /* DateService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -250,12 +250,11 @@
 				0431614C288A70080050DB2A /* ActivityModel.swift in Sources */,
 				04316140288982A50050DB2A /* JacarandaProfileView.swift in Sources */,
 				04316164288AFDDA0050DB2A /* BeautyDataService.swift in Sources */,
-				04316170288BF2960050DB2A /* HomeBusinessPartnerHeaderView.swift in Sources */,
 				0431613C288982710050DB2A /* JacarandaHomeView.swift in Sources */,
 				04316152288AA7240050DB2A /* HomeBusinessPartnerView.swift in Sources */,
 				04316166288AFE190050DB2A /* TourismDataService.swift in Sources */,
 				04316168288AFE630050DB2A /* BusinessPartnerModel.swift in Sources */,
-				0431613E2889828E0050DB2A /* JacarandaWalletView.swift in Sources */,
+				0431613E2889828E0050DB2A /* JacarandaActivityView.swift in Sources */,
 				0431615A288AEEDB0050DB2A /* BusinessPartner.swift in Sources */,
 				0431614E288A7E040050DB2A /* ListActivityView.swift in Sources */,
 				043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */,
@@ -267,6 +266,7 @@
 				04316158288AED870050DB2A /* ListBusinessPartnerView.swift in Sources */,
 				0431612B28897FCE0050DB2A /* JacarandaTabView.swift in Sources */,
 				0431612928897FCE0050DB2A /* Jacaranda_CardApp.swift in Sources */,
+				04316173288D921D0050DB2A /* DateService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,11 +398,13 @@
 				DEVELOPMENT_TEAM = S7HBQ7384D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Jacaranda-Card-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -412,7 +414,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -427,11 +429,13 @@
 				DEVELOPMENT_TEAM = S7HBQ7384D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Jacaranda-Card-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -441,7 +445,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

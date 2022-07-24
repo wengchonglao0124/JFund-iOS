@@ -14,7 +14,7 @@ struct ListActivityView: View {
     var body: some View {
         HStack {
             HStack(spacing: 16) {
-                Rectangle()
+                Image(activity.imageName)
                     .frame(width: 40, height: 40, alignment: .center)
                     .cornerRadius(12)
                 
@@ -24,7 +24,7 @@ struct ListActivityView: View {
                         .fontWeight(.medium)
                         .foregroundColor(Color("activityTextColor"))
                     
-                    Text(activity.date)
+                    Text(DateService.getDateString(format: "dd MMM", date: activity.date))
                         .font(.system(size: 12))
                         .fontWeight(.medium)
                         .foregroundColor(Color("activityDateColor"))

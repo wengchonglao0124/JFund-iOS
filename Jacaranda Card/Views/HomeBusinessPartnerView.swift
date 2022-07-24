@@ -25,7 +25,8 @@ struct HomeBusinessPartnerView: View {
                 .font(.system(size: 14))
                 .fontWeight(.bold)
                 .foregroundColor(Color("businessPartnerTextColor"))
-                .padding(.vertical, 16)
+                .padding(.top, 16)
+                .padding(.bottom, 20)
                 .padding(.leading, 24)
             
             VStack {
