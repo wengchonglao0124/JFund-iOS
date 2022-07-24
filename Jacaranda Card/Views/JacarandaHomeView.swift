@@ -67,8 +67,8 @@ struct JacarandaHomeView: View {
                 }
             }
             .navigationBarHidden(true)
+            .background(Color("screenBg"))
         }
-        .background(Color("screenBg"))
     }
 }
 

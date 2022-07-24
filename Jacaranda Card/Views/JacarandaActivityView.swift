@@ -76,6 +76,8 @@ struct JacarandaActivityView: View {
             }
             .background(Color(red: 252/255, green: 252/255, blue: 252/255, opacity: 0.8))
         }
+        .padding(.top, 31.5)
+        .background(Color(red: 246/255, green: 246/255, blue: 246/255))
     }
 }
 
