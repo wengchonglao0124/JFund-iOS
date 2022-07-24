@@ -42,26 +42,31 @@ struct HomeActivityView: View {
                         Spacer()
                     }
                 }
-                else if activityModel.activies.count <= 3 {
-                    // MARK: Recent Activities less than or equal to 3
-                    ForEach(activityModel.activies) { activity in
-                        ListActivityView(activity: activity)
-                            .padding(.bottom, 12)
-                    }
-                }
                 else {
-                    // MARK: Recent Activities greater than 3
-                    VStack {
-                        ForEach(0..<3) { index in
-                            ListActivityView(activity: activityModel.activies[index])
+                    let activities = activityModel.activies
+                    let activitiesList = activities.sorted(by: { $0.date.compare($1.date) == .orderedDescending })
+                    
+                    if activities.count <= 3 {
+                        // MARK: Recent Activities less than or equal to 3
+                        ForEach(activitiesList) { activity in
+                            ListActivityView(activity: activity)
                                 .padding(.bottom, 12)
                         }
-                        Text("Show all")
-                            .font(.system(size: 14))
-                            .fontWeight(.bold)
-                            .foregroundColor(Color(red: 82/255, green: 36/255, blue: 121/255))
-                            .padding(.top, 17.5)
-                            .padding(.bottom, 11.5)
+                    }
+                    else {
+                        // MARK: Recent Activities greater than 3
+                        VStack {
+                            ForEach(0..<3) { index in
+                                ListActivityView(activity: activitiesList[index])
+                                    .padding(.bottom, 12)
+                            }
+                            Text("Show all")
+                                .font(.system(size: 14))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(red: 82/255, green: 36/255, blue: 121/255))
+                                .padding(.top, 17.5)
+                                .padding(.bottom, 11.5)
+                        }
                     }
                 }
             }
@@ -93,6 +98,12 @@ struct HomeActivityView_Previews: PreviewProvider {
             let model = ActivityModel()
             model.activies.removeLast()
             model.activies.removeLast()
+            model.activies.removeLast()
+            model.activies.removeLast()
+            model.activies.removeLast()
+            model.activies.removeLast()
+            model.activies.removeLast()
+            model.activies.removeLast()
             return model
         }()
         HomeActivityView(activityModel: activityModelEqualToThree)
@@ -101,6 +112,12 @@ struct HomeActivityView_Previews: PreviewProvider {
         // Recent Activities less than 3
         let activityModelLessThanThree: ActivityModel = {
             let model = ActivityModel()
+            model.activies.removeLast()
+            model.activies.removeLast()
+            model.activies.removeLast()
+            model.activies.removeLast()
+            model.activies.removeLast()
+            model.activies.removeLast()
             model.activies.removeLast()
             model.activies.removeLast()
             model.activies.removeLast()
