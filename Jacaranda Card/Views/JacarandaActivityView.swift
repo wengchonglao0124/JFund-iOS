@@ -48,7 +48,7 @@ struct JacarandaActivityView: View {
                 .padding(.top, 15)
                 
                 ScrollView {
-                    VStack(spacing: 0) {
+                    LazyVStack(spacing: 0) {
                         let dateService = DateService()
                         ForEach(activitiesSorted) { activityDate in
                             
