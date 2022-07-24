@@ -21,20 +21,22 @@ struct JacarandaTabView: View {
         TabView(selection: $selectionIndex) {
             
             // MARK: Home View
-            JacarandaHomeView()
-                .tabItem({
-                    VStack {
-                        if selectionIndex == 1 {
-                            Image("homeSelected")
-                            Text("Home")
-                        }
-                        else {
-                            Image("home")
-                            Text("Home")
-                        }
+            GeometryReader { geo in
+                JacarandaHomeView(screenHeight: geo.size.height, offsetPosition: geo.frame(in: .global).minY)
+            }
+            .tabItem({
+                VStack {
+                    if selectionIndex == 1 {
+                        Image("homeSelected")
+                        Text("Home")
                     }
-                })
-                .tag(1)
+                    else {
+                        Image("home")
+                        Text("Home")
+                    }
+                }
+            })
+            .tag(1)
             
             // MARK: Wallet View
             JacarandaWalletView()
@@ -72,6 +74,10 @@ struct JacarandaTabView: View {
 
 struct JacarandaTabView_Previews: PreviewProvider {
     static var previews: some View {
-        JacarandaTabView()
+        Group {
+            JacarandaTabView()
+            JacarandaTabView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+        }
     }
 }

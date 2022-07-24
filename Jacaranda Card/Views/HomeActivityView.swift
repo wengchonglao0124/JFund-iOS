@@ -13,17 +13,15 @@ struct HomeActivityView: View {
     
     var body: some View {
         
-        VStack {
-            HStack {
-                Text("Recent Activity")
-                    .font(.system(size: 14))
-                    .foregroundColor(Color("activityTextColor"))
-                    .fontWeight(.bold)
-                    .padding([.top, .bottom], 16)
-                    .padding(.leading, 24)
-                Spacer()
-            }
+        VStack(alignment: .leading, spacing: 0) {
             
+            Text("Recent Activity")
+                .font(.system(size: 14))
+                .foregroundColor(Color("activityTextColor"))
+                .fontWeight(.bold)
+                .padding(.vertical, 16)
+                .padding(.leading, 24)
+              
             VStack(alignment: .leading) {
                 if activityModel.activies.isEmpty {
                     // MARK: Recent Activity Empty
@@ -67,8 +65,8 @@ struct HomeActivityView: View {
                     }
                 }
             }
+            .padding(.horizontal, 15)
         }
-        .padding([.leading, .trailing], 15)
         .background(Color("recentActivitySectionColor"))
     }
 }

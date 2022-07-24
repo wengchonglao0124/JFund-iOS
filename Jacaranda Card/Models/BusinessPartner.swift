@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct BusinessPartner: Identifiable {
+class BusinessPartner: Identifiable, Decodable {
     
     var id: UUID?
     var name: String
     var address: String
     var distance: String
+    var image: String
 }

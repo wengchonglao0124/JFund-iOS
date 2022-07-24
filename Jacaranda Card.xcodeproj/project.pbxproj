@@ -25,6 +25,14 @@
 		04316152288AA7240050DB2A /* HomeBusinessPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */; };
 		04316158288AED870050DB2A /* ListBusinessPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316157288AED870050DB2A /* ListBusinessPartnerView.swift */; };
 		0431615A288AEEDB0050DB2A /* BusinessPartner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316159288AEEDB0050DB2A /* BusinessPartner.swift */; };
+		0431615E288AFC320050DB2A /* beauties.json in Resources */ = {isa = PBXBuildFile; fileRef = 0431615D288AFC320050DB2A /* beauties.json */; };
+		04316160288AFC8E0050DB2A /* tourisms.json in Resources */ = {isa = PBXBuildFile; fileRef = 0431615F288AFC8D0050DB2A /* tourisms.json */; };
+		04316162288AFCF40050DB2A /* RestaurantDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316161288AFCF40050DB2A /* RestaurantDataService.swift */; };
+		04316164288AFDDA0050DB2A /* BeautyDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316163288AFDDA0050DB2A /* BeautyDataService.swift */; };
+		04316166288AFE190050DB2A /* TourismDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316165288AFE190050DB2A /* TourismDataService.swift */; };
+		04316168288AFE630050DB2A /* BusinessPartnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316167288AFE630050DB2A /* BusinessPartnerModel.swift */; };
+		0431616A288B03800050DB2A /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = 04316169288B03800050DB2A /* restaurants.json */; };
+		04316170288BF2960050DB2A /* HomeBusinessPartnerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431616F288BF2960050DB2A /* HomeBusinessPartnerHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +55,14 @@
 		04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBusinessPartnerView.swift; sourceTree = "<group>"; };
 		04316157288AED870050DB2A /* ListBusinessPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBusinessPartnerView.swift; sourceTree = "<group>"; };
 		04316159288AEEDB0050DB2A /* BusinessPartner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessPartner.swift; sourceTree = "<group>"; };
+		0431615D288AFC320050DB2A /* beauties.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = beauties.json; sourceTree = "<group>"; };
+		0431615F288AFC8D0050DB2A /* tourisms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tourisms.json; sourceTree = "<group>"; };
+		04316161288AFCF40050DB2A /* RestaurantDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDataService.swift; sourceTree = "<group>"; };
+		04316163288AFDDA0050DB2A /* BeautyDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyDataService.swift; sourceTree = "<group>"; };
+		04316165288AFE190050DB2A /* TourismDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourismDataService.swift; sourceTree = "<group>"; };
+		04316167288AFE630050DB2A /* BusinessPartnerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessPartnerModel.swift; sourceTree = "<group>"; };
+		04316169288B03800050DB2A /* restaurants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = restaurants.json; sourceTree = "<group>"; };
+		0431616F288BF2960050DB2A /* HomeBusinessPartnerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBusinessPartnerHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +128,7 @@
 				0431613F288982A50050DB2A /* JacarandaProfileView.swift */,
 				0431614D288A7E040050DB2A /* ListActivityView.swift */,
 				04316157288AED870050DB2A /* ListBusinessPartnerView.swift */,
+				0431616F288BF2960050DB2A /* HomeBusinessPartnerHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,6 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				04316147288A6C3C0050DB2A /* ActivityDataService.swift */,
+				04316161288AFCF40050DB2A /* RestaurantDataService.swift */,
+				04316163288AFDDA0050DB2A /* BeautyDataService.swift */,
+				04316165288AFE190050DB2A /* TourismDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -128,6 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				04316145288A6A230050DB2A /* activities.json */,
+				04316169288B03800050DB2A /* restaurants.json */,
+				0431615D288AFC320050DB2A /* beauties.json */,
+				0431615F288AFC8D0050DB2A /* tourisms.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -145,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				0431614B288A70080050DB2A /* ActivityModel.swift */,
+				04316167288AFE630050DB2A /* BusinessPartnerModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -207,8 +231,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0431615E288AFC320050DB2A /* beauties.json in Resources */,
 				0431613028897FCF0050DB2A /* Preview Assets.xcassets in Resources */,
 				0431612D28897FCF0050DB2A /* Assets.xcassets in Resources */,
+				04316160288AFC8E0050DB2A /* tourisms.json in Resources */,
+				0431616A288B03800050DB2A /* restaurants.json in Resources */,
 				04316146288A6A230050DB2A /* activities.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,14 +249,19 @@
 			files = (
 				0431614C288A70080050DB2A /* ActivityModel.swift in Sources */,
 				04316140288982A50050DB2A /* JacarandaProfileView.swift in Sources */,
+				04316164288AFDDA0050DB2A /* BeautyDataService.swift in Sources */,
+				04316170288BF2960050DB2A /* HomeBusinessPartnerHeaderView.swift in Sources */,
 				0431613C288982710050DB2A /* JacarandaHomeView.swift in Sources */,
 				04316152288AA7240050DB2A /* HomeBusinessPartnerView.swift in Sources */,
+				04316166288AFE190050DB2A /* TourismDataService.swift in Sources */,
+				04316168288AFE630050DB2A /* BusinessPartnerModel.swift in Sources */,
 				0431613E2889828E0050DB2A /* JacarandaWalletView.swift in Sources */,
 				0431615A288AEEDB0050DB2A /* BusinessPartner.swift in Sources */,
 				0431614E288A7E040050DB2A /* ListActivityView.swift in Sources */,
 				043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */,
 				04316148288A6C3C0050DB2A /* ActivityDataService.swift in Sources */,
 				04316144288A693D0050DB2A /* HomeActivityView.swift in Sources */,
+				04316162288AFCF40050DB2A /* RestaurantDataService.swift in Sources */,
 				04316150288A97410050DB2A /* HomeEventView.swift in Sources */,
 				0431614A288A6C5D0050DB2A /* Activity.swift in Sources */,
 				04316158288AED870050DB2A /* ListBusinessPartnerView.swift in Sources */,

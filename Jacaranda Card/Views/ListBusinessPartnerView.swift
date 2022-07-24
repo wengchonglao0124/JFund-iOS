@@ -9,13 +9,12 @@ import SwiftUI
 
 struct ListBusinessPartnerView: View {
     
-    var businessPartner: BusinessPartner
+    @State var businessPartner: BusinessPartner
     
     var body: some View {
         HStack {
             ZStack(alignment: .bottom) {
-                Rectangle()
-                    .fill(Color.gray)
+                Image(businessPartner.image)
                 HStack {
                     Spacer()
                     Text(businessPartner.distance)
@@ -41,7 +40,7 @@ struct ListBusinessPartnerView: View {
                     .fontWeight(.regular)
                     .foregroundColor(Color("businessPartnerAddressColor"))
             }
-            .padding(.trailing, 19.5)
+            Spacer()
         }
         .padding(.vertical, 9)
         .background(Color(red: 252/255, green: 252/255, blue: 252/255))
@@ -53,8 +52,15 @@ struct ListBusinessPartnerView: View {
 struct ListBusinessPartnerView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let businessPartner = BusinessPartner(id: UUID(), name: "Restaurant name", address: "111 Melbourne Street, South Brisbane, QLD 4101, Australia", distance: "1.2 km")
-        ListBusinessPartnerView(businessPartner: businessPartner)
+        let model = BusinessPartnerModel()
+        
+        ListBusinessPartnerView(businessPartner: model.restaurants[0])
+            .previewLayout(.sizeThatFits)
+        
+        ListBusinessPartnerView(businessPartner: model.beauties[0])
+            .previewLayout(.sizeThatFits)
+      
+        ListBusinessPartnerView(businessPartner: model.tourisms[0])
             .previewLayout(.sizeThatFits)
     }
 }

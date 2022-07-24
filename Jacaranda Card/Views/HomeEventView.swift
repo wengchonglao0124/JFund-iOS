@@ -10,15 +10,17 @@ import SwiftUI
 struct HomeEventView: View {
     var body: some View {
         
-        HStack {
-            Spacer()
-            VStack(alignment: .leading) {
-                Text("Event")
-                    .font(.system(size: 14))
-                    .fontWeight(.bold)
-                    .foregroundColor(Color("eventTextColor"))
-                    .padding([.top, .bottom], 16)
-                
+        VStack(alignment: .leading, spacing: 0) {
+            
+            Text("Event")
+                .font(.system(size: 14))
+                .fontWeight(.bold)
+                .foregroundColor(Color("eventTextColor"))
+                .padding([.top, .bottom], 16)
+                .padding(.leading, 24)
+            
+            HStack {
+                Spacer()
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Image("eventIcon")
@@ -41,10 +43,10 @@ struct HomeEventView: View {
                 }
                 .frame(width: 300, height: 160)
                 .background(Image("eventSample"))
+                Spacer()
             }
-            .padding(.bottom, 20)
-            Spacer()
         }
+        .padding(.bottom, 20)
         .background(Color("eventSectionColor"))
     }
 }
