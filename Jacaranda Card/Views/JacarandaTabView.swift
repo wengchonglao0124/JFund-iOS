@@ -54,7 +54,7 @@ struct JacarandaTabView: View {
                 .tag(2)
             
             // MARK: Profile View
-            JacarandaProfileView()
+            JacarandaProfileView(userName: "UserName", carID: "1234 5678 3657 5623")
                 .tabItem({
                     VStack {
                         if selectionIndex == 3 {
