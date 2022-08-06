@@ -75,7 +75,7 @@ struct JacarandaPayView: View {
             .navigationBarItems(leading: Button(action : {
                 self.mode.wrappedValue.dismiss()
             }){
-                Image("backArrow")
+                Image("backArrowWhite")
                     .padding(0)
             })
             .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
