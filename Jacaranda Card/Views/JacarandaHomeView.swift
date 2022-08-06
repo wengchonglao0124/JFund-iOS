@@ -14,71 +14,79 @@ struct JacarandaHomeView: View {
     
     var body: some View {
         
-        NavigationView {
-            ScrollView {
-                LazyVStack(pinnedViews: .sectionHeaders) {
-                    // MARK: Notification Section
-                    HStack {
-                        Spacer()
-                        Image("notification")
-                    }
+        ScrollView {
+            LazyVStack(pinnedViews: .sectionHeaders) {
+                // MARK: Notification Section
+                HStack {
+                    Spacer()
+                    Image("notification")
+                }
+                .padding([.leading, .trailing], 20)
+                .padding(.bottom, 14)
+                
+                // MARK: Balance Section
+                HomeBalanceView(balance: "0.00", carID: "1234 5678 3657 5623")
+                    .cornerRadius(16)
                     .padding([.leading, .trailing], 20)
-                    .padding(.bottom, 14)
-                    
-                    // MARK: Balance Section
-                    HomeBalanceView(balance: "0.00", carID: "1234 5678 3657 5623")
-                        .cornerRadius(16)
-                        .padding([.leading, .trailing], 20)
-                        .padding(.bottom, 30)
-                    
-                    // MARK: Payment Section
-                    HStack {
-                        Spacer()
+                    .padding(.bottom, 30)
+                
+                // MARK: Payment Section
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: JacarandaPayView(username: "Lilyxoxo", carID: "1234 5678 3657 5623")) {
                         VStack {
                             Image("payButton")
                             Text("Pay")
                                 .font(.system(size: 12))
                                 .fontWeight(.medium)
+                                .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255, opacity: 0.8))
                         }
-                        Spacer()
-                        Spacer()
+                    }
+                    Spacer()
+                    Spacer()
+                    NavigationLink(destination: JacarandaTransferView()) {
                         VStack {
                             Image("transferButton")
                             Text("Transfer")
                                 .font(.system(size: 12))
                                 .fontWeight(.medium)
+                                .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255, opacity: 0.8))
                         }
-                        Spacer()
                     }
-                    .padding(.bottom, 24)
-                    
-                    // MARK: Activity Section
-                    HomeActivityView(activityModel: ActivityModel())
-                        .cornerRadius(16)
-                        .padding(.bottom, 30)
-                    
-                    // MARK: Event Section
-                    HomeEventView()
-                        .cornerRadius(16)
-                        .padding(.bottom, 30)
-                    
-                    // MARK: Business Partner Section
-                    HomeBusinessPartnerView(businessPartnerModel: BusinessPartnerModel(), screenHeight: screenHeight)
+                    Spacer()
                 }
+                .padding(.bottom, 24)
+                
+                // MARK: Activity Section
+                HomeActivityView(activityModel: ActivityModel())
+                    .cornerRadius(16)
+                    .padding(.bottom, 30)
+                
+                // MARK: Event Section
+                HomeEventView()
+                    .cornerRadius(16)
+                    .padding(.bottom, 30)
+                
+                // MARK: Business Partner Section
+                HomeBusinessPartnerView(businessPartnerModel: BusinessPartnerModel(), screenHeight: screenHeight)
             }
-            .navigationBarHidden(true)
-            .background(Color("screenBg"))
         }
+        .navigationBarHidden(true)
+        .background(Color("screenBg"))
     }
 }
 
 struct JacarandaHomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            JacarandaHomeView(screenHeight: UIScreen.main.bounds.height, offsetPosition: 0)
+            NavigationView {
+                JacarandaHomeView(screenHeight: UIScreen.main.bounds.height, offsetPosition: 0)
+            }
         
-            JacarandaHomeView(screenHeight: UIScreen.main.bounds.height, offsetPosition: 0)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+            NavigationView {
+                JacarandaHomeView(screenHeight: UIScreen.main.bounds.height, offsetPosition: 0)
+                    .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+            }
         }
     }
 }

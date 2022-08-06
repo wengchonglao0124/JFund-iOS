@@ -18,55 +18,57 @@ struct JacarandaTabView: View {
     
     var body: some View {
         
-        TabView(selection: $selectionIndex) {
-            
-            // MARK: Home View
-            GeometryReader { geo in
-                JacarandaHomeView(screenHeight: geo.size.height, offsetPosition: geo.frame(in: .global).minY)
-            }
-            .tabItem({
-                VStack {
-                    if selectionIndex == 1 {
-                        Image("homeSelected")
-                        Text("Home")
-                    }
-                    else {
-                        Image("home")
-                        Text("Home")
-                    }
+        NavigationView {
+            TabView(selection: $selectionIndex) {
+                
+                // MARK: Home View
+                GeometryReader { geo in
+                    JacarandaHomeView(screenHeight: geo.size.height, offsetPosition: geo.frame(in: .global).minY)
                 }
-            })
-            .tag(1)
-            
-            // MARK: Wallet View
-            JacarandaActivityView(activities: ActivityModel().activies)
                 .tabItem({
                     VStack {
-                        if selectionIndex == 2 {
-                            Image("activitySelected")
+                        if selectionIndex == 1 {
+                            Image("homeSelected")
+                            Text("Home")
                         }
                         else {
-                            Image("activity")
+                            Image("home")
+                            Text("Home")
                         }
-                        Text("Activity")
                     }
                 })
-                .tag(2)
-            
-            // MARK: Profile View
-            JacarandaProfileView(userName: "UserName", carID: "1234 5678 3657 5623")
-                .tabItem({
-                    VStack {
-                        if selectionIndex == 3 {
-                            Image("profileSelected")
+                .tag(1)
+                
+                // MARK: Wallet View
+                JacarandaActivityView(activities: ActivityModel().activies)
+                    .tabItem({
+                        VStack {
+                            if selectionIndex == 2 {
+                                Image("activitySelected")
+                            }
+                            else {
+                                Image("activity")
+                            }
+                            Text("Activity")
                         }
-                        else {
-                            Image("profile")
+                    })
+                    .tag(2)
+                
+                // MARK: Profile View
+                JacarandaProfileView(userName: "UserName", carID: "1234 5678 3657 5623")
+                    .tabItem({
+                        VStack {
+                            if selectionIndex == 3 {
+                                Image("profileSelected")
+                            }
+                            else {
+                                Image("profile")
+                            }
+                            Text("Profile")
                         }
-                        Text("Profile")
-                    }
-                })
-                .tag(3)
+                    })
+                    .tag(3)
+            }
         }
         .accentColor(textColorSelected)
     }
@@ -77,8 +79,10 @@ struct JacarandaTabView_Previews: PreviewProvider {
         Group {
             JacarandaTabView()
             
+            /*
             JacarandaTabView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+             */
         }
     }
 }

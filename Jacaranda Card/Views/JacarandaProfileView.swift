@@ -22,9 +22,15 @@ struct JacarandaProfileView: View {
                         // MARK: Username Section
                         HStack(spacing: 5) {
                             HStack {
-                                Circle()
-                                    .fill(Color(red: 217/255, green: 217/255, blue: 217/255))
-                                    .frame(width: 63, height: 63)
+                                ZStack {
+                                    Circle()
+                                        .fill(Color(red: 215/255, green: 199/255, blue: 228/255))
+                                        .frame(width: 63, height: 63)
+                                    Text(userName.prefix(1))
+                                        .font(.system(size: 32))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                }
                             
                                 VStack(alignment: .leading, spacing: 10) {
                                     Text(userName)
@@ -225,6 +231,6 @@ struct JacarandaProfileView: View {
 
 struct JacarandaProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        JacarandaProfileView(userName: "UserName", carID: "1234 5678 3657 5623")
+        JacarandaProfileView(userName: "Lilyxoxo", carID: "1234 5678 3657 5623")
     }
 }
