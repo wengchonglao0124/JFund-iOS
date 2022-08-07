@@ -16,129 +16,153 @@ struct JacarandaTransferView: View {
     @State var foundUser = false
     @State var transferAmount = ""
     
+    @State var isPresentingConfirmPayment = false
+    @State var isPresentingSuccessPayment = false
+    @State var isLoading = false
+    
     @FocusState private var userIDKeyboardFocused: Bool
+    @FocusState private var transferAmountKeyboardFocused: Bool
     
     var body: some View {
-        VStack {
-            if foundUser {
-                HStack(spacing: 5) {
-                    HStack {
-                        ZStack {
-                            Circle()
-                                .fill(Color(red: 215/255, green: 199/255, blue: 228/255))
-                                .frame(width: 63, height: 63)
+        ZStack {
+            VStack {
+                // MARK: Found Payee Section
+                if foundUser {
+                    VStack {
+                        // MARK: Payee Section
+                        HStack(spacing: 5) {
+                            HStack {
+                                ZStack {
+                                    Circle()
+                                        .fill(Color(red: 215/255, green: 199/255, blue: 228/255))
+                                        .frame(width: 63, height: 63)
+                                }
+                            
+                                VStack(alignment: .leading, spacing: 10) {
+                                    Text("Irene qq")
+                                        .font(.system(size: 18))
+                                        .fontWeight(.bold)
+                                    Text(transferID.applyPattern())
+                                        .font(.system(size: 14))
+                                        .fontWeight(.medium)
+                                        .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
+                                }
+                                .padding(.leading, 10)
+                                Spacer()
+                            }
+                            .padding(.leading, 16)
+                            .padding(.vertical, 15.5)
+                            .background(Color(red: 252/255, green: 252/255, blue: 252/255))
                         }
-                    
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text("Irene qq")
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
-                            Text(transferID.applyPattern())
+                            .padding(.top, 30)
+                            .animation(.easeInOut, value: foundUser)
+                        
+                        // MARK: Transfer Amount Section
+                        VStack(alignment: .leading, spacing: 11) {
+                            Text("Enter the amount")
                                 .font(.system(size: 14))
-                                .fontWeight(.regular)
+                                .fontWeight(.medium)
                                 .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
+                                .padding(.top, 15)
+                                .padding(.leading, 30)
+                            
+                            TextField("", text: $transferAmount)
+                                .font(.system(size: 24))
+                                .font(.title.weight(.medium))
+                                .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
+                                .padding(.bottom, 16)
+                                .padding(.leading, 30)
+                                .keyboardType(.numberPad)
+                                .focused($transferAmountKeyboardFocused)
                         }
-                        .padding(.leading, 10)
+                        .background(Color(red: 252/255, green: 252/255, blue: 252/255))
+                        .padding(.top, 28)
+                        .padding(.bottom, 81)
+                        .animation(.easeInOut, value: foundUser)
+                        
+                        // MARK: Continue Transfer Section
+                        Button {
+                            transferAmountKeyboardFocused = false
+                            isPresentingConfirmPayment = true
+                        } label: {
+                            Image("continueButton")
+                                .cornerRadius(8)
+                        }
                         Spacer()
                     }
-                    .padding(.leading, 16)
-                    .padding(.vertical, 15.5)
+                }
+                // MARK: Search Payee Section
+                else {
+                    VStack(alignment: .leading, spacing: 11) {
+                        Text("Enter the user ID")
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
+                            .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
+                            .padding(.top, 15)
+                            .padding(.leading, 30)
+                        
+                        TextField("", text: $transferID)
+                            .font(.system(size: 24))
+                            .font(.title.weight(.medium))
+                            .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
+                            .padding(.bottom, 16)
+                            .padding(.leading, 30)
+                            .keyboardType(.numberPad)
+                            .focused($userIDKeyboardFocused)
+                    }
                     .background(Color(red: 252/255, green: 252/255, blue: 252/255))
-                }
-                .padding(.top, 30)
-                .animation(.easeInOut, value: foundUser)
-                
-                VStack(alignment: .leading, spacing: 11) {
-                    Text("Enter the amount")
-                        .font(.system(size: 14))
-                        .fontWeight(.medium)
-                        .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
-                        .padding(.top, 15)
-                        .padding(.leading, 30)
+                    .padding(.top, 28)
+                    .padding(.bottom, 43)
+                    .animation(.easeInOut, value: foundUser)
                     
-                    TextField("", text: $transferAmount)
-                        .font(.system(size: 24))
-                        .font(.title.weight(.medium))
-                        .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
-                        .padding(.bottom, 16)
-                        .padding(.leading, 30)
-                        .keyboardType(.numberPad)
-                        .focused($userIDKeyboardFocused)
+                    Button {
+                        userIDKeyboardFocused = false
+                        foundUser = true
+                    } label: {
+                        Image("nextButton")
+                            .cornerRadius(8)
+                    }
                 }
-                .background(Color(red: 252/255, green: 252/255, blue: 252/255))
-                .padding(.top, 28)
-                .padding(.bottom, 81)
-                .animation(.easeInOut, value: foundUser)
-                
-                Button {
-                    userIDKeyboardFocused = false
-                } label: {
-                    Image("continueButton")
-                        .cornerRadius(8)
+                Spacer()
+            }
+            .background(Color(red: 246/255, green: 246/255, blue: 246/255))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("Transfer to")
+                            .font(.system(size: 16))
+                            .fontWeight(.bold)
+                            .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
+                        Spacer()
+                    }
                 }
             }
-            else {
-                VStack(alignment: .leading, spacing: 11) {
-                    Text("Enter the user ID")
-                        .font(.system(size: 14))
-                        .fontWeight(.medium)
-                        .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
-                        .padding(.top, 15)
-                        .padding(.leading, 30)
-                    
-                    TextField("", text: $transferID)
-                        .font(.system(size: 24))
-                        .font(.title.weight(.medium))
-                        .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
-                        .padding(.bottom, 16)
-                        .padding(.leading, 30)
-                        .keyboardType(.numberPad)
-                        .focused($userIDKeyboardFocused)
-                }
-                .background(Color(red: 252/255, green: 252/255, blue: 252/255))
-                .padding(.top, 28)
-                .padding(.bottom, 43)
-                .animation(.easeInOut, value: foundUser)
-                
-                Button {
-                    userIDKeyboardFocused = false
-                    foundUser = true
-                } label: {
-                    Image("nextButton")
-                        .cornerRadius(8)
-                }
-            }
-            Spacer()
-        }
-        .background(Color(red: 246/255, green: 246/255, blue: 246/255))
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                HStack {
-                    Text("Transfer to")
-                        .font(.system(size: 16))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
-                    Spacer()
-                }
-            }
-        }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action : {
-            self.mode.wrappedValue.dismiss()
-        }){
-            Image("backArrowBlack")
-                .padding(0)
-        })
-        .onTapGesture {
-            userIDKeyboardFocused = false
-        }
-        .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
-        
-            if(value.startLocation.x < 20 && value.translation.width > 100) {
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Button(action : {
                 self.mode.wrappedValue.dismiss()
+            }){
+                Image("backArrowBlack")
+                    .padding(0)
+            })
+            .onTapGesture {
+                userIDKeyboardFocused = false
+                transferAmountKeyboardFocused = false
             }
-        }))
+            .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
+            
+                if(value.startLocation.x < 20 && value.translation.width > 100) {
+                    self.mode.wrappedValue.dismiss()
+                }
+            }))
+            
+            ConfirmPaymentView(isPresenting: $isPresentingConfirmPayment, title: "details", subtitle: "Transfer", amount: transferAmount, account: "Balance", buttonTitle: "Transfer", isLoading: $isLoading)
+            
+            LoadingView(message: "Loading", isLoading: $isLoading, isFinished: $isPresentingSuccessPayment)
+        }
+        .sheet(isPresented: $isPresentingSuccessPayment) {
+            SuccessPaymentView(subtitle: "Sucessfully transferred", amount: "250.00", message: " To Irene qq", isPresenting: $isPresentingSuccessPayment)
+        }
     }
 }
 
@@ -160,8 +184,18 @@ extension String {
 
 struct JacarandaTransferView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            JacarandaTransferView()
+        Group {
+            NavigationView {
+                JacarandaTransferView()
+            }
+            
+            NavigationView {
+                JacarandaTransferView(transferID: "1234 4567 8900 5858", foundUser: true)
+            }
+            
+            NavigationView {
+                JacarandaTransferView(transferID: "1234 4567 8900 5858", foundUser: true, transferAmount: "180.00", isPresentingConfirmPayment: true)
+            }
         }
     }
 }

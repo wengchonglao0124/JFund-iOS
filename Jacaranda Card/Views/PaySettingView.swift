@@ -59,6 +59,7 @@ struct PaySettingView: View {
                             }
                         }
                     }
+                    .padding(.bottom, 34)
                     .background(.white)
                     .cornerRadius(16)
                 }
@@ -75,6 +76,12 @@ struct PaySettingView: View {
 
 struct PaySettingView_Previews: PreviewProvider {
     static var previews: some View {
-        PaySettingView(isPresentingSettingView: .constant(true))
+        Group {
+            PaySettingView(isPresentingSettingView: .constant(true))
+            
+            NavigationView {
+                JacarandaPayView(isPresentingSettingView: true, username: "Lilyxoxo", carID: "1234 5678 3657 5623")
+            }
+        }
     }
 }
