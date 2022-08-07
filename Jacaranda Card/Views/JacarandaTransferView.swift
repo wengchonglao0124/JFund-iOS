@@ -103,6 +103,7 @@ struct JacarandaTransferView: View {
                             .padding(.leading, 30)
                         
                         TextField("", text: $transferID)
+                            .limitInputLength(value: $transferID, length: 16+3)
                             .font(.system(size: 24))
                             .font(.title.weight(.medium))
                             .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
@@ -171,17 +172,23 @@ struct JacarandaTransferView: View {
 }
 
 
-extension String {
-    func applyPattern(pattern: String = "#### #### #### ####", replacmentCharacter: Character = "#") -> String {
-        var pureNumber = self.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
-        for index in 0 ..< pattern.count {
-            guard index < pureNumber.count else { return pureNumber }
-            let stringIndex = String.Index(utf16Offset: index, in: self)
-            let patternCharacter = pattern[stringIndex]
-            guard patternCharacter != replacmentCharacter else { continue }
-            pureNumber.insert(patternCharacter, at: stringIndex)
-        }
-        return pureNumber
+struct TextFieldLimitModifer: ViewModifier {
+    @Binding var value: String
+    var length: Int
+
+    func body(content: Content) -> some View {
+        content
+            .onReceive(value.publisher.collect()) {
+                value = value.trimmingCharacters(in: .whitespacesAndNewlines)
+                value = String($0.prefix(length))
+                value = value.applyPattern()
+            }
+    }
+}
+
+extension View {
+    func limitInputLength(value: Binding<String>, length: Int) -> some View {
+        self.modifier(TextFieldLimitModifer(value: value, length: length))
     }
 }
 
@@ -199,6 +206,10 @@ struct JacarandaTransferView_Previews: PreviewProvider {
             
             NavigationView {
                 JacarandaTransferView(transferID: "1234 4567 8900 5858", foundUser: true, transferAmount: "180.00", isPresentingConfirmPayment: true)
+            }
+            
+            NavigationView {
+                JacarandaTransferView(transferID: "1234 4567 8900 5858", foundUser: true, transferAmount: "180.00", isLoading: true)
             }
         }
     }
