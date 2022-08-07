@@ -15,15 +15,20 @@ struct LoadingView: View {
     
     var body: some View {
         if isLoading {
-            ProgressView {
+            VStack {
+                ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                .scaleEffect(2)
+                .padding(.top, 40)
+                
+                Spacer()
+                
                 Text(message)
                     .font(.system(size: 20))
                     .fontWeight(.medium)
                     .foregroundColor(.white)
-                    .padding(.top, 15)
-                    
+                    .padding(.bottom, 19)
             }
-            .progressViewStyle(CircularProgressViewStyle(tint: .white))
             .frame(width: 154, height: 140)
             .background(Color(red: 30/255, green: 30/255, blue: 30/255, opacity: 0.77))
             .cornerRadius(12)

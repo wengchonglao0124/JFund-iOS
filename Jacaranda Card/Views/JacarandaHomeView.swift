@@ -71,7 +71,6 @@ struct JacarandaHomeView: View {
                 HomeBusinessPartnerView(businessPartnerModel: BusinessPartnerModel(), screenHeight: screenHeight)
             }
         }
-        .navigationBarHidden(true)
         .background(Color("screenBg"))
     }
 }

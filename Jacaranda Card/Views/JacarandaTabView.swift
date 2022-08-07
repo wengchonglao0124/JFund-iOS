@@ -38,8 +38,10 @@ struct JacarandaTabView: View {
                     }
                 })
                 .tag(1)
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
                 
-                // MARK: Wallet View
+                // MARK: Activity View
                 JacarandaActivityView(activities: ActivityModel().activies)
                     .tabItem({
                         VStack {
@@ -53,6 +55,8 @@ struct JacarandaTabView: View {
                         }
                     })
                     .tag(2)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
                 
                 // MARK: Profile View
                 JacarandaProfileView(userName: "UserName", carID: "1234 5678 3657 5623")
@@ -68,6 +72,8 @@ struct JacarandaTabView: View {
                         }
                     })
                     .tag(3)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
             }
         }
         .accentColor(textColorSelected)

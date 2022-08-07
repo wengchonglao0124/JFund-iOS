@@ -14,6 +14,7 @@ struct SuccessPaymentView: View {
     var message: String
     
     @Binding var isPresenting: Bool
+    @Binding var finishedProcess: Bool
     
     var body: some View {
         VStack(spacing: 0) {
@@ -42,6 +43,7 @@ struct SuccessPaymentView: View {
             Button {
                 print("Done")
                 isPresenting = false
+                finishedProcess = true
             } label: {
                 Image("doneIcon")
                     .cornerRadius(8)
@@ -54,15 +56,20 @@ struct SuccessPaymentView: View {
                 impactHeavy.impactOccurred()
             }
         )
+        .onDisappear(
+            perform: {
+                finishedProcess = true
+            }
+        )
     }
 }
 
 struct SuccessPaymentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SuccessPaymentView(subtitle: "Sucessfully transferred", amount: "250.00", message: " To Irene qq", isPresenting: .constant(true))
+            SuccessPaymentView(subtitle: "Sucessfully transferred", amount: "250.00", message: " To Irene qq", isPresenting: .constant(true), finishedProcess: .constant(false))
             
-            SuccessPaymentView(subtitle: "Top up sucessfully", amount: "180.00", message: "", isPresenting: .constant(true))
+            SuccessPaymentView(subtitle: "Top up sucessfully", amount: "180.00", message: "", isPresenting: .constant(true), finishedProcess: .constant(false))
         }
     }
 }

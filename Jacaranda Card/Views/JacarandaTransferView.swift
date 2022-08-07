@@ -19,6 +19,7 @@ struct JacarandaTransferView: View {
     @State var isPresentingConfirmPayment = false
     @State var isPresentingSuccessPayment = false
     @State var isLoading = false
+    @State var finishedTransfer = false
     
     @FocusState private var userIDKeyboardFocused: Bool
     @FocusState private var transferAmountKeyboardFocused: Bool
@@ -161,7 +162,10 @@ struct JacarandaTransferView: View {
             LoadingView(message: "Loading", isLoading: $isLoading, isFinished: $isPresentingSuccessPayment)
         }
         .sheet(isPresented: $isPresentingSuccessPayment) {
-            SuccessPaymentView(subtitle: "Sucessfully transferred", amount: "250.00", message: " To Irene qq", isPresenting: $isPresentingSuccessPayment)
+            SuccessPaymentView(subtitle: "Sucessfully transferred", amount: transferAmount, message: " To Irene qq", isPresenting: $isPresentingSuccessPayment, finishedProcess: $finishedTransfer)
+        }
+        .onChange(of: finishedTransfer) { newValue in
+            self.mode.wrappedValue.dismiss()
         }
     }
 }
