@@ -21,6 +21,7 @@ struct JacarandaTransferView: View {
     @State var isLoading = false
     @State var finishedTransfer = false
     @State var invalidTransferID = false
+    @State var isPresentingIDInformation = false
     
     @FocusState private var userIDKeyboardFocused: Bool
     @FocusState private var transferAmountKeyboardFocused: Bool
@@ -74,7 +75,7 @@ struct JacarandaTransferView: View {
                                 .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
                                 .padding(.top, 15)
                                 .padding(.leading, 30)
-                            
+                  
                             HStack(spacing: 0) {
                                 Text("$")
                                     .font(.system(size: 24))
@@ -90,7 +91,7 @@ struct JacarandaTransferView: View {
                                     .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
                                     .padding(.bottom, 16)
                                     .padding(.leading, 12)
-                                    .keyboardType(.decimalPad)
+                                    .keyboardType(.numberPad)
                                     .focused($transferAmountKeyboardFocused)
                                     .disabled({
                                         if isLoading {
@@ -112,11 +113,17 @@ struct JacarandaTransferView: View {
                             transferAmountKeyboardFocused = false
                             isPresentingConfirmPayment = true
                         } label: {
-                            Image("continueButton")
-                                .cornerRadius(8)
+                            if transferAmount == "" || transferAmount == "0.00" {
+                                Image("continueButtonInactive")
+                                    .cornerRadius(8)
+                            }
+                            else {
+                                Image("continueButton")
+                                    .cornerRadius(8)
+                            }
                         }
                         .disabled({
-                            if isLoading {
+                            if isLoading || transferAmount == "" || transferAmount == "0.00" {
                                 return true
                             }
                             else {
@@ -128,25 +135,55 @@ struct JacarandaTransferView: View {
                 }
                 // MARK: Search Payee Section
                 else {
-                    VStack(alignment: .leading, spacing: 11) {
-                        Text("Enter the user ID")
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
-                            .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
-                            .padding(.top, 15)
-                            .padding(.leading, 30)
+                    VStack(alignment: .leading, spacing: 0) {
+                        VStack(alignment: .leading, spacing: 11) {
+                            HStack {
+                                Text("Enter the user ID")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.medium)
+                                    .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
+                                    .padding(.top, 15)
+                                    .padding(.leading, 30)
+                                
+                                Button {
+                                    isPresentingIDInformation = !isPresentingIDInformation
+                                } label: {
+                                    if isPresentingIDInformation {
+                                        Image(systemName: "questionmark.circle.fill")
+                                            .font(.system(size: 12))
+                                            .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
+                                            .padding(.top, 15)
+                                    }
+                                    else {
+                                        Image(systemName: "questionmark.circle")
+                                            .font(.system(size: 12))
+                                            .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
+                                            .padding(.top, 15)
+                                    }
+                                }
+                            }
+                            
+                            TextField("", text: $transferID)
+                                .limitInputLength(value: $transferID, length: 16+3)
+                                .font(.system(size: 24))
+                                .font(.title.weight(.medium))
+                                .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
+                                .padding(.bottom, 16)
+                                .padding(.leading, 30)
+                                .keyboardType(.numberPad)
+                                .focused($userIDKeyboardFocused)
+                        }
+                        .background(Color(red: 252/255, green: 252/255, blue: 252/255))
                         
-                        TextField("", text: $transferID)
-                            .limitInputLength(value: $transferID, length: 16+3)
-                            .font(.system(size: 24))
-                            .font(.title.weight(.medium))
-                            .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
-                            .padding(.bottom, 16)
-                            .padding(.leading, 30)
-                            .keyboardType(.numberPad)
-                            .focused($userIDKeyboardFocused)
+                        if isPresentingIDInformation {
+                            Text("User ID should contain 16 digits")
+                                .font(.system(size: 12))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
+                                .padding(.leading, 30)
+                                .padding(.top, 5)
+                        }
                     }
-                    .background(Color(red: 252/255, green: 252/255, blue: 252/255))
                     .padding(.top, 28)
                     .padding(.bottom, 43)
                     .animation(.easeInOut, value: foundUser)
@@ -168,9 +205,25 @@ struct JacarandaTransferView: View {
                             foundUser = true
                         }
                     } label: {
-                        Image("nextButton")
-                            .cornerRadius(8)
+                        let countTransferID = transferID.filter {!$0.isWhitespace}
+                        if countTransferID.count < 16 {
+                            Image("nextButtonInactive")
+                                .cornerRadius(8)
+                        }
+                        else {
+                            Image("nextButton")
+                                .cornerRadius(8)
+                        }
                     }
+                    .disabled({
+                        let countTransferID = transferID.filter {!$0.isWhitespace}
+                        if countTransferID.count < 16 {
+                            return true
+                        }
+                        else {
+                            return false
+                        }
+                    }())
                 }
                 Spacer()
             }
@@ -253,11 +306,23 @@ struct JacarandaTransferView_Previews: PreviewProvider {
             }
             
             NavigationView {
-                JacarandaTransferView(transferID: "16283589494986", invalidTransferID: true)
+                JacarandaTransferView(transferID: "16283589494989", isPresentingIDInformation: true)
+            }
+            
+            NavigationView {
+                JacarandaTransferView(transferID: "1628358949498689")
+            }
+            
+            NavigationView {
+                JacarandaTransferView(transferID: "1628358949498689", invalidTransferID: true)
             }
             
             NavigationView {
                 JacarandaTransferView(transferID: "1234 4567 8900 5858", foundUser: true)
+            }
+            
+            NavigationView {
+                JacarandaTransferView(transferID: "1234 4567 8900 5858", foundUser: true, transferAmount: "180.00")
             }
             
             NavigationView {
