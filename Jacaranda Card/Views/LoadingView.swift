@@ -16,22 +16,30 @@ struct LoadingView: View {
     var body: some View {
         if isLoading {
             VStack {
-                ProgressView()
-                .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                .scaleEffect(2)
-                .padding(.top, 40)
-                
                 Spacer()
-                
-                Text(message)
-                    .font(.system(size: 20))
-                    .fontWeight(.medium)
-                    .foregroundColor(.white)
-                    .padding(.bottom, 19)
+                HStack {
+                    Spacer()
+                    VStack {
+                        ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .scaleEffect(2)
+                        .padding(.top, 40)
+                        
+                        Spacer()
+                        
+                        Text(message)
+                            .font(.system(size: 20))
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                            .padding(.bottom, 19)
+                    }
+                    .frame(width: 154, height: 140)
+                    .background(Color(red: 30/255, green: 30/255, blue: 30/255, opacity: 0.77))
+                    .cornerRadius(12)
+                    Spacer()
+                }
+                Spacer()
             }
-            .frame(width: 154, height: 140)
-            .background(Color(red: 30/255, green: 30/255, blue: 30/255, opacity: 0.77))
-            .cornerRadius(12)
             .onAppear(
                 perform: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

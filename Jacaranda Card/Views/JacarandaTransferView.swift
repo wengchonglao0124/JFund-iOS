@@ -20,6 +20,7 @@ struct JacarandaTransferView: View {
     @State var isPresentingSuccessPayment = false
     @State var isLoading = false
     @State var finishedTransfer = false
+    @State var invalidTransferID = false
     
     @FocusState private var userIDKeyboardFocused: Bool
     @FocusState private var transferAmountKeyboardFocused: Bool
@@ -73,8 +74,16 @@ struct JacarandaTransferView: View {
                                 .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
                                 .padding(.bottom, 16)
                                 .padding(.leading, 30)
-                                .keyboardType(.numberPad)
+                                .keyboardType(.decimalPad)
                                 .focused($transferAmountKeyboardFocused)
+                                .disabled({
+                                    if isLoading {
+                                        return true
+                                    }
+                                    else {
+                                        return false
+                                    }
+                                }())
                         }
                         .background(Color(red: 252/255, green: 252/255, blue: 252/255))
                         .padding(.top, 28)
@@ -89,6 +98,14 @@ struct JacarandaTransferView: View {
                             Image("continueButton")
                                 .cornerRadius(8)
                         }
+                        .disabled({
+                            if isLoading {
+                                return true
+                            }
+                            else {
+                                return false
+                            }
+                        }())
                         Spacer()
                     }
                 }
@@ -117,9 +134,22 @@ struct JacarandaTransferView: View {
                     .padding(.bottom, 43)
                     .animation(.easeInOut, value: foundUser)
                     
+                    if invalidTransferID {
+                        Text("Invalid ID. Please enter a correct ID with 16 digits")
+                            .font(.system(size: 10))
+                            .fontWeight(.medium)
+                            .foregroundColor(.red)
+                    }
+                    
                     Button {
-                        userIDKeyboardFocused = false
-                        foundUser = true
+                        let countTransferID = transferID.filter {!$0.isWhitespace}
+                        if countTransferID.count < 16 {
+                            invalidTransferID = true
+                        }
+                        else {
+                            userIDKeyboardFocused = false
+                            foundUser = true
+                        }
                     } label: {
                         Image("nextButton")
                             .cornerRadius(8)
@@ -179,7 +209,7 @@ struct TextFieldLimitModifer: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onReceive(value.publisher.collect()) {
-                value = value.trimmingCharacters(in: .whitespacesAndNewlines)
+                value = value.filter {!$0.isWhitespace}
                 value = String($0.prefix(length))
                 value = value.applyPattern()
             }
@@ -198,6 +228,10 @@ struct JacarandaTransferView_Previews: PreviewProvider {
         Group {
             NavigationView {
                 JacarandaTransferView()
+            }
+            
+            NavigationView {
+                JacarandaTransferView(invalidTransferID: true)
             }
             
             NavigationView {
