@@ -25,6 +25,13 @@ struct JacarandaTransferView: View {
     @FocusState private var userIDKeyboardFocused: Bool
     @FocusState private var transferAmountKeyboardFocused: Bool
     
+    let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
+    
     var body: some View {
         ZStack {
             VStack {
@@ -68,22 +75,32 @@ struct JacarandaTransferView: View {
                                 .padding(.top, 15)
                                 .padding(.leading, 30)
                             
-                            TextField("", text: $transferAmount)
-                                .font(.system(size: 24))
-                                .font(.title.weight(.medium))
-                                .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
-                                .padding(.bottom, 16)
-                                .padding(.leading, 30)
-                                .keyboardType(.decimalPad)
-                                .focused($transferAmountKeyboardFocused)
-                                .disabled({
-                                    if isLoading {
-                                        return true
-                                    }
-                                    else {
-                                        return false
-                                    }
-                                }())
+                            HStack(spacing: 0) {
+                                Text("$")
+                                    .font(.system(size: 24))
+                                    .fontWeight(.medium)
+                                    .foregroundColor(Color(red: 30/255, green: 30/255, blue: 30/255))
+                                    .padding(.bottom, 16)
+                                    .padding(.leading, 30)
+                                
+                                TextField("0.00", text: $transferAmount)
+                                    .modifyInputCurrency(value: $transferAmount)
+                                    .font(.system(size: 24))
+                                    .font(.title.weight(.medium))
+                                    .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
+                                    .padding(.bottom, 16)
+                                    .padding(.leading, 12)
+                                    .keyboardType(.decimalPad)
+                                    .focused($transferAmountKeyboardFocused)
+                                    .disabled({
+                                        if isLoading {
+                                            return true
+                                        }
+                                        else {
+                                            return false
+                                        }
+                                    }())
+                            }
                         }
                         .background(Color(red: 252/255, green: 252/255, blue: 252/255))
                         .padding(.top, 28)
@@ -188,39 +205,44 @@ struct JacarandaTransferView: View {
                 }
             }))
             
-            ConfirmPaymentView(isPresenting: $isPresentingConfirmPayment, title: "details", subtitle: "Transfer", amount: transferAmount, account: "Balance", buttonTitle: "Transfer", isLoading: $isLoading)
+            ConfirmPaymentView(isPresenting: $isPresentingConfirmPayment, title: "details", subtitle: "Transfer", amount: String(transferAmount), account: "Balance", buttonTitle: "Transfer", isLoading: $isLoading)
             
             LoadingView(message: "Loading", isLoading: $isLoading, isFinished: $isPresentingSuccessPayment)
         }
         .sheet(isPresented: $isPresentingSuccessPayment) {
-            SuccessPaymentView(subtitle: "Sucessfully transferred", amount: transferAmount, message: " To Irene qq", isPresenting: $isPresentingSuccessPayment, finishedProcess: $finishedTransfer)
+            SuccessPaymentView(subtitle: "Sucessfully transferred", amount: String(transferAmount), message: " To Irene qq", isPresenting: $isPresentingSuccessPayment, finishedProcess: $finishedTransfer)
         }
         .onChange(of: finishedTransfer) { newValue in
             self.mode.wrappedValue.dismiss()
         }
-    }
-}
-
-
-struct TextFieldLimitModifer: ViewModifier {
-    @Binding var value: String
-    var length: Int
-
-    func body(content: Content) -> some View {
-        content
-            .onReceive(value.publisher.collect()) {
-                value = value.filter {!$0.isWhitespace}
-                value = String($0.prefix(length))
-                value = value.applyPattern()
+        .onChange(of: transferAmountKeyboardFocused) { newValue in
+            if transferAmountKeyboardFocused == true && transferAmount == "" {
+                transferAmount = "0.00"
             }
+        }
     }
 }
 
-extension View {
-    func limitInputLength(value: Binding<String>, length: Int) -> some View {
-        self.modifier(TextFieldLimitModifer(value: value, length: length))
-    }
-}
+
+//struct TextFieldLimitModifer: ViewModifier {
+//    @Binding var value: String
+//    var length: Int
+//
+//    func body(content: Content) -> some View {
+//        content
+//            .onReceive(value.publisher.collect()) {
+//                value = value.filter {!$0.isWhitespace}
+//                value = String($0.prefix(length))
+//                value = value.applyPattern()
+//            }
+//    }
+//}
+//
+//extension View {
+//    func limitInputLength(value: Binding<String>, length: Int) -> some View {
+//        self.modifier(TextFieldLimitModifer(value: value, length: length))
+//    }
+//}
 
 
 struct JacarandaTransferView_Previews: PreviewProvider {
@@ -231,7 +253,7 @@ struct JacarandaTransferView_Previews: PreviewProvider {
             }
             
             NavigationView {
-                JacarandaTransferView(invalidTransferID: true)
+                JacarandaTransferView(transferID: "16283589494986", invalidTransferID: true)
             }
             
             NavigationView {
@@ -243,7 +265,7 @@ struct JacarandaTransferView_Previews: PreviewProvider {
             }
             
             NavigationView {
-                JacarandaTransferView(transferID: "1234 4567 8900 5858", foundUser: true, transferAmount: "180.00", isLoading: true)
+                JacarandaTransferView(transferID: "1234 4567 8900 5858", foundUser: true, transferAmount: "180,00", isLoading: true)
             }
         }
     }

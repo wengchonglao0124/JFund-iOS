@@ -11,6 +11,7 @@
 		041EA326289FA86500FDD336 /* SuccessPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EA325289FA86500FDD336 /* SuccessPaymentView.swift */; };
 		041EA328289FB29B00FDD336 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EA327289FB29B00FDD336 /* LoadingView.swift */; };
 		041EA32E28A00B8200FDD336 /* StringModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EA32D28A00B8200FDD336 /* StringModifier.swift */; };
+		041EA33228A111B200FDD336 /* TextFieldModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EA33128A111B200FDD336 /* TextFieldModifer.swift */; };
 		0431612928897FCE0050DB2A /* Jacaranda_CardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431612828897FCE0050DB2A /* Jacaranda_CardApp.swift */; };
 		0431612B28897FCE0050DB2A /* JacarandaTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431612A28897FCE0050DB2A /* JacarandaTabView.swift */; };
 		0431612D28897FCF0050DB2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0431612C28897FCF0050DB2A /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		041EA325289FA86500FDD336 /* SuccessPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPaymentView.swift; sourceTree = "<group>"; };
 		041EA327289FB29B00FDD336 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		041EA32D28A00B8200FDD336 /* StringModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringModifier.swift; sourceTree = "<group>"; };
+		041EA33128A111B200FDD336 /* TextFieldModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifer.swift; sourceTree = "<group>"; };
 		0431612528897FCE0050DB2A /* Jacaranda Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jacaranda Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0431612828897FCE0050DB2A /* Jacaranda_CardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jacaranda_CardApp.swift; sourceTree = "<group>"; };
 		0431612A28897FCE0050DB2A /* JacarandaTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaTabView.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				04316149288A6C5D0050DB2A /* Activity.swift */,
 				04316159288AEEDB0050DB2A /* BusinessPartner.swift */,
 				041EA32D28A00B8200FDD336 /* StringModifier.swift */,
+				041EA33128A111B200FDD336 /* TextFieldModifer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041EA33228A111B200FDD336 /* TextFieldModifer.swift in Sources */,
 				0431614C288A70080050DB2A /* ActivityModel.swift in Sources */,
 				044A91572896A300008D5864 /* JacarandaPayView.swift in Sources */,
 				04316140288982A50050DB2A /* JacarandaProfileView.swift in Sources */,
