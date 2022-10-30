@@ -263,7 +263,7 @@ struct JacarandaTransferView: View {
             LoadingView(message: "Loading", isLoading: $isLoading, isFinished: $isPresentingSuccessPayment)
         }
         .sheet(isPresented: $isPresentingSuccessPayment) {
-            SuccessPaymentView(subtitle: "Sucessfully transferred", amount: String(transferAmount), message: " To Irene qq", isPresenting: $isPresentingSuccessPayment, finishedProcess: $finishedTransfer)
+            SuccessPaymentView(subtitle: "Successfully transferred", amount: String(transferAmount), message: " To Irene qq", isPresenting: $isPresentingSuccessPayment, finishedProcess: $finishedTransfer)
         }
         .onChange(of: finishedTransfer) { newValue in
             self.mode.wrappedValue.dismiss()
