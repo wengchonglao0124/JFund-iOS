@@ -12,6 +12,8 @@ struct JacarandaHomeView: View {
     var screenHeight: CGFloat
     var offsetPosition: CGFloat
     
+    @Binding var tabViewSelectionIndex: Int
+    
     var body: some View {
         
         ScrollView {
@@ -58,7 +60,7 @@ struct JacarandaHomeView: View {
                 .padding(.bottom, 24)
                 
                 // MARK: Activity Section
-                HomeActivityView(activityModel: ActivityModel())
+                HomeActivityView(activityModel: ActivityModel(), tabViewSelectionIndex: $tabViewSelectionIndex)
                     .cornerRadius(16)
                     .padding(.bottom, 30)
                 
@@ -79,11 +81,11 @@ struct JacarandaHomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                JacarandaHomeView(screenHeight: UIScreen.main.bounds.height, offsetPosition: 0)
+                JacarandaHomeView(screenHeight: UIScreen.main.bounds.height, offsetPosition: 0, tabViewSelectionIndex: .constant(1))
             }
         
             NavigationView {
-                JacarandaHomeView(screenHeight: UIScreen.main.bounds.height, offsetPosition: 0)
+                JacarandaHomeView(screenHeight: UIScreen.main.bounds.height, offsetPosition: 0, tabViewSelectionIndex: .constant(1))
                     .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
             }
         }

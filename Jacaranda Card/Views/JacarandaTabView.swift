@@ -23,7 +23,7 @@ struct JacarandaTabView: View {
                 
                 // MARK: Home View
                 GeometryReader { geo in
-                    JacarandaHomeView(screenHeight: geo.size.height, offsetPosition: geo.frame(in: .global).minY)
+                    JacarandaHomeView(screenHeight: geo.size.height, offsetPosition: geo.frame(in: .global).minY, tabViewSelectionIndex: $selectionIndex)
                 }
                 .tabItem({
                     VStack {
@@ -85,10 +85,8 @@ struct JacarandaTabView_Previews: PreviewProvider {
         Group {
             JacarandaTabView()
             
-            /*
             JacarandaTabView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
-             */
         }
     }
 }

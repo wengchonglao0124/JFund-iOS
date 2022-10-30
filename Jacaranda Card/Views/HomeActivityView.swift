@@ -11,6 +11,8 @@ struct HomeActivityView: View {
     
     @State var activityModel: ActivityModel
     
+    @Binding var tabViewSelectionIndex: Int
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
@@ -60,12 +62,17 @@ struct HomeActivityView: View {
                                 ListActivityView(activity: activitiesList[index])
                                     .padding(.bottom, 12)
                             }
-                            Text("Show all")
-                                .font(.system(size: 14))
-                                .fontWeight(.bold)
-                                .foregroundColor(Color(red: 82/255, green: 36/255, blue: 121/255))
-                                .padding(.top, 17.5)
-                                .padding(.bottom, 11.5)
+                            
+                            Button {
+                                tabViewSelectionIndex = 2
+                            } label: {
+                                Text("Show all")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color(red: 82/255, green: 36/255, blue: 121/255))
+                                    .padding(.top, 17.5)
+                                    .padding(.bottom, 11.5)
+                            }
                         }
                     }
                 }
@@ -85,12 +92,12 @@ struct HomeActivityView_Previews: PreviewProvider {
             model.activies = [Activity]()
             return model
         }()
-        HomeActivityView(activityModel: activityModelEmpty)
+        HomeActivityView(activityModel: activityModelEmpty, tabViewSelectionIndex: .constant(1))
             .previewLayout(.sizeThatFits)
         
         // Recent Activities greater than 3
         let activityModel = ActivityModel()
-        HomeActivityView(activityModel: activityModel)
+        HomeActivityView(activityModel: activityModel, tabViewSelectionIndex: .constant(1))
             .previewLayout(.sizeThatFits)
         
         // Recent Activities equal to 3
@@ -106,7 +113,7 @@ struct HomeActivityView_Previews: PreviewProvider {
             model.activies.removeLast()
             return model
         }()
-        HomeActivityView(activityModel: activityModelEqualToThree)
+        HomeActivityView(activityModel: activityModelEqualToThree, tabViewSelectionIndex: .constant(1))
             .previewLayout(.sizeThatFits)
         
         // Recent Activities less than 3
@@ -123,7 +130,7 @@ struct HomeActivityView_Previews: PreviewProvider {
             model.activies.removeLast()
             return model
         }()
-        HomeActivityView(activityModel: activityModelLessThanThree)
+        HomeActivityView(activityModel: activityModelLessThanThree, tabViewSelectionIndex: .constant(1))
             .previewLayout(.sizeThatFits)
     }
 }
