@@ -9,32 +9,25 @@ import Foundation
 
 class DateService {
     
-    var currentDate = ""
-    
     static func getDateString(format: String, date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         return formatter.string(from: date)
     }
     
-    func getDateStringLocal(format: String, date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        return formatter.string(from: date)
-    }
-    
-    func getActivityCollectionByDate(activityList: [Activity], date: String, format: String) -> [Activity] {
-        var resultList = [Activity]()
+    static func getActivityCollectionByDate(activityList: [Activity]) -> [String:[Activity]] {
+        var results = [String:[Activity]]()
         
-        if currentDate != date {
-            currentDate = date
+        for activity in activityList {
+            let date = DateService.getDateString(format: "MMM yyyy", date: activity.date)
             
-            for activity in activityList {
-                if currentDate == getDateStringLocal(format: format, date: activity.date) {
-                    resultList.append(activity)
-                }
+            if results.keys.contains(date) {
+                results[date]!.append(activity)
+            }
+            else {
+                results[date] = [activity]
             }
         }
-        return resultList
+        return results
     }
 }

@@ -19,6 +19,7 @@ struct JacarandaActivityView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
+            // MARK: Title Section
             Text("Activity")
                 .font(.system(size: 18))
                 .fontWeight(.bold)
@@ -26,47 +27,57 @@ struct JacarandaActivityView: View {
                 .padding(.bottom, 15)
             
             VStack {
+                // MARK: Searching Section
                 HStack(spacing: 0) {
                     Image("baseSearch")
                         .padding(9)
                         .frame(height: 34)
                         .background(Color(red: 233/255, green: 233/255, blue: 234/255))
-                    
+
                     TextField("Search...", text: $searchQuery)
                         .cornerRadius(8)
                         .padding(.vertical, 7)
                         .frame(height: 34)
                         .background(Color(red: 233/255, green: 233/255, blue: 234/255))
-                    
+
                     Image("otherFilter")
                         .padding(.leading, 17)
                         .frame(height: 34)
                         .background(Color(red: 252/255, green: 252/255, blue: 252/255, opacity: 0.8))
-                        
+
                 }
                 .padding(.horizontal, 18)
                 .padding(.top, 15)
                 
+                // MARK: Activities Section
                 ScrollView {
                     LazyVStack(spacing: 0) {
-                        let dateService = DateService()
-                        ForEach(activitiesSorted) { activityDate in
+                        
+                        // activity collection by date
+                        let activitiesList = DateService.getActivityCollectionByDate(activityList: activitiesSorted)
+                        
+                        // sorted date list from dictionary keys
+                        let dateList: [String] = {
+                            let formatter = DateFormatter()
+                            formatter.dateFormat = "MMM yyyy"
                             
-                            let date = DateService.getDateString(format: "MMM yyyy", date: activityDate.date)
-                            let activitiesList = dateService.getActivityCollectionByDate(activityList: activitiesSorted, date: date, format: "MMM yyyy")
-                            
-                            if activitiesList.count != 0 {
-                                Section(header:
-                                    Text(date)
-                                    .font(.system(size: 12))
-                                    .fontWeight(.medium)
-                                    .foregroundColor(Color(red: 137/255, green: 138/255, blue: 141/255))
-                                    .padding(.vertical, 16)
-                                ) {
-                                    ForEach(activitiesList) { activity in
-                                        ListActivityView(activity: activity)
-                                            .padding(.bottom, 12)
-                                    }
+                            let sortedList = Array(activitiesList.keys).sorted(by: { formatter.date(from: $0)! > formatter.date(from: $1)!  })
+                            return sortedList
+                        }()
+                        
+                        // looping for each date 
+                        ForEach(dateList, id: \.self) { date in
+                            Section(header:
+                                Text(date)
+                                .font(.system(size: 12))
+                                .fontWeight(.medium)
+                                .foregroundColor(Color(red: 137/255, green: 138/255, blue: 141/255))
+                                .padding(.vertical, 16)
+                            ) {
+                                // looping for each activity
+                                ForEach(activitiesList[date]!) { activity in
+                                    ListActivityView(activity: activity)
+                                        .padding(.bottom, 12)
                                 }
                             }
                         }
