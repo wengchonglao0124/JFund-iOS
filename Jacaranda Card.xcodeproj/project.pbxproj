@@ -39,6 +39,7 @@
 		0431616A288B03800050DB2A /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = 04316169288B03800050DB2A /* restaurants.json */; };
 		04316173288D921D0050DB2A /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316172288D921D0050DB2A /* DateService.swift */; };
 		04452BBA290EB028009E9374 /* ActivityDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04452BB9290EB028009E9374 /* ActivityDetailedView.swift */; };
+		04452BBE290EBD5B009E9374 /* BusinessPartnerDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04452BBD290EBD5B009E9374 /* BusinessPartnerDetailedView.swift */; };
 		044A91572896A300008D5864 /* JacarandaPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A91562896A300008D5864 /* JacarandaPayView.swift */; };
 		044A91592896A465008D5864 /* JacarandaTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A91582896A465008D5864 /* JacarandaTransferView.swift */; };
 		044A915B2896C0EF008D5864 /* PaySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A915A2896C0EF008D5864 /* PaySettingView.swift */; };
@@ -78,6 +79,7 @@
 		04316169288B03800050DB2A /* restaurants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = restaurants.json; sourceTree = "<group>"; };
 		04316172288D921D0050DB2A /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
 		04452BB9290EB028009E9374 /* ActivityDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailedView.swift; sourceTree = "<group>"; };
+		04452BBD290EBD5B009E9374 /* BusinessPartnerDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessPartnerDetailedView.swift; sourceTree = "<group>"; };
 		044A91562896A300008D5864 /* JacarandaPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaPayView.swift; sourceTree = "<group>"; };
 		044A91582896A465008D5864 /* JacarandaTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaTransferView.swift; sourceTree = "<group>"; };
 		044A915A2896C0EF008D5864 /* PaySettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaySettingView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				04452BB9290EB028009E9374 /* ActivityDetailedView.swift */,
 				04316157288AED870050DB2A /* ListBusinessPartnerView.swift */,
 				041EA327289FB29B00FDD336 /* LoadingView.swift */,
+				04452BBD290EBD5B009E9374 /* BusinessPartnerDetailedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */,
 				041EA326289FA86500FDD336 /* SuccessPaymentView.swift in Sources */,
 				04316148288A6C3C0050DB2A /* ActivityDataService.swift in Sources */,
+				04452BBE290EBD5B009E9374 /* BusinessPartnerDetailedView.swift in Sources */,
 				04316144288A693D0050DB2A /* HomeActivityView.swift in Sources */,
 				04316162288AFCF40050DB2A /* RestaurantDataService.swift in Sources */,
 				041EA32E28A00B8200FDD336 /* StringModifier.swift in Sources */,
@@ -436,6 +440,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Jacaranda-Card-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = JFund;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -469,6 +475,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Jacaranda-Card-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = JFund;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
