@@ -38,6 +38,7 @@
 		04316168288AFE630050DB2A /* BusinessPartnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316167288AFE630050DB2A /* BusinessPartnerModel.swift */; };
 		0431616A288B03800050DB2A /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = 04316169288B03800050DB2A /* restaurants.json */; };
 		04316173288D921D0050DB2A /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316172288D921D0050DB2A /* DateService.swift */; };
+		04452BBA290EB028009E9374 /* ActivityDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04452BB9290EB028009E9374 /* ActivityDetailedView.swift */; };
 		044A91572896A300008D5864 /* JacarandaPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A91562896A300008D5864 /* JacarandaPayView.swift */; };
 		044A91592896A465008D5864 /* JacarandaTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A91582896A465008D5864 /* JacarandaTransferView.swift */; };
 		044A915B2896C0EF008D5864 /* PaySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A915A2896C0EF008D5864 /* PaySettingView.swift */; };
@@ -76,6 +77,7 @@
 		04316167288AFE630050DB2A /* BusinessPartnerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessPartnerModel.swift; sourceTree = "<group>"; };
 		04316169288B03800050DB2A /* restaurants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = restaurants.json; sourceTree = "<group>"; };
 		04316172288D921D0050DB2A /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
+		04452BB9290EB028009E9374 /* ActivityDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailedView.swift; sourceTree = "<group>"; };
 		044A91562896A300008D5864 /* JacarandaPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaPayView.swift; sourceTree = "<group>"; };
 		044A91582896A465008D5864 /* JacarandaTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaTransferView.swift; sourceTree = "<group>"; };
 		044A915A2896C0EF008D5864 /* PaySettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaySettingView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				0431614F288A97410050DB2A /* HomeEventView.swift */,
 				04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */,
 				0431614D288A7E040050DB2A /* ListActivityView.swift */,
+				04452BB9290EB028009E9374 /* ActivityDetailedView.swift */,
 				04316157288AED870050DB2A /* ListBusinessPartnerView.swift */,
 				041EA327289FB29B00FDD336 /* LoadingView.swift */,
 			);
@@ -294,6 +297,7 @@
 				04316162288AFCF40050DB2A /* RestaurantDataService.swift in Sources */,
 				041EA32E28A00B8200FDD336 /* StringModifier.swift in Sources */,
 				04316150288A97410050DB2A /* HomeEventView.swift in Sources */,
+				04452BBA290EB028009E9374 /* ActivityDetailedView.swift in Sources */,
 				0431614A288A6C5D0050DB2A /* Activity.swift in Sources */,
 				04316158288AED870050DB2A /* ListBusinessPartnerView.swift in Sources */,
 				0431612B28897FCE0050DB2A /* JacarandaTabView.swift in Sources */,

@@ -12,36 +12,38 @@ struct ListActivityView: View {
     var activity: Activity
     
     var body: some View {
-        HStack {
-            HStack(spacing: 16) {
-                Image(activity.imageName)
-                    .frame(width: 40, height: 40, alignment: .center)
-                    .cornerRadius(12)
-                
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(activity.name)
-                        .font(.system(size: 14))
+        NavigationLink(destination: ActivityDetailedView(activity: activity)) {
+            HStack {
+                HStack(spacing: 16) {
+                    Image(activity.imageName)
+                        .frame(width: 40, height: 40, alignment: .center)
+                        .cornerRadius(12)
+                    
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(activity.name)
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
+                            .foregroundColor(Color("activityTextColor"))
+                        
+                        Text(DateService.getDateString(format: "dd MMM", date: activity.date))
+                            .font(.system(size: 12))
+                            .fontWeight(.medium)
+                            .foregroundColor(Color("activityDateColor"))
+                    }
+                }
+                Spacer()
+                if activity.amount >= 0 {
+                    Text(activity.amountString)
+                        .font(.system(size: 16))
+                        .fontWeight(.medium)
+                        .foregroundColor(Color("activityAddAmountColor"))
+                }
+                else {
+                    Text(activity.amountString)
+                        .font(.system(size: 16))
                         .fontWeight(.medium)
                         .foregroundColor(Color("activityTextColor"))
-                    
-                    Text(DateService.getDateString(format: "dd MMM", date: activity.date))
-                        .font(.system(size: 12))
-                        .fontWeight(.medium)
-                        .foregroundColor(Color("activityDateColor"))
                 }
-            }
-            Spacer()
-            if activity.amount >= 0 {
-                Text(activity.amountString)
-                    .font(.system(size: 16))
-                    .fontWeight(.medium)
-                    .foregroundColor(Color("activityAddAmountColor"))
-            }
-            else {
-                Text(activity.amountString)
-                    .font(.system(size: 16))
-                    .fontWeight(.medium)
-                    .foregroundColor(Color("activityTextColor"))
             }
         }
         .padding([.leading, .top, .bottom], 13)
