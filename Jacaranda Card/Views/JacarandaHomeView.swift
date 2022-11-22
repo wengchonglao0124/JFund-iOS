@@ -39,8 +39,7 @@ struct JacarandaHomeView: View {
                         VStack {
                             Image("payButton")
                             Text("Pay")
-                                .font(.system(size: 12))
-                                .fontWeight(.medium)
+                                .font(Font.custom("DMSans-Medium", size: 12))
                                 .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255, opacity: 0.8))
                         }
                     }
@@ -50,8 +49,7 @@ struct JacarandaHomeView: View {
                         VStack {
                             Image("transferButton")
                             Text("Transfer")
-                                .font(.system(size: 12))
-                                .fontWeight(.medium)
+                                .font(Font.custom("DMSans-Medium", size: 12))
                                 .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255, opacity: 0.8))
                         }
                     }

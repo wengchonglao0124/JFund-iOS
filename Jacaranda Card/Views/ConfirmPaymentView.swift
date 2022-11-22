@@ -39,8 +39,7 @@ struct ConfirmPaymentView: View {
                             .padding(.bottom, 30)
 
                             Text("Confirm \(title)")
-                                .font(.system(size: 16))
-                                .fontWeight(.bold)
+                                .font(Font.custom("DMSans-Bold", size: 16))
                                 .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
                                 .padding(.leading, 28)
                                 .padding(.bottom, 30)
@@ -53,12 +52,10 @@ struct ConfirmPaymentView: View {
                             Spacer()
                             VStack(spacing: 14) {
                                 Text(subtitle)
-                                    .font(.system(size: 16))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 16))
                                     .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
                                 Text("$ \(amount)")
-                                    .font(.system(size: 24))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 24))
                                     .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
                             }
                             Spacer()
@@ -68,16 +65,14 @@ struct ConfirmPaymentView: View {
                         // MARK: Account Section
                         HStack {
                             Text("From")
-                                .font(.system(size: 16))
-                                .fontWeight(.medium)
+                                .font(Font.custom("DMSans-Medium", size: 16))
                                 .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
                                 .padding(.leading, 30)
                                 .padding(.top, 31)
                                 .padding(.bottom, 25)
                             Spacer()
                             Text(account)
-                                .font(.system(size: 16))
-                                .fontWeight(.medium)
+                                .font(Font.custom("DMSans-Medium", size: 16))
                                 .foregroundColor(.black)
                                 .padding(.trailing, 18)
                                 .padding(.top, 31)
@@ -98,8 +93,7 @@ struct ConfirmPaymentView: View {
                                     Image("confirmPaymentButton")
                         
                                     Text(buttonTitle)
-                                        .font(.system(size: 14))
-                                        .fontWeight(.medium)
+                                        .font(Font.custom("DMSans-Medium", size: 14))
                                         .foregroundColor(Color(red: 252/255, green: 252/255, blue: 252/255))
                                         .padding(.vertical, 12)
                                 }

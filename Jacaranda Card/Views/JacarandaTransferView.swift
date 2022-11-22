@@ -50,11 +50,9 @@ struct JacarandaTransferView: View {
                             
                                 VStack(alignment: .leading, spacing: 10) {
                                     Text("Irene qq")
-                                        .font(.system(size: 18))
-                                        .fontWeight(.bold)
+                                        .font(Font.custom("DMSans-Bold", size: 18))
                                     Text(transferID.applyPattern())
-                                        .font(.system(size: 14))
-                                        .fontWeight(.medium)
+                                        .font(Font.custom("DMSans-Medium", size: 14))
                                         .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
                                 }
                                 .padding(.leading, 10)
@@ -70,24 +68,21 @@ struct JacarandaTransferView: View {
                         // MARK: Transfer Amount Section
                         VStack(alignment: .leading, spacing: 11) {
                             Text("Enter the amount")
-                                .font(.system(size: 14))
-                                .fontWeight(.medium)
+                                .font(Font.custom("DMSans-Medium", size: 14))
                                 .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
                                 .padding(.top, 15)
                                 .padding(.leading, 30)
                   
                             HStack(spacing: 0) {
                                 Text("$")
-                                    .font(.system(size: 24))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 24))
                                     .foregroundColor(Color(red: 30/255, green: 30/255, blue: 30/255))
                                     .padding(.bottom, 16)
                                     .padding(.leading, 30)
                                 
                                 TextField("0.00", text: $transferAmount)
                                     .modifyInputCurrency(value: $transferAmount)
-                                    .font(.system(size: 24))
-                                    .font(.title.weight(.medium))
+                                    .font(Font.custom("DMSans-Medium", size: 24))
                                     .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
                                     .padding(.bottom, 16)
                                     .padding(.leading, 12)
@@ -139,8 +134,7 @@ struct JacarandaTransferView: View {
                         VStack(alignment: .leading, spacing: 11) {
                             HStack {
                                 Text("Enter the user ID")
-                                    .font(.system(size: 14))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 14))
                                     .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
                                     .padding(.top, 15)
                                     .padding(.leading, 30)
@@ -165,8 +159,7 @@ struct JacarandaTransferView: View {
                             
                             TextField("", text: $transferID)
                                 .limitInputLength(value: $transferID, length: 16+3)
-                                .font(.system(size: 24))
-                                .font(.title.weight(.medium))
+                                .font(Font.custom("DMSans-Medium", size: 24))
                                 .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
                                 .padding(.bottom, 16)
                                 .padding(.leading, 30)
@@ -177,8 +170,7 @@ struct JacarandaTransferView: View {
                         
                         if isPresentingIDInformation {
                             Text("User ID should contain 16 digits")
-                                .font(.system(size: 12))
-                                .fontWeight(.regular)
+                                .font(Font.custom("DMSans-Regular", size: 12))
                                 .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
                                 .padding(.leading, 30)
                                 .padding(.top, 5)
@@ -190,8 +182,7 @@ struct JacarandaTransferView: View {
                     
                     if invalidTransferID {
                         Text("Invalid ID. Please enter a correct ID with 16 digits")
-                            .font(.system(size: 10))
-                            .fontWeight(.medium)
+                            .font(Font.custom("DMSans-Medium", size: 10))
                             .foregroundColor(.red)
                     }
                     
@@ -233,8 +224,7 @@ struct JacarandaTransferView: View {
                 ToolbarItem(placement: .principal) {
                     HStack {
                         Text("Transfer to")
-                            .font(.system(size: 16))
-                            .fontWeight(.bold)
+                            .font(Font.custom("DMSans-Bold", size: 16))
                             .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
                         Spacer()
                     }

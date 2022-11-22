@@ -25,18 +25,15 @@ struct JacarandaProfileView: View {
                                     .fill(Color(red: 215/255, green: 199/255, blue: 228/255))
                                     .frame(width: 63, height: 63)
                                 Text(userName.prefix(1))
-                                    .font(.system(size: 32))
-                                    .fontWeight(.bold)
+                                    .font(Font.custom("DMSans-Bold", size: 32))
                                     .foregroundColor(.white)
                             }
                         
                             VStack(alignment: .leading, spacing: 10) {
                                 Text(userName)
-                                    .font(.system(size: 18))
-                                    .fontWeight(.bold)
+                                    .font(Font.custom("DMSans-Bold", size: 18))
                                 Text(carID)
-                                    .font(.system(size: 14))
-                                    .fontWeight(.regular)
+                                    .font(Font.custom("DMSans-Medium", size: 14))
                             }
                             .padding(.leading, 10)
                         }
@@ -53,7 +50,7 @@ struct JacarandaProfileView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     Text("Profile & Security")
                         .foregroundColor(Color("profileSectionTitleColor"))
-                        .fontWeight(.medium)
+                        .font(Font.custom("DMSans-Medium", size: 14))
                         .padding(.bottom, 9)
                         .padding(.top, 25)
                         .padding(.leading, 16)
@@ -68,7 +65,7 @@ struct JacarandaProfileView: View {
                                     .padding(.leading, 16)
                                 Text("Account Security")
                                     .foregroundColor(Color("profileSectionTextColor"))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 14))
                                 Spacer()
                                 Image("arrow")
                                     .padding(.trailing, 10)
@@ -84,7 +81,7 @@ struct JacarandaProfileView: View {
                                     .padding(.leading, 16)
                                 Text("Payment Settings")
                                     .foregroundColor(Color("profileSectionTextColor"))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 14))
                                 Spacer()
                                 Image("arrow")
                                     .padding(.trailing, 10)
@@ -95,14 +92,13 @@ struct JacarandaProfileView: View {
                     .padding(.vertical, 6)
                     .background(Color("profileSectionColor"))
                 }
-                .font(.system(size: 14))
                 
                 
                 // MARK: Message Section
                 VStack(alignment: .leading, spacing: 0) {
                     Text("Message")
                         .foregroundColor(Color("profileSectionTitleColor"))
-                        .fontWeight(.medium)
+                        .font(Font.custom("DMSans-Medium", size: 14))
                         .padding(.bottom, 9)
                         .padding(.top, 18)
                         .padding(.leading, 16)
@@ -117,7 +113,7 @@ struct JacarandaProfileView: View {
                                     .padding(.leading, 16)
                                 Text("Notification Preferences")
                                     .foregroundColor(Color("profileSectionTextColor"))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 14))
                                 Spacer()
                                 Image("arrow")
                                     .padding(.trailing, 10)
@@ -128,14 +124,13 @@ struct JacarandaProfileView: View {
                     .padding(.vertical, 6)
                     .background(Color("profileSectionColor"))
                 }
-                .font(.system(size: 14))
                     
                 
                 // MARK: About Section
                 VStack(alignment: .leading, spacing: 0) {
                     Text("About")
                         .foregroundColor(Color("profileSectionTitleColor"))
-                        .fontWeight(.medium)
+                        .font(Font.custom("DMSans-Medium", size: 14))
                         .padding(.bottom, 9)
                         .padding(.top, 25)
                         .padding(.leading, 16)
@@ -150,7 +145,7 @@ struct JacarandaProfileView: View {
                                     .padding(.leading, 16)
                                 Text("Help & Support")
                                     .foregroundColor(Color("profileSectionTextColor"))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 14))
                                 Spacer()
                                 Image("arrow")
                                     .padding(.trailing, 10)
@@ -167,7 +162,7 @@ struct JacarandaProfileView: View {
                                     .padding(.leading, 16)
                                 Text("Terms of Use")
                                     .foregroundColor(Color("profileSectionTextColor"))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 14))
                                 Spacer()
                                 Image("arrow")
                                     .padding(.trailing, 10)
@@ -184,7 +179,7 @@ struct JacarandaProfileView: View {
                                     .padding(.leading, 16)
                                 Text("Contact us")
                                     .foregroundColor(Color("profileSectionTextColor"))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 14))
                                 Spacer()
                                 Image("arrow")
                                     .padding(.trailing, 10)
@@ -195,7 +190,6 @@ struct JacarandaProfileView: View {
                     .padding(.vertical, 6)
                     .background(Color("profileSectionColor"))
                 }
-                .font(.system(size: 14))
                 
 
                 // MARK: Log out Section
@@ -203,20 +197,16 @@ struct JacarandaProfileView: View {
                     // MARK: Log out
                     NavigationLink(destination: Text("Log out")) {
                         HStack(spacing: 10) {
-                            Image("Logout")
-                                .frame(width: 40, height: 40)
-                                .cornerRadius(12)
-                                .padding(.leading, 16)
+                            Spacer()
                             Text("Log out")
-                                .foregroundColor(Color("profileSectionTextColor"))
-                                .fontWeight(.medium)
+                                .foregroundColor(Color(red: 201/255, green: 37/255, blue: 45/255))
+                                .font(Font.custom("DMSans-Medium", size: 14))
                             Spacer()
                         }
-                        .padding(.vertical, 12)
+                        .padding(.vertical, 17.5)
                     }
                 }
                 .background(Color("profileSectionColor"))
-                .font(.system(size: 14))
                 .padding(.top, 34)
                 .padding(.bottom, 22)
             }

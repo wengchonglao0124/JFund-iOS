@@ -25,17 +25,15 @@ struct JacarandaPayView: View {
                     Spacer()
                     VStack {
                         Text(username)
-                            .font(.system(size: 16))
-                            .fontWeight(.medium)
+                            .font(Font.custom("DMSans-Medium", size: 16))
                             .padding(.top, 53)
                             .padding(.bottom, 18)
                         Text(carID)
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
+                            .font(Font.custom("DMSans-Medium", size: 14))
                             .padding(.bottom, 19)
                         Image("qrCode")
                         Text("QR code automatically renew every minute")
-                            .font(.system(size: 12))
+                            .font(Font.custom("DMSans-Regular", size: 12))
                             .foregroundColor(Color(red: 89/255, green: 89/255, blue: 89/255))
                             .padding(.vertical, 26.2)
                         Spacer()
@@ -55,8 +53,7 @@ struct JacarandaPayView: View {
                 ToolbarItem(placement: .principal) {
                     HStack {
                         Text("Scan to Pay")
-                            .font(.system(size: 16))
-                            .fontWeight(.bold)
+                            .font(Font.custom("DMSans-Bold", size: 16))
                             .foregroundColor(.white)
                         Spacer()
                         Button {

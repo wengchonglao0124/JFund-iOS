@@ -18,9 +18,8 @@ struct HomeActivityView: View {
         VStack(alignment: .leading, spacing: 0) {
             
             Text("Recent Activity")
-                .font(.system(size: 14))
+                .font(Font.custom("DMSans-Bold", size: 14))
                 .foregroundColor(Color("activityTextColor"))
-                .fontWeight(.bold)
                 .padding(.vertical, 16)
                 .padding(.leading, 24)
               
@@ -33,12 +32,10 @@ struct HomeActivityView: View {
                             Image("noTransactionYet")
                                 .padding(.bottom, 16)
                             Text("No Transaction yet")
-                                .font(.system(size: 14))
-                                .fontWeight(.bold)
+                                .font(Font.custom("DMSans-Bold", size: 14))
                                 .padding(.bottom, 7)
                             Text("Go make your first Payment :)")
-                                .font(.system(size: 12))
-                                .fontWeight(.medium)
+                                .font(Font.custom("DMSans-Medium", size: 12))
                                 .padding(.bottom, 29)
                         }
                         Spacer()
@@ -67,8 +64,7 @@ struct HomeActivityView: View {
                                 tabViewSelectionIndex = 2
                             } label: {
                                 Text("Show all")
-                                    .font(.system(size: 14))
-                                    .fontWeight(.bold)
+                                    .font(Font.custom("DMSans-Bold", size: 14))
                                     .foregroundColor(Color(red: 82/255, green: 36/255, blue: 121/255))
                                     .padding(.top, 17.5)
                                     .padding(.bottom, 11.5)

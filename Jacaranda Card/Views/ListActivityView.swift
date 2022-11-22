@@ -21,27 +21,23 @@ struct ListActivityView: View {
                     
                     VStack(alignment: .leading, spacing: 2) {
                         Text(activity.name)
-                            .font(.system(size: 14))
-                            .fontWeight(.medium)
+                            .font(Font.custom("DMSans-Medium", size: 14))
                             .foregroundColor(Color("activityTextColor"))
                         
                         Text(DateService.getDateString(format: "dd MMM", date: activity.date))
-                            .font(.system(size: 12))
-                            .fontWeight(.medium)
+                            .font(Font.custom("DMSans-Medium", size: 12))
                             .foregroundColor(Color("activityDateColor"))
                     }
                 }
                 Spacer()
                 if activity.amount >= 0 {
                     Text(activity.amountString)
-                        .font(.system(size: 16))
-                        .fontWeight(.medium)
+                        .font(Font.custom("DMSans-Medium", size: 16))
                         .foregroundColor(Color("activityAddAmountColor"))
                 }
                 else {
                     Text(activity.amountString)
-                        .font(.system(size: 16))
-                        .fontWeight(.medium)
+                        .font(Font.custom("DMSans-Medium", size: 16))
                         .foregroundColor(Color("activityTextColor"))
                 }
             }

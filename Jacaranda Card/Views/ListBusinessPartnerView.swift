@@ -21,8 +21,7 @@ struct ListBusinessPartnerView: View {
                     HStack {
                         Spacer()
                         Text(businessPartner.distance)
-                            .font(.system(size: 8))
-                            .fontWeight(.regular)
+                            .font(Font.custom("DMSans-Regular", size: 8))
                             .foregroundColor(Color(red: 252/255, green: 252/255, blue: 252/255))
                         Spacer()
                     }
@@ -35,12 +34,10 @@ struct ListBusinessPartnerView: View {
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text(businessPartner.name)
-                        .font(.system(size: 12))
-                        .fontWeight(.bold)
+                        .font(Font.custom("DMSans-Bold", size: 12))
                         .foregroundColor(.black)
                     Text(businessPartner.address)
-                        .font(.system(size: 10))
-                        .fontWeight(.regular)
+                        .font(Font.custom("DMSans-Regular", size: 10))
                         .foregroundColor(Color("businessPartnerAddressColor"))
                 }
                 Spacer()

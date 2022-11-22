@@ -24,21 +24,18 @@ struct ActivityDetailedView: View {
                     .padding(.vertical, 22)
                 
                 Text("To \(activity.name)")
-                    .font(.system(size: 16))
-                    .fontWeight(.bold)
+                    .font(Font.custom("DMSans-Bold", size: 16))
                     .foregroundColor(Color("activityTextColor"))
                     .padding(.bottom, 18)
                 
                 if activity.amount >= 0 {
                     Text(activity.amountString)
-                        .font(.system(size: 16))
-                        .fontWeight(.bold)
+                        .font(Font.custom("DMSans-Bold", size: 16))
                         .foregroundColor(Color("activityAddAmountColor"))
                 }
                 else {
                     Text(activity.amountString)
-                        .font(.system(size: 16))
-                        .fontWeight(.bold)
+                        .font(Font.custom("DMSans-Bold", size: 16))
                         .foregroundColor(Color("activityTextColor"))
                 }
             }
@@ -48,8 +45,7 @@ struct ActivityDetailedView: View {
             VStack(spacing: 0) {
                 HStack(alignment: .top) {
                     Text("Transaction time")
-                        .font(.system(size: 12))
-                        .fontWeight(.medium)
+                        .font(Font.custom("DMSans-Medium", size: 12))
                         .foregroundColor(Color("activitySubtitleColor"))
                     
                     Spacer()
@@ -58,13 +54,11 @@ struct ActivityDetailedView: View {
                         
                         let weekDay = activity.date.formatted(.dateTime.weekday(.wide))
                         Text(weekDay + ", " + DateService.getDateString(format: "dd MMM yyyy", date: activity.date))
-                            .font(.system(size: 12))
-                            .fontWeight(.medium)
+                            .font(Font.custom("DMSans-Medium", size: 12))
                             .foregroundColor(Color("activityDataColor"))
                         
                         Text("18:24 (AEST/AEDT)")
-                            .font(.system(size: 12))
-                            .fontWeight(.medium)
+                            .font(Font.custom("DMSans-Medium", size: 12))
                             .foregroundColor(Color("activityDataColor"))
                     }
                 }
@@ -73,15 +67,13 @@ struct ActivityDetailedView: View {
                 
                 HStack {
                     Text("Receipt number")
-                        .font(.system(size: 12))
-                        .fontWeight(.medium)
+                        .font(Font.custom("DMSans-Medium", size: 12))
                         .foregroundColor(Color("activitySubtitleColor"))
                     
                     Spacer()
                     
                     Text("1234 5678 0000")
-                        .font(.system(size: 12))
-                        .fontWeight(.medium)
+                        .font(Font.custom("DMSans-Medium", size: 12))
                         .foregroundColor(Color("activityDataColor"))
                 }
                 .padding(.bottom, 16)

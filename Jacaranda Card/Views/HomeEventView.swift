@@ -13,8 +13,7 @@ struct HomeEventView: View {
         VStack(alignment: .leading, spacing: 0) {
             
             Text("Event")
-                .font(.system(size: 14))
-                .fontWeight(.bold)
+                .font(Font.custom("DMSans-Bold", size: 14))
                 .foregroundColor(Color("eventTextColor"))
                 .padding([.top, .bottom], 16)
                 .padding(.leading, 24)
@@ -28,16 +27,14 @@ struct HomeEventView: View {
                     .padding(.leading, 18)
                     Text("Jacaranda Event")
                         .foregroundColor(Color("eventContentColor"))
-                        .font(.system(size: 14))
-                        .fontWeight(.bold)
+                        .font(Font.custom("DMSans-Bold", size: 14))
                         .padding(.leading, 22)
                         .padding(.bottom, 32)
                     HStack {
                         Spacer()
                         Text("Coming Soon...")
                             .foregroundColor(Color("eventContentColor"))
-                            .font(.system(size: 14))
-                            .fontWeight(.bold)
+                            .font(Font.custom("DMSans-Bold", size: 14))
                             .padding(.trailing, 11.5)
                     }
                 }

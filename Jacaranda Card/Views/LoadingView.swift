@@ -28,8 +28,7 @@ struct LoadingView: View {
                         Spacer()
                         
                         Text(message)
-                            .font(.system(size: 20))
-                            .fontWeight(.medium)
+                            .font(Font.custom("DMSans-Medium", size: 20))
                             .foregroundColor(.white)
                             .padding(.bottom, 19)
                     }

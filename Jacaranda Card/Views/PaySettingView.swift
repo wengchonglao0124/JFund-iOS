@@ -23,8 +23,7 @@ struct PaySettingView: View {
                             HStack {
                                 Spacer()
                                 Text("Payment Setting")
-                                    .font(.system(size: 16))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 16))
                                     .foregroundColor(.black)
                                     .padding(.vertical, 20)
                                 Spacer()
@@ -37,8 +36,7 @@ struct PaySettingView: View {
                             HStack {
                                 Spacer()
                                 Text("Renew QR Code")
-                                    .font(.system(size: 16))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 16))
                                     .foregroundColor(.black)
                                     .padding(.vertical, 20)
                                 Spacer()
@@ -51,8 +49,7 @@ struct PaySettingView: View {
                             HStack {
                                 Spacer()
                                 Text("Help & Support")
-                                    .font(.system(size: 16))
-                                    .fontWeight(.medium)
+                                    .font(Font.custom("DMSans-Medium", size: 16))
                                     .foregroundColor(.black)
                                     .padding(.vertical, 20)
                                 Spacer()

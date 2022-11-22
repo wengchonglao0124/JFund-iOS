@@ -43,6 +43,12 @@
 		044A91572896A300008D5864 /* JacarandaPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A91562896A300008D5864 /* JacarandaPayView.swift */; };
 		044A91592896A465008D5864 /* JacarandaTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A91582896A465008D5864 /* JacarandaTransferView.swift */; };
 		044A915B2896C0EF008D5864 /* PaySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A915A2896C0EF008D5864 /* PaySettingView.swift */; };
+		04E52238292D0547000D4AFC /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */; };
+		04E52239292D0547000D4AFC /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52233292D0547000D4AFC /* DMSans-Regular.ttf */; };
+		04E5223A292D0547000D4AFC /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52234292D0547000D4AFC /* DMSans-Bold.ttf */; };
+		04E5223B292D0547000D4AFC /* DMSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52235292D0547000D4AFC /* DMSans-BoldItalic.ttf */; };
+		04E5223C292D0547000D4AFC /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52236292D0547000D4AFC /* DMSans-Medium.ttf */; };
+		04E5223D292D0547000D4AFC /* DMSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52237292D0547000D4AFC /* DMSans-Italic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +89,12 @@
 		044A91562896A300008D5864 /* JacarandaPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaPayView.swift; sourceTree = "<group>"; };
 		044A91582896A465008D5864 /* JacarandaTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaTransferView.swift; sourceTree = "<group>"; };
 		044A915A2896C0EF008D5864 /* PaySettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaySettingView.swift; sourceTree = "<group>"; };
+		04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		04E52233292D0547000D4AFC /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
+		04E52234292D0547000D4AFC /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
+		04E52235292D0547000D4AFC /* DMSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		04E52236292D0547000D4AFC /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
+		04E52237292D0547000D4AFC /* DMSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Italic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,12 +127,13 @@
 		0431612728897FCE0050DB2A /* Jacaranda Card */ = {
 			isa = PBXGroup;
 			children = (
+				0431612828897FCE0050DB2A /* Jacaranda_CardApp.swift */,
 				043161392889814D0050DB2A /* Models */,
 				04316136288981160050DB2A /* Views */,
 				0431613A288981570050DB2A /* ViewModels */,
 				04316138288981410050DB2A /* Data */,
 				04316137288981320050DB2A /* Services */,
-				0431612828897FCE0050DB2A /* Jacaranda_CardApp.swift */,
+				04E52221292D0152000D4AFC /* Fonts */,
 				0431612C28897FCF0050DB2A /* Assets.xcassets */,
 				0431612E28897FCF0050DB2A /* Preview Content */,
 			);
@@ -203,6 +216,19 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		04E52221292D0152000D4AFC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				04E52234292D0547000D4AFC /* DMSans-Bold.ttf */,
+				04E52235292D0547000D4AFC /* DMSans-BoldItalic.ttf */,
+				04E52237292D0547000D4AFC /* DMSans-Italic.ttf */,
+				04E52236292D0547000D4AFC /* DMSans-Medium.ttf */,
+				04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */,
+				04E52233292D0547000D4AFC /* DMSans-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -262,10 +288,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0431615E288AFC320050DB2A /* beauties.json in Resources */,
+				04E5223A292D0547000D4AFC /* DMSans-Bold.ttf in Resources */,
 				0431613028897FCF0050DB2A /* Preview Assets.xcassets in Resources */,
+				04E52238292D0547000D4AFC /* DMSans-MediumItalic.ttf in Resources */,
+				04E52239292D0547000D4AFC /* DMSans-Regular.ttf in Resources */,
+				04E5223B292D0547000D4AFC /* DMSans-BoldItalic.ttf in Resources */,
+				04E5223C292D0547000D4AFC /* DMSans-Medium.ttf in Resources */,
 				0431612D28897FCF0050DB2A /* Assets.xcassets in Resources */,
 				04316160288AFC8E0050DB2A /* tourisms.json in Resources */,
 				0431616A288B03800050DB2A /* restaurants.json in Resources */,
+				04E5223D292D0547000D4AFC /* DMSans-Italic.ttf in Resources */,
 				04316146288A6A230050DB2A /* activities.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

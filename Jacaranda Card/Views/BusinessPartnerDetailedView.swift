@@ -34,19 +34,16 @@ struct BusinessPartnerDetailedView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 15) {
                         Text(businessPartner.name)
-                            .font(.system(size: 14))
-                            .fontWeight(.bold)
+                            .font(Font.custom("DMSans-Bold", size: 14))
                             .foregroundColor(.black)
                             .padding(.top, 18)
                         
                         Text("+61 123 456 789")
-                            .font(.system(size: 12))
-                            .fontWeight(.medium)
+                            .font(Font.custom("DMSans-Medium", size: 12))
                             .foregroundColor(Color(red: 30/255, green: 30/255, blue: 30/255))
                         
                         Text(businessPartner.address)
-                            .font(.system(size: 12))
-                            .fontWeight(.regular)
+                            .font(Font.custom("DMSans-Regular", size: 12))
                             .foregroundColor(Color("businessPartnerAddressColor"))
                             .padding(.bottom, 14)
                     }
@@ -62,8 +59,7 @@ struct BusinessPartnerDetailedView: View {
                     Spacer()
                     VStack(alignment: .leading, spacing: 15) {
                         Text("Location")
-                            .font(.system(size: 14))
-                            .fontWeight(.bold)
+                            .font(Font.custom("DMSans-Bold", size: 14))
                             .foregroundColor(.black)
                             .padding(.top, 18)
                             .padding(.bottom, 8)

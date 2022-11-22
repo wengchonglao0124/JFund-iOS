@@ -22,8 +22,7 @@ struct HomeBusinessPartnerView: View {
         VStack(alignment: .leading, spacing: 0) {
             
             Text("Business Partner")
-                .font(.system(size: 14))
-                .fontWeight(.bold)
+                .font(Font.custom("DMSans-Bold", size: 14))
                 .foregroundColor(Color("businessPartnerTextColor"))
                 .padding(.top, 16)
                 .padding(.bottom, 20)
@@ -34,8 +33,7 @@ struct HomeBusinessPartnerView: View {
                 HStack {
                     // MARK: Restaurant Tab
                     Text("Restaurant")
-                        .font(.system(size: 12))
-                        .fontWeight(.bold)
+                        .font(Font.custom("DMSans-Bold", size: 12))
                         .padding(.vertical, 6.5)
                         .padding(.horizontal, 18)
                         .foregroundColor({
@@ -64,8 +62,7 @@ struct HomeBusinessPartnerView: View {
                     
                     // MARK: Beauty Tab
                     Text("Beauty")
-                        .font(.system(size: 12))
-                        .fontWeight(.bold)
+                        .font(Font.custom("DMSans-Bold", size: 12))
                         .padding(.vertical, 6.5)
                         .padding(.horizontal, 18)
                         .foregroundColor({
@@ -94,8 +91,7 @@ struct HomeBusinessPartnerView: View {
                     
                     // MARK: Tourism Tab
                     Text("Tourism")
-                        .font(.system(size: 12))
-                        .fontWeight(.bold)
+                        .font(Font.custom("DMSans-Bold", size: 12))
                         .padding(.vertical, 6.5)
                         .padding(.horizontal, 18)
                         .foregroundColor({
