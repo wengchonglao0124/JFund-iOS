@@ -29,12 +29,12 @@ struct JacarandaTabView: View {
                     VStack {
                         if selectionIndex == 1 {
                             Image("homeSelected")
-                            Text("Home")
                         }
                         else {
                             Image("home")
-                            Text("Home")
                         }
+                        Text("Home")
+                            .font(Font.custom("DMSans-Bold", size: 12))
                     }
                 })
                 .tag(1)
@@ -52,6 +52,7 @@ struct JacarandaTabView: View {
                                 Image("activity")
                             }
                             Text("Activity")
+                                .font(Font.custom("DMSans-Bold", size: 12))
                         }
                     })
                     .tag(2)
@@ -69,6 +70,7 @@ struct JacarandaTabView: View {
                                 Image("profile")
                             }
                             Text("Profile")
+                                .font(Font.custom("DMSans-Bold", size: 12))
                         }
                     })
                     .tag(3)
