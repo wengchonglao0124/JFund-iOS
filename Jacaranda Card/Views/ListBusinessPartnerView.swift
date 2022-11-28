@@ -39,6 +39,7 @@ struct ListBusinessPartnerView: View {
                     Text(businessPartner.address)
                         .font(Font.custom("DMSans-Regular", size: 10))
                         .foregroundColor(Color("businessPartnerAddressColor"))
+                        .multilineTextAlignment(.leading)
                 }
                 Spacer()
             }

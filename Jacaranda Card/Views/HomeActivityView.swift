@@ -61,7 +61,7 @@ struct HomeActivityView: View {
                             }
                             
                             Button {
-                                tabViewSelectionIndex = 2
+                                tabViewSelectionIndex = 3
                             } label: {
                                 Text("Show all")
                                     .font(Font.custom("DMSans-Bold", size: 14))

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040F01FB293494AB0098ACFE /* JacarandaShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F01FA293494AB0098ACFE /* JacarandaShopView.swift */; };
+		040F01FD2934961C0098ACFE /* ShopOnlineStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F01FC2934961C0098ACFE /* ShopOnlineStoreView.swift */; };
 		041EA324289F8D7700FDD336 /* ConfirmPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EA323289F8D7700FDD336 /* ConfirmPaymentView.swift */; };
 		041EA326289FA86500FDD336 /* SuccessPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EA325289FA86500FDD336 /* SuccessPaymentView.swift */; };
 		041EA328289FB29B00FDD336 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EA327289FB29B00FDD336 /* LoadingView.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040F01FA293494AB0098ACFE /* JacarandaShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaShopView.swift; sourceTree = "<group>"; };
+		040F01FC2934961C0098ACFE /* ShopOnlineStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopOnlineStoreView.swift; sourceTree = "<group>"; };
 		041EA323289F8D7700FDD336 /* ConfirmPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentView.swift; sourceTree = "<group>"; };
 		041EA325289FA86500FDD336 /* SuccessPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPaymentView.swift; sourceTree = "<group>"; };
 		041EA327289FB29B00FDD336 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			children = (
 				0431612A28897FCE0050DB2A /* JacarandaTabView.swift */,
 				0431613B288982710050DB2A /* JacarandaHomeView.swift */,
+				040F01FA293494AB0098ACFE /* JacarandaShopView.swift */,
 				0431613D2889828E0050DB2A /* JacarandaActivityView.swift */,
 				0431613F288982A50050DB2A /* JacarandaProfileView.swift */,
 				044A91562896A300008D5864 /* JacarandaPayView.swift */,
@@ -164,6 +169,7 @@
 				04316143288A693D0050DB2A /* HomeActivityView.swift */,
 				0431614F288A97410050DB2A /* HomeEventView.swift */,
 				04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */,
+				040F01FC2934961C0098ACFE /* ShopOnlineStoreView.swift */,
 				0431614D288A7E040050DB2A /* ListActivityView.swift */,
 				04452BB9290EB028009E9374 /* ActivityDetailedView.swift */,
 				04316157288AED870050DB2A /* ListBusinessPartnerView.swift */,
@@ -309,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040F01FB293494AB0098ACFE /* JacarandaShopView.swift in Sources */,
 				041EA33228A111B200FDD336 /* TextFieldModifer.swift in Sources */,
 				0431614C288A70080050DB2A /* ActivityModel.swift in Sources */,
 				044A91572896A300008D5864 /* JacarandaPayView.swift in Sources */,
@@ -335,6 +342,7 @@
 				04316150288A97410050DB2A /* HomeEventView.swift in Sources */,
 				04452BBA290EB028009E9374 /* ActivityDetailedView.swift in Sources */,
 				0431614A288A6C5D0050DB2A /* Activity.swift in Sources */,
+				040F01FD2934961C0098ACFE /* ShopOnlineStoreView.swift in Sources */,
 				04316158288AED870050DB2A /* ListBusinessPartnerView.swift in Sources */,
 				0431612B28897FCE0050DB2A /* JacarandaTabView.swift in Sources */,
 				0431612928897FCE0050DB2A /* Jacaranda_CardApp.swift in Sources */,

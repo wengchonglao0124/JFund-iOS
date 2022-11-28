@@ -9,155 +9,26 @@ import SwiftUI
 
 struct HomeBusinessPartnerView: View {
     
-    @State var selectedTab = "restaurant"
     @State var businessPartnerModel: BusinessPartnerModel
-    
-    var screenHeight: CGFloat
-    
-    // For Segment Tab Slide Animation
-    @Namespace var animation
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
-            
+            // MARK: Business Partner Title Section
             Text("Business Partner")
                 .font(Font.custom("DMSans-Bold", size: 14))
                 .foregroundColor(Color("businessPartnerTextColor"))
-                .padding(.top, 16)
-                .padding(.bottom, 20)
+                .padding(.vertical, 16)
                 .padding(.leading, 24)
             
-            VStack {
-                // MARK: Picker Section
-                HStack {
-                    // MARK: Restaurant Tab
-                    Text("Restaurant")
-                        .font(Font.custom("DMSans-Bold", size: 12))
-                        .padding(.vertical, 6.5)
-                        .padding(.horizontal, 18)
-                        .foregroundColor({
-                            if selectedTab == "restaurant" {
-                                return Color("businessPartnerContentColor")
-                            }
-                            else {
-                                return Color.black
-                            }
-                        }())
-                        .background(
-                            ZStack {
-                                if selectedTab == "restaurant" {
-                                    Color("businessPartnerPickerColor")
-                                        .cornerRadius(20)
-                                        .matchedGeometryEffect(id: "TAB", in: animation)
-                                }
-                            }
-                        )
-                        .onTapGesture {
-                            withAnimation(.interactiveSpring(
-                                response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)){
-                                    selectedTab = "restaurant"
-                                }
-                        }
-                    
-                    // MARK: Beauty Tab
-                    Text("Beauty")
-                        .font(Font.custom("DMSans-Bold", size: 12))
-                        .padding(.vertical, 6.5)
-                        .padding(.horizontal, 18)
-                        .foregroundColor({
-                            if selectedTab == "beauty" {
-                                return Color("businessPartnerContentColor")
-                            }
-                            else {
-                                return Color.black
-                            }
-                        }())
-                        .background(
-                            ZStack {
-                                if selectedTab == "beauty" {
-                                    Color("businessPartnerPickerColor")
-                                        .cornerRadius(20)
-                                        .matchedGeometryEffect(id: "TAB", in: animation)
-                                }
-                            }
-                        )
-                        .onTapGesture {
-                            withAnimation(.interactiveSpring(
-                                response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)){
-                                    selectedTab = "beauty"
-                                }
-                        }
-                    
-                    // MARK: Tourism Tab
-                    Text("Tourism")
-                        .font(Font.custom("DMSans-Bold", size: 12))
-                        .padding(.vertical, 6.5)
-                        .padding(.horizontal, 18)
-                        .foregroundColor({
-                            if selectedTab == "tourism" {
-                                return Color("businessPartnerContentColor")
-                            }
-                            else {
-                                return Color.black
-                            }
-                        }())
-                        .background(
-                            ZStack {
-                                if selectedTab == "tourism" {
-                                    Color("businessPartnerPickerColor")
-                                        .cornerRadius(20)
-                                        .matchedGeometryEffect(id: "TAB", in: animation)
-                                }
-                            }
-                        )
-                        .onTapGesture {
-                            withAnimation(.interactiveSpring(
-                                response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)){
-                                    selectedTab = "tourism"
-                                }
-                        }
-                }
-                
-                VStack {
-                    TabView(selection: $selectedTab) {
-
-                        // MARK: Restaurant List
-                        ScrollView(showsIndicators: false) {
-                            LazyVStack {
-                                ForEach(businessPartnerModel.restaurants) { restaurant in
-                                    ListBusinessPartnerView(businessPartner: restaurant)
-                                }
-                            }
-                        }
-                        .tag("restaurant")
-
-                        // MARK: Beauty List
-                        ScrollView(showsIndicators: false) {
-                            LazyVStack {
-                                ForEach(businessPartnerModel.beauties) { beauty in
-                                    ListBusinessPartnerView(businessPartner: beauty)
-                                }
-                            }
-                        }
-                        .tag("beauty")
-
-                        // MARK: Tourism List
-                        ScrollView(showsIndicators: false) {
-                            LazyVStack {
-                                ForEach(businessPartnerModel.tourisms) { tourism in
-                                    ListBusinessPartnerView(businessPartner: tourism)
-                                }
-                            }
-                        }
-                        .tag("tourism")
-                    }
-                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            // MARK: Restaurant List Section
+            LazyVStack {
+                ForEach(businessPartnerModel.restaurants) { restaurant in
+                    ListBusinessPartnerView(businessPartner: restaurant)
                 }
             }
             .padding(.horizontal, 27.7)
         }
-        .frame(height: screenHeight)
         .background(Color("homeBusinessPartnerSectionColor"))
     }
 }
@@ -166,12 +37,12 @@ struct HomeBusinessPartnerView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ScrollView(showsIndicators: false) {
-                HomeBusinessPartnerView(businessPartnerModel: BusinessPartnerModel(), screenHeight: UIScreen.main.bounds.height)
+                HomeBusinessPartnerView(businessPartnerModel: BusinessPartnerModel())
             }
             //.previewLayout(.sizeThatFits)
             
             ScrollView(showsIndicators: false) {
-                HomeBusinessPartnerView(businessPartnerModel: BusinessPartnerModel(), screenHeight: UIScreen.main.bounds.height)
+                HomeBusinessPartnerView(businessPartnerModel: BusinessPartnerModel())
             }
             .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
         }

@@ -22,9 +22,7 @@ struct JacarandaTabView: View {
             TabView(selection: $selectionIndex) {
                 
                 // MARK: Home View
-                GeometryReader { geo in
-                    JacarandaHomeView(screenHeight: geo.size.height, offsetPosition: geo.frame(in: .global).minY, tabViewSelectionIndex: $selectionIndex)
-                }
+                JacarandaHomeView(tabViewSelectionIndex: $selectionIndex)
                 .tabItem({
                     VStack {
                         if selectionIndex == 1 {
@@ -41,11 +39,29 @@ struct JacarandaTabView: View {
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
                 
+                // MARK: Shop View
+                JacarandaShopView()
+                .tabItem({
+                    VStack {
+                        if selectionIndex == 2 {
+                            Image("shopSelected")
+                        }
+                        else {
+                            Image("shop")
+                        }
+                        Text("Shop")
+                            .font(Font.custom("DMSans-Bold", size: 12))
+                    }
+                })
+                .tag(2)
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+                
                 // MARK: Activity View
                 JacarandaActivityView(activities: ActivityModel().activies)
                     .tabItem({
                         VStack {
-                            if selectionIndex == 2 {
+                            if selectionIndex == 3 {
                                 Image("activitySelected")
                             }
                             else {
@@ -55,7 +71,7 @@ struct JacarandaTabView: View {
                                 .font(Font.custom("DMSans-Bold", size: 12))
                         }
                     })
-                    .tag(2)
+                    .tag(3)
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
                 
@@ -63,7 +79,7 @@ struct JacarandaTabView: View {
                 JacarandaProfileView(userName: "UserName", carID: "1234 5678 3657 5623")
                     .tabItem({
                         VStack {
-                            if selectionIndex == 3 {
+                            if selectionIndex == 4 {
                                 Image("profileSelected")
                             }
                             else {
@@ -73,7 +89,7 @@ struct JacarandaTabView: View {
                                 .font(Font.custom("DMSans-Bold", size: 12))
                         }
                     })
-                    .tag(3)
+                    .tag(4)
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
             }

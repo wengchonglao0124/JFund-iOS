@@ -69,8 +69,7 @@ struct JacarandaActivityView: View {
                         ForEach(dateList, id: \.self) { date in
                             Section(header:
                                 Text(date)
-                                .font(.system(size: 12))
-                                .fontWeight(.medium)
+                                .font(Font.custom("DMSans-Medium", size: 12))
                                 .foregroundColor(Color(red: 137/255, green: 138/255, blue: 141/255))
                                 .padding(.vertical, 16)
                             ) {

@@ -9,15 +9,12 @@ import SwiftUI
 
 struct JacarandaHomeView: View {
     
-    var screenHeight: CGFloat
-    var offsetPosition: CGFloat
-    
     @Binding var tabViewSelectionIndex: Int
     
     var body: some View {
         
         ScrollView {
-            LazyVStack(pinnedViews: .sectionHeaders) {
+            VStack(spacing: 0) {
                 // MARK: Notification Section
                 HStack {
                     Spacer()
@@ -63,12 +60,12 @@ struct JacarandaHomeView: View {
                     .padding(.bottom, 30)
                 
                 // MARK: Event Section
-                HomeEventView()
-                    .cornerRadius(16)
-                    .padding(.bottom, 30)
+//                HomeEventView()
+//                    .cornerRadius(16)
+//                    .padding(.bottom, 30)
                 
                 // MARK: Business Partner Section
-                HomeBusinessPartnerView(businessPartnerModel: BusinessPartnerModel(), screenHeight: screenHeight)
+                HomeBusinessPartnerView(businessPartnerModel: BusinessPartnerModel())
             }
         }
         .background(Color("screenBg"))
@@ -79,11 +76,11 @@ struct JacarandaHomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                JacarandaHomeView(screenHeight: UIScreen.main.bounds.height, offsetPosition: 0, tabViewSelectionIndex: .constant(1))
+                JacarandaHomeView(tabViewSelectionIndex: .constant(1))
             }
         
             NavigationView {
-                JacarandaHomeView(screenHeight: UIScreen.main.bounds.height, offsetPosition: 0, tabViewSelectionIndex: .constant(1))
+                JacarandaHomeView(tabViewSelectionIndex: .constant(1))
                     .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
             }
         }
