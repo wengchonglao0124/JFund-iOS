@@ -11,8 +11,8 @@ import SwiftUI
 struct Jacaranda_CardApp: App {
     var body: some Scene {
         WindowGroup {
-            //JacarandaTabView()
-            JacarandaSignInView()
+            JacarandaTabView()
+            //JacarandaSignInView()
         }
     }
 }

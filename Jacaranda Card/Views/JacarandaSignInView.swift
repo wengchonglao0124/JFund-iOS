@@ -150,6 +150,23 @@ struct JacarandaSignInView: View {
                     Spacer()
                 }
                 Spacer()
+                
+                // MARK: Sign Up Section
+                HStack {
+                    Spacer()
+                    Text("Don’t have an account?")
+                        .font(Font.custom("DMSans-Regular", size: 15))
+                        .foregroundColor(Color(red: 18/255, green: 13/255, blue: 38/255))
+                        .padding(.trailing, 2)
+                    
+                    NavigationLink(destination: JacarandaSignUpView()) {
+                        Text("Sign up")
+                            .font(Font.custom("DMSans-Regular", size: 15))
+                            .foregroundColor(Color(red: 87/255, green: 40/255, blue: 126/255))
+                    }
+                    Spacer()
+                }
+                .padding(.bottom, 15)
             }
             .padding(.top, 69)
             .padding(.leading, 32)
@@ -165,6 +182,11 @@ struct JacarandaSignInView: View {
 
 struct JacarandaSignInView_Previews: PreviewProvider {
     static var previews: some View {
-        JacarandaSignInView()
+        Group {
+            JacarandaSignInView()
+            
+            JacarandaSignInView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+        }
     }
 }

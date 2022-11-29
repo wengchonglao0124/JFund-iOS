@@ -11,6 +11,7 @@
 		040F01FD2934961C0098ACFE /* ShopOnlineStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F01FC2934961C0098ACFE /* ShopOnlineStoreView.swift */; };
 		040F01FF2935F4750098ACFE /* JacarandaSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F01FE2935F4750098ACFE /* JacarandaSignInView.swift */; };
 		040F0201293600AB0098ACFE /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F0200293600AB0098ACFE /* ForgotPasswordView.swift */; };
+		040F020329360AB50098ACFE /* JacarandaSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F020229360AB50098ACFE /* JacarandaSignUpView.swift */; };
 		041EA324289F8D7700FDD336 /* ConfirmPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EA323289F8D7700FDD336 /* ConfirmPaymentView.swift */; };
 		041EA326289FA86500FDD336 /* SuccessPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EA325289FA86500FDD336 /* SuccessPaymentView.swift */; };
 		041EA328289FB29B00FDD336 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EA327289FB29B00FDD336 /* LoadingView.swift */; };
@@ -60,6 +61,7 @@
 		040F01FC2934961C0098ACFE /* ShopOnlineStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopOnlineStoreView.swift; sourceTree = "<group>"; };
 		040F01FE2935F4750098ACFE /* JacarandaSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaSignInView.swift; sourceTree = "<group>"; };
 		040F0200293600AB0098ACFE /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		040F020229360AB50098ACFE /* JacarandaSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaSignUpView.swift; sourceTree = "<group>"; };
 		041EA323289F8D7700FDD336 /* ConfirmPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentView.swift; sourceTree = "<group>"; };
 		041EA325289FA86500FDD336 /* SuccessPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPaymentView.swift; sourceTree = "<group>"; };
 		041EA327289FB29B00FDD336 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				040F01FE2935F4750098ACFE /* JacarandaSignInView.swift */,
+				040F020229360AB50098ACFE /* JacarandaSignUpView.swift */,
 				040F0200293600AB0098ACFE /* ForgotPasswordView.swift */,
 				0431612A28897FCE0050DB2A /* JacarandaTabView.swift */,
 				0431613B288982710050DB2A /* JacarandaHomeView.swift */,
@@ -339,6 +342,7 @@
 				0431615A288AEEDB0050DB2A /* BusinessPartner.swift in Sources */,
 				0431614E288A7E040050DB2A /* ListActivityView.swift in Sources */,
 				044A915B2896C0EF008D5864 /* PaySettingView.swift in Sources */,
+				040F020329360AB50098ACFE /* JacarandaSignUpView.swift in Sources */,
 				043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */,
 				041EA326289FA86500FDD336 /* SuccessPaymentView.swift in Sources */,
 				040F0201293600AB0098ACFE /* ForgotPasswordView.swift in Sources */,
