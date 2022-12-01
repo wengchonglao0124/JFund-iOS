@@ -177,6 +177,8 @@ struct JacarandaSignInView: View {
             emailKeyboardFocused = false
             passwordKeyboardFocused = false
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
