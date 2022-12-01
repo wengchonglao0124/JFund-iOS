@@ -76,6 +76,7 @@ struct JacarandaSignUpView: View {
                             }
                         }())
                         .keyboardType(.default)
+                        .textInputAutocapitalization(.never)
                         .focused($emailKeyboardFocused)
                 }
                 .padding(.horizontal, 12)
