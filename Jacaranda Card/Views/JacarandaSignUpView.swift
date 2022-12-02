@@ -75,7 +75,7 @@ struct JacarandaSignUpView: View {
                                 return Color("FieldTextColor")
                             }
                         }())
-                        .keyboardType(.default)
+                        .keyboardType(.emailAddress)
                         .textInputAutocapitalization(.never)
                         .focused($emailKeyboardFocused)
                 }

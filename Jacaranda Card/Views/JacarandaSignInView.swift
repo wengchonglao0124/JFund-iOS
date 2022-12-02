@@ -17,6 +17,8 @@ struct JacarandaSignInView: View {
     @FocusState private var emailKeyboardFocused: Bool
     @FocusState private var passwordKeyboardFocused: Bool
     
+    @EnvironmentObject var authentication: Authentication
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 0) {
@@ -41,7 +43,7 @@ struct JacarandaSignInView: View {
                                     return Color("FieldTextColor")
                                 }
                             }())
-                            .keyboardType(.default)
+                            .keyboardType(.emailAddress)
                             .textInputAutocapitalization(.never)
                             .focused($emailKeyboardFocused)
                     }
@@ -139,6 +141,8 @@ struct JacarandaSignInView: View {
                     Spacer()
                     Button {
                         print("Sign In")
+                        authentication.updateValidation(success: true)
+                        
                     } label: {
                         if email.isEmpty || password.isEmpty {
                             Image("signInButtonInactive")

@@ -29,7 +29,9 @@ struct HomeBalanceView: View {
                     .font(Font.custom("DMSans-Bold", size: 14))
             }
             Spacer()
-            Image("addBalance")
+            NavigationLink(destination: BalanceTopUpView()) {
+                Image("addBalance")
+            }
         }
         .padding([.top, .bottom], 20)
         .padding(.leading, 27)

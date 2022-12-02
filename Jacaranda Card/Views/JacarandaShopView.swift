@@ -18,9 +18,18 @@ struct JacarandaShopView: View {
                 // MARK: Promotion Section
                 TabView {
                     ForEach(promotionList, id: \.self) { imageName in
-                        Image(imageName)
-                            .frame(width: 320, height: 160)
-                            .cornerRadius(16)
+                        if imageName == "pizzaHutPromotion" {
+                            NavigationLink(destination: TestingPromotionView(companyName: "Pizza Hut", title: "Hawaiian Pizza & Ice cream 10% off in Valentines day ", description: "Pizza Hut Hawaiian Pizza & Ice cream 10% off in 14/02 Valentines day (not avaliable with any other deals)\n\nOnly in Valentines day!! ", endDate: Date())) {
+                                Image(imageName)
+                                    .frame(width: 320, height: 160)
+                                    .cornerRadius(16)
+                            }
+                        }
+                        else {
+                            Image(imageName)
+                                .frame(width: 320, height: 160)
+                                .cornerRadius(16)
+                        }
                     }
                 }
                 .frame(width: 320, height: 180)
