@@ -219,6 +219,7 @@ struct JacarandaProfileView: View {
             
             ConfirmLogoutView(isPresenting: $isShowingLogout)
         }
+        .padding(.top, 1)
         .background(Color("screenBg"))
     }
 }

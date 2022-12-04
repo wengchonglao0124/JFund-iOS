@@ -68,6 +68,7 @@ struct JacarandaHomeView: View {
                 HomeBusinessPartnerView(businessPartnerModel: BusinessPartnerModel())
             }
         }
+        .padding(.top, 1)
         .background(Color("screenBg"))
     }
 }
@@ -81,8 +82,8 @@ struct JacarandaHomeView_Previews: PreviewProvider {
         
             NavigationView {
                 JacarandaHomeView(tabViewSelectionIndex: .constant(1))
-                    .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
             }
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
         }
     }
 }

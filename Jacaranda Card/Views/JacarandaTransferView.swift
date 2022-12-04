@@ -88,6 +88,11 @@ struct JacarandaTransferView: View {
                                     .padding(.leading, 12)
                                     .keyboardType(.numberPad)
                                     .focused($transferAmountKeyboardFocused)
+                                    .onAppear {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                            transferAmountKeyboardFocused = true
+                                        }
+                                    }
                                     .disabled({
                                         if isLoading {
                                             return true
@@ -165,6 +170,11 @@ struct JacarandaTransferView: View {
                                 .padding(.leading, 30)
                                 .keyboardType(.numberPad)
                                 .focused($userIDKeyboardFocused)
+                                .onAppear {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        userIDKeyboardFocused = true
+                                    }
+                                }
                         }
                         .background(Color(red: 252/255, green: 252/255, blue: 252/255))
                         

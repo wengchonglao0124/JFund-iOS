@@ -41,7 +41,7 @@ struct LoadingView: View {
             }
             .onAppear(
                 perform: {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                         isLoading = false
                         isFinished = true
                     }
