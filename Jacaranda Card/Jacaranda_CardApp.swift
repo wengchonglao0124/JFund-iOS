@@ -10,18 +10,9 @@ import SwiftUI
 @main
 struct Jacaranda_CardApp: App {
     
-    @StateObject var authentication = Authentication()
-    
     var body: some Scene {
         WindowGroup {
-            if authentication.isValidated {
-                JacarandaTabView()
-                    .environmentObject(authentication)
-            }
-            else {
-                JacarandaSignInView()
-                    .environmentObject(authentication)
-            }
+            JacarandaInitialView()
         }
     }
 }
