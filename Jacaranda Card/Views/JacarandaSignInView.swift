@@ -230,7 +230,9 @@ struct JacarandaSignInView: View {
         .onTapGesture {
             if emailKeyboardFocused {
                 emailKeyboardFocused = false
-            } else if passwordKeyboardFocused {
+            }
+            
+            if passwordKeyboardFocused {
                 passwordKeyboardFocused = false
             }
         }

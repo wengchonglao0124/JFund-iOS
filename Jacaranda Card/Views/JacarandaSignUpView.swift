@@ -26,6 +26,8 @@ struct JacarandaSignUpView: View {
     @State var acceptInfo = false
     @State var invalidMessages = ""
     
+    @State var destinationKey: String? = nil
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             
@@ -59,6 +61,9 @@ struct JacarandaSignUpView: View {
             }
             .cornerRadius(5)
             .padding(.bottom, 22)
+            .onTapGesture {
+                userNameKeyboardFocused = true
+            }
             
             // MARK: Email Input Section
             VStack {
@@ -86,6 +91,9 @@ struct JacarandaSignUpView: View {
             }
             .cornerRadius(5)
             .padding(.bottom, 22)
+            .onTapGesture {
+                emailKeyboardFocused = true
+            }
             
             // MARK: Password Input Section
             VStack {
@@ -138,6 +146,9 @@ struct JacarandaSignUpView: View {
             }
             .cornerRadius(5)
             .padding(.bottom, 22)
+            .onTapGesture {
+                passwordKeyboardFocused = true
+            }
             
             // MARK: Confirm Password Input Section
             VStack {
@@ -190,6 +201,9 @@ struct JacarandaSignUpView: View {
             }
             .cornerRadius(5)
             .padding(.bottom, 40)
+            .onTapGesture {
+                confirmPasswordKeyboardFocused = true
+            }
             
             // MARK: Invalid Messages Section
             if !invalidMessages.isEmpty {
@@ -207,6 +221,12 @@ struct JacarandaSignUpView: View {
             HStack {
                 Spacer()
                 Button {
+                    
+                    userNameKeyboardFocused = false
+                    emailKeyboardFocused = false
+                    passwordKeyboardFocused = false
+                    confirmPasswordKeyboardFocused = false
+                    
                     invalidMessages = ""
                     if !PasswordService.checkSamePasswords(password1: password, password2: confirmPassword) {
                         print("Please make sure your passwords match.")
@@ -218,6 +238,7 @@ struct JacarandaSignUpView: View {
                     }
                     else {
                         print("Sign Up")
+                        destinationKey = "emailVerication"
                     }
                     
                 } label: {
@@ -225,12 +246,15 @@ struct JacarandaSignUpView: View {
                         Image("signUpButtonInactive")
                     }
                     else {
-                        NavigationLink(destination: EmailVerificationView(navigationTitle: "")) {
-                            Image("signUpButton")
-                        }
+                        Image("signUpButton")
                     }
                 }
                 .disabled(userName.isEmpty || email.isEmpty || password.isEmpty || confirmPassword.isEmpty)
+                .background(
+                    NavigationLink(destination: EmailVerificationView(navigationTitle: ""), tag: "emailVerication", selection: $destinationKey) {
+                        EmptyView()
+                    }
+                )
                 Spacer()
             }
             .padding(.bottom, 30)
@@ -294,10 +318,21 @@ struct JacarandaSignUpView: View {
                 .padding(0)
         })
         .onTapGesture {
-            userNameKeyboardFocused = false
-            emailKeyboardFocused = false
-            passwordKeyboardFocused = false
-            confirmPasswordKeyboardFocused = false
+            if userNameKeyboardFocused {
+                userNameKeyboardFocused = false
+            }
+            
+            if emailKeyboardFocused {
+                emailKeyboardFocused = false
+            }
+            
+            if passwordKeyboardFocused {
+                passwordKeyboardFocused = false
+            }
+            
+            if confirmPasswordKeyboardFocused {
+                confirmPasswordKeyboardFocused = false
+            }
         }
         .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
         
@@ -305,6 +340,20 @@ struct JacarandaSignUpView: View {
                 self.mode.wrappedValue.dismiss()
             }
         }))
+        .onSubmit {
+            if userNameKeyboardFocused {
+                userNameKeyboardFocused = false
+                emailKeyboardFocused = true
+            } else if emailKeyboardFocused {
+                emailKeyboardFocused = false
+                passwordKeyboardFocused = true
+            } else if passwordKeyboardFocused {
+                passwordKeyboardFocused = false
+                confirmPasswordKeyboardFocused = true
+            } else if confirmPasswordKeyboardFocused {
+                confirmPasswordKeyboardFocused = false
+            }
+        }
     }
 }
 
