@@ -52,6 +52,12 @@
 		04316173288D921D0050DB2A /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316172288D921D0050DB2A /* DateService.swift */; };
 		0436ACDC293CFB1600C90050 /* JacarandaInitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACDB293CFB1600C90050 /* JacarandaInitialView.swift */; };
 		0436ACE0293CFC4000C90050 /* NetworkManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACDF293CFC4000C90050 /* NetworkManagerViewModel.swift */; };
+		0436ACE5293DAF1F00C90050 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 0436ACE4293DAF1F00C90050 /* SwiftKeychainWrapper */; };
+		0436ACE7293DAFCB00C90050 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACE6293DAFCB00C90050 /* KeychainService.swift */; };
+		0436ACE9293DB12C00C90050 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACE8293DB12C00C90050 /* Credentials.swift */; };
+		0436ACEB293DC56800C90050 /* UserDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACEA293DC56800C90050 /* UserDataViewModel.swift */; };
+		0436ACED293DC85500C90050 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACEC293DC85500C90050 /* UserDataService.swift */; };
+		0436ACEF293DDE5300C90050 /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACEE293DDE5300C90050 /* EmailVerificationView.swift */; };
 		04452BBA290EB028009E9374 /* ActivityDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04452BB9290EB028009E9374 /* ActivityDetailedView.swift */; };
 		04452BBE290EBD5B009E9374 /* BusinessPartnerDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04452BBD290EBD5B009E9374 /* BusinessPartnerDetailedView.swift */; };
 		044A91572896A300008D5864 /* JacarandaPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A91562896A300008D5864 /* JacarandaPayView.swift */; };
@@ -113,6 +119,11 @@
 		04316172288D921D0050DB2A /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
 		0436ACDB293CFB1600C90050 /* JacarandaInitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaInitialView.swift; sourceTree = "<group>"; };
 		0436ACDF293CFC4000C90050 /* NetworkManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerViewModel.swift; sourceTree = "<group>"; };
+		0436ACE6293DAFCB00C90050 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		0436ACE8293DB12C00C90050 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		0436ACEA293DC56800C90050 /* UserDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewModel.swift; sourceTree = "<group>"; };
+		0436ACEC293DC85500C90050 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		0436ACEE293DDE5300C90050 /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
 		04452BB9290EB028009E9374 /* ActivityDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailedView.swift; sourceTree = "<group>"; };
 		04452BBD290EBD5B009E9374 /* BusinessPartnerDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessPartnerDetailedView.swift; sourceTree = "<group>"; };
 		044A91562896A300008D5864 /* JacarandaPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaPayView.swift; sourceTree = "<group>"; };
@@ -133,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0436ACE5293DAF1F00C90050 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +197,7 @@
 				0436ACDB293CFB1600C90050 /* JacarandaInitialView.swift */,
 				040F01FE2935F4750098ACFE /* JacarandaSignInView.swift */,
 				040F020229360AB50098ACFE /* JacarandaSignUpView.swift */,
+				0436ACEE293DDE5300C90050 /* EmailVerificationView.swift */,
 				040F0200293600AB0098ACFE /* ForgotPasswordView.swift */,
 				0431612A28897FCE0050DB2A /* JacarandaTabView.swift */,
 				0431613B288982710050DB2A /* JacarandaHomeView.swift */,
@@ -224,6 +237,8 @@
 				04316172288D921D0050DB2A /* DateService.swift */,
 				042E8CA92938D3A3003A2016 /* PasswordService.swift */,
 				048740A6293CA6F4001A85F3 /* WebService.swift */,
+				0436ACE6293DAFCB00C90050 /* KeychainService.swift */,
+				0436ACEC293DC85500C90050 /* UserDataService.swift */,
 				048740A5293B7033001A85F3 /* TestingAPI.playground */,
 			);
 			path = Services;
@@ -248,6 +263,7 @@
 				04316159288AEEDB0050DB2A /* BusinessPartner.swift */,
 				041EA32D28A00B8200FDD336 /* StringModifier.swift */,
 				041EA33128A111B200FDD336 /* TextFieldModifer.swift */,
+				0436ACE8293DB12C00C90050 /* Credentials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +275,7 @@
 				04316167288AFE630050DB2A /* BusinessPartnerModel.swift */,
 				042E8CAD293A2181003A2016 /* LoginViewModel.swift */,
 				0436ACDF293CFC4000C90050 /* NetworkManagerViewModel.swift */,
+				0436ACEA293DC56800C90050 /* UserDataViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -292,6 +309,9 @@
 			dependencies = (
 			);
 			name = "Jacaranda Card";
+			packageProductDependencies = (
+				0436ACE4293DAF1F00C90050 /* SwiftKeychainWrapper */,
+			);
 			productName = "Jacaranda Card";
 			productReference = 0431612528897FCE0050DB2A /* Jacaranda Card.app */;
 			productType = "com.apple.product-type.application";
@@ -320,6 +340,9 @@
 				Base,
 			);
 			mainGroup = 0431611C28897FCE0050DB2A;
+			packageReferences = (
+				0436ACE3293DAF1F00C90050 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+			);
 			productRefGroup = 0431612628897FCE0050DB2A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -363,6 +386,7 @@
 				042E8CA82938D22C003A2016 /* TermsOfUseView.swift in Sources */,
 				044A91572896A300008D5864 /* JacarandaPayView.swift in Sources */,
 				04316140288982A50050DB2A /* JacarandaProfileView.swift in Sources */,
+				0436ACE7293DAFCB00C90050 /* KeychainService.swift in Sources */,
 				04316164288AFDDA0050DB2A /* BeautyDataService.swift in Sources */,
 				042E8CAA2938D3A3003A2016 /* PasswordService.swift in Sources */,
 				048740A7293CA6F4001A85F3 /* WebService.swift in Sources */,
@@ -378,11 +402,14 @@
 				041EA324289F8D7700FDD336 /* ConfirmPaymentView.swift in Sources */,
 				041EA328289FB29B00FDD336 /* LoadingView.swift in Sources */,
 				042E8CB2293A2468003A2016 /* ConfirmLogoutView.swift in Sources */,
+				0436ACEB293DC56800C90050 /* UserDataViewModel.swift in Sources */,
 				040F01FF2935F4750098ACFE /* JacarandaSignInView.swift in Sources */,
 				0431615A288AEEDB0050DB2A /* BusinessPartner.swift in Sources */,
 				0431614E288A7E040050DB2A /* ListActivityView.swift in Sources */,
+				0436ACE9293DB12C00C90050 /* Credentials.swift in Sources */,
 				044A915B2896C0EF008D5864 /* PaySettingView.swift in Sources */,
 				040F020329360AB50098ACFE /* JacarandaSignUpView.swift in Sources */,
+				0436ACED293DC85500C90050 /* UserDataService.swift in Sources */,
 				043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */,
 				041EA326289FA86500FDD336 /* SuccessPaymentView.swift in Sources */,
 				040F0201293600AB0098ACFE /* ForgotPasswordView.swift in Sources */,
@@ -394,6 +421,7 @@
 				041EA32E28A00B8200FDD336 /* StringModifier.swift in Sources */,
 				04316150288A97410050DB2A /* HomeEventView.swift in Sources */,
 				04452BBA290EB028009E9374 /* ActivityDetailedView.swift in Sources */,
+				0436ACEF293DDE5300C90050 /* EmailVerificationView.swift in Sources */,
 				042E8CBA293A400A003A2016 /* Authentication.swift in Sources */,
 				0431614A288A6C5D0050DB2A /* Activity.swift in Sources */,
 				040F01FD2934961C0098ACFE /* ShopOnlineStoreView.swift in Sources */,
@@ -613,6 +641,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0436ACE3293DAF1F00C90050 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0436ACE4293DAF1F00C90050 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0436ACE3293DAF1F00C90050 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0431611D28897FCE0050DB2A /* Project object */;
 }

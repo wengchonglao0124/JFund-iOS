@@ -46,6 +46,7 @@ struct ConfirmLogoutView: View {
                                 print("Yes: Are you sure to log out?")
                                 isPresenting = false
                                 authentication.updateValidation(success: false)
+                                KeychainService.removeCredentials()
                                 
                             } label: {
                                 Text("Log out")

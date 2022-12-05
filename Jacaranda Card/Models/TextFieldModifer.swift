@@ -56,6 +56,19 @@ struct TextFieldCurrencyModifer: ViewModifier {
 }
 
 
+struct TextFieldLimitTextModifer: ViewModifier {
+    @Binding var value: String
+    var length: Int
+
+    func body(content: Content) -> some View {
+        content
+            .onReceive(value.publisher.collect()) {
+                value = String($0.prefix(length))
+            }
+    }
+}
+
+
 extension View {
     func limitInputLength(value: Binding<String>, length: Int) -> some View {
         self.modifier(TextFieldLimitModifer(value: value, length: length))
@@ -63,5 +76,9 @@ extension View {
     
     func modifyInputCurrency(value: Binding<String>) -> some View {
         self.modifier(TextFieldCurrencyModifer(value: value))
+    }
+    
+    func limitInputTextLength(value: Binding<String>, length: Int) -> some View {
+        self.modifier(TextFieldLimitTextModifer(value: value, length: length))
     }
 }

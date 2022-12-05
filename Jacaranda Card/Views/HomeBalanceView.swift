@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeBalanceView: View {
     
-    @State var balance: String
+    var balance: String
     var carID: String
     
     var body: some View {

@@ -15,7 +15,14 @@ class LoginViewModel: ObservableObject {
             
             switch result {
             case .success(let data):
-                completion(true)
+                
+                let credentials = Credentials.decode(data)
+                if KeychainService.saveCredentials(credentials) {
+                    completion(true)
+                }
+                else {
+                    completion(false)
+                }
                 
             case .failure(let error):
                 print(error.localizedDescription)

@@ -219,12 +219,15 @@ struct JacarandaSignUpView: View {
                     else {
                         print("Sign Up")
                     }
+                    
                 } label: {
                     if userName.isEmpty || email.isEmpty || password.isEmpty || confirmPassword.isEmpty {
                         Image("signUpButtonInactive")
                     }
                     else {
-                        Image("signUpButton")
+                        NavigationLink(destination: EmailVerificationView(navigationTitle: "")) {
+                            Image("signUpButton")
+                        }
                     }
                 }
                 .disabled(userName.isEmpty || email.isEmpty || password.isEmpty || confirmPassword.isEmpty)

@@ -11,6 +11,8 @@ struct JacarandaHomeView: View {
     
     @Binding var tabViewSelectionIndex: Int
     
+    @StateObject var userDataVM = UserDataViewModel()
+    
     var body: some View {
         
         ScrollView {
@@ -24,7 +26,7 @@ struct JacarandaHomeView: View {
                 .padding(.bottom, 14)
                 
                 // MARK: Balance Section
-                HomeBalanceView(balance: "0.00", carID: "1234 5678 3657 5623")
+                HomeBalanceView(balance: userDataVM.userBalance, carID: userDataVM.getUserID())
                     .cornerRadius(16)
                     .padding([.leading, .trailing], 20)
                     .padding(.bottom, 30)
@@ -32,7 +34,7 @@ struct JacarandaHomeView: View {
                 // MARK: Payment Section
                 HStack {
                     Spacer()
-                    NavigationLink(destination: JacarandaPayView(username: "Lilyxoxo", carID: "1234 5678 3657 5623")) {
+                    NavigationLink(destination: JacarandaPayView(username: "Lilyxoxo", carID: userDataVM.getUserID())) {
                         VStack {
                             Image("payButton")
                             Text("Pay")
@@ -75,15 +77,21 @@ struct JacarandaHomeView: View {
 
 struct JacarandaHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            NavigationView {
-                JacarandaHomeView(tabViewSelectionIndex: .constant(1))
-            }
         
-            NavigationView {
-                JacarandaHomeView(tabViewSelectionIndex: .constant(1))
+        let credentials = Credentials.decode("{\"UserName\":\"billylao\",\"RefreshToken\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiaWxseWxhbzg4OEBnbWFpbC5jb20iLCJleHAiOjE2NzA4MjQyNDcsImp0aSI6InJlZnJlc2hUb2tlbiJ9.tnENuGgjbK1wzbgfcN2ofvPSzw54orfGGesg5Xp7c68\",\"UserID\":\"1234567890348372\",\"AccessToken\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiaWxseWxhbzg4OEBnbWFpbC5jb20iLCJleHAiOjE2NzAzMDU4NDcsImp0aSI6ImFjY2Vzc1Rva2VuIn0.jmrb2FHgh_uJHtuy7PrdzxXL_kaJxVtl-pgLuUrOX7I\",\"info\":\"0\"}")
+        let isSuccess = KeychainService.saveCredentials(credentials)
+        
+        if isSuccess {
+            Group {
+                NavigationView {
+                    JacarandaHomeView(tabViewSelectionIndex: .constant(1))
+                }
+                
+                NavigationView {
+                    JacarandaHomeView(tabViewSelectionIndex: .constant(1))
+                }
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
             }
-            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
         }
     }
 }
