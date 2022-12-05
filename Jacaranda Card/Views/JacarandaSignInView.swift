@@ -17,7 +17,7 @@ struct JacarandaSignInView: View {
     @FocusState private var emailKeyboardFocused: Bool
     @FocusState private var passwordKeyboardFocused: Bool
     
-    @StateObject private var loginVM = LoginViewModel()
+    private var loginVM = LoginViewModel()
     @EnvironmentObject var authentication: Authentication
     
     @State var invalidMessages = ""
@@ -169,7 +169,7 @@ struct JacarandaSignInView: View {
                             isLoading = true
                             print("Sign In")
                             
-                            loginVM.login(email: email, password: password) { success in
+                            loginVM.login(email: email.trimmingCharacters(in: .whitespacesAndNewlines), password: password.trimmingCharacters(in: .whitespacesAndNewlines)) { success in
                                 
                                 if success {
                                     isLoginSuccess = true

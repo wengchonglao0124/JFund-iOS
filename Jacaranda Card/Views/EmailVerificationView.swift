@@ -13,7 +13,8 @@ struct EmailVerificationView: View {
     @GestureState private var dragOffset = CGSize.zero
     
     var navigationTitle: String
-    var parentMode: Binding<PresentationMode>?
+    var email: String
+    var serverLocation: String
     
     @FocusState private var codeKeyboardFocused: Bool
     
@@ -30,85 +31,90 @@ struct EmailVerificationView: View {
     var successSubtitle = ""
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        ZStack {
             VStack(alignment: .leading, spacing: 0) {
-                Text("Please enter the verification code")
-                    .font(Font.custom("DMSans-Medium", size: 16))
-                    .foregroundColor(Color(red: 30/255, green: 30/255, blue: 30/255))
-                    .padding(.top, 40)
-                    .padding(.bottom, 8)
-                
-                Text("We have sent a verification code to your registered email")
-                    .font(Font.custom("DMSans-Medium", size: 12))
-                    .foregroundColor(Color(red: 137/255, green: 138/255, blue: 141/255))
-                    .padding(.bottom, 64)
-            }
-            .padding(.leading, 28)
-            
-            TextField("", text: $verificationCode)
-                .frame(width: 0, height: 0)
-                .opacity(0)
-                .focused($codeKeyboardFocused)
-                .limitInputTextLength(value: $verificationCode, length: 6)
-                .keyboardType(.numberPad)
-            
-            HStack(spacing: 15) {
-                Spacer()
-                ForEach(Array(verificationCode), id: \.self) { char in
-                    Text(String(char))
-                        .font(Font.custom("DMSans-Medium", size: 20))
-                        .foregroundColor(.black)
-                        .frame(width: 40, height: 40)
-                        .background(inputBoxColor)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(inputBoxBorder, lineWidth: 1)
-                        )
-                        .cornerRadius(8)
-                        .onTapGesture {
-                            codeKeyboardFocused = true
-                        }
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Please enter the verification code")
+                        .font(Font.custom("DMSans-Medium", size: 16))
+                        .foregroundColor(Color(red: 30/255, green: 30/255, blue: 30/255))
+                        .padding(.top, 40)
+                        .padding(.bottom, 8)
+                    
+                    Text("We have sent a verification code to your registered email")
+                        .font(Font.custom("DMSans-Medium", size: 12))
+                        .foregroundColor(Color(red: 137/255, green: 138/255, blue: 141/255))
+                        .padding(.bottom, 64)
                 }
-                if verificationCode.count < 6 {
-                    let loopCount = 6 - verificationCode.count
-                    ForEach(0...loopCount-1, id: \.self) { index in
-                        Text("")
+                .padding(.leading, 28)
+                
+                TextField("", text: $verificationCode)
+                    .frame(width: 0, height: 0)
+                    .opacity(0)
+                    .focused($codeKeyboardFocused)
+                    .limitInputTextLength(value: $verificationCode, length: 6)
+                    .keyboardType(.numberPad)
+                
+                HStack(spacing: 15) {
+                    Spacer()
+                    ForEach(Array(verificationCode), id: \.self) { char in
+                        Text(String(char))
                             .font(Font.custom("DMSans-Medium", size: 20))
                             .foregroundColor(.black)
                             .frame(width: 40, height: 40)
-                            .background(Color(red: 235/255, green: 235/255, blue: 245/255, opacity: 0.2))
+                            .background(inputBoxColor)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color(red: 196/255, green: 196/255, blue: 196/255), lineWidth: 1)
+                                    .stroke(inputBoxBorder, lineWidth: 1)
                             )
                             .cornerRadius(8)
                             .onTapGesture {
                                 codeKeyboardFocused = true
                             }
                     }
+                    if verificationCode.count < 6 {
+                        let loopCount = 6 - verificationCode.count
+                        ForEach(0...loopCount-1, id: \.self) { index in
+                            Text("")
+                                .font(Font.custom("DMSans-Medium", size: 20))
+                                .foregroundColor(.black)
+                                .frame(width: 40, height: 40)
+                                .background(Color(red: 235/255, green: 235/255, blue: 245/255, opacity: 0.2))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color(red: 196/255, green: 196/255, blue: 196/255), lineWidth: 1)
+                                )
+                                .cornerRadius(8)
+                                .onTapGesture {
+                                    codeKeyboardFocused = true
+                                }
+                        }
+                    }
+                    Spacer()
                 }
-                Spacer()
-            }
-            .padding(.bottom, 42)
-            
-            HStack {
-                Spacer()
-                Text("Didn’t receive the code?")
-                    .font(Font.custom("DMSans-Medium", size: 12))
-                    .foregroundColor(Color(red: 137/255, green: 138/255, blue: 141/255))
-                    .padding(.trailing, 2)
+                .padding(.bottom, 42)
                 
-                Button {
-                    print("Resend")
-                    
-                } label: {
-                    Text("Resend")
+                HStack {
+                    Spacer()
+                    Text("Didn’t receive the code?")
                         .font(Font.custom("DMSans-Medium", size: 12))
-                        .foregroundColor(Color(red: 82/255, green: 36/255, blue: 121/255))
+                        .foregroundColor(Color(red: 137/255, green: 138/255, blue: 141/255))
+                        .padding(.trailing, 2)
+                    
+                    Button {
+                        print("Resend")
+                        
+                    } label: {
+                        Text("Resend")
+                            .font(Font.custom("DMSans-Medium", size: 12))
+                            .foregroundColor(Color(red: 82/255, green: 36/255, blue: 121/255))
+                    }
+                    Spacer()
                 }
                 Spacer()
             }
-            Spacer()
+            .disabled(isLoading)
+            
+            LoadingView(message: "Loading", isLoading: $isLoading, isFinished: .constant(true))
         }
         .background(Color(red: 246/255, green: 246/255, blue: 246/255))
         .navigationBarTitleDisplayMode(.inline)
@@ -151,15 +157,28 @@ struct EmailVerificationView: View {
         .onChange(of: verificationCode) { newValue in
             if verificationCode.count == 6 {
                 
-//                // Correct Color
-//                inputBoxColor = Color(red: 37/255, green: 194/255, blue: 110/255, opacity: 0.1)
-//                inputBoxBorder = Color(red: 37/255, green: 194/255, blue: 110/255)
-//
-//                // Incorrect Color
-//                inputBoxColor = Color(red: 252/255, green: 225/255, blue: 223/255)
-//                inputBoxBorder = Color(red: 255/255, green: 85/255, blue: 74/255)
-                isVerified = true
+                isLoading = true
                 
+                WebService.emailVerification(email: email, verificationCode: verificationCode, serverLocation: serverLocation) { result in
+                    
+                    switch result {
+                    case .success:
+                        // Correct Color
+                        inputBoxColor = Color(red: 37/255, green: 194/255, blue: 110/255, opacity: 0.1)
+                        inputBoxBorder = Color(red: 37/255, green: 194/255, blue: 110/255)
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            isVerified = true
+                        }
+                        
+                    case .failure:
+                        // Incorrect Color
+                        inputBoxColor = Color(red: 252/255, green: 225/255, blue: 223/255)
+                        inputBoxBorder = Color(red: 255/255, green: 85/255, blue: 74/255)
+                        codeKeyboardFocused = true
+                    }
+                    isLoading = false
+                }
             }
             else {
                 inputBoxColor = Color(red: 235/255, green: 235/255, blue: 245/255, opacity: 0.2)
@@ -177,11 +196,11 @@ struct EmailVerificationView_Previews: PreviewProvider {
         
         Group {
             NavigationView {
-                EmailVerificationView(navigationTitle: "", isFinished: .constant(false))
+                EmailVerificationView(navigationTitle: "", email: "", serverLocation: "", isFinished: .constant(false))
             }
             
             NavigationView {
-                EmailVerificationView(navigationTitle: "Forgot password", isFinished: .constant(false))
+                EmailVerificationView(navigationTitle: "Forgot password", email: "", serverLocation: "", isFinished: .constant(false))
             }
         }
     }
