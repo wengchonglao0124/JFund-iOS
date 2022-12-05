@@ -9,7 +9,7 @@ import SwiftUI
 
 struct JacarandaSignUpView: View {
     
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.dismiss) var dismiss
     @GestureState private var dragOffset = CGSize.zero
     
     @FocusState private var userNameKeyboardFocused: Bool
@@ -27,6 +27,8 @@ struct JacarandaSignUpView: View {
     @State var invalidMessages = ""
     
     @State var destinationKey: String? = nil
+    
+    @State var isFinish = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -251,7 +253,7 @@ struct JacarandaSignUpView: View {
                 }
                 .disabled(userName.isEmpty || email.isEmpty || password.isEmpty || confirmPassword.isEmpty)
                 .background(
-                    NavigationLink(destination: EmailVerificationView(navigationTitle: ""), tag: "emailVerication", selection: $destinationKey) {
+                    NavigationLink(destination: EmailVerificationView(navigationTitle: "", isFinished: $isFinish, successMessage: "You have created your account sucessfully!"), tag: "emailVerication", selection: $destinationKey) {
                         EmptyView()
                     }
                 )
@@ -312,7 +314,7 @@ struct JacarandaSignUpView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action : {
-            self.mode.wrappedValue.dismiss()
+            dismiss()
         }){
             Image("backArrowBlack")
                 .padding(0)
@@ -337,7 +339,7 @@ struct JacarandaSignUpView: View {
         .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
         
             if(value.startLocation.x < 20 && value.translation.width > 100) {
-                self.mode.wrappedValue.dismiss()
+                dismiss()
             }
         }))
         .onSubmit {
@@ -353,6 +355,9 @@ struct JacarandaSignUpView: View {
             } else if confirmPasswordKeyboardFocused {
                 confirmPasswordKeyboardFocused = false
             }
+        }
+        .onChange(of: isFinish) { newValue in
+            dismiss()
         }
     }
 }

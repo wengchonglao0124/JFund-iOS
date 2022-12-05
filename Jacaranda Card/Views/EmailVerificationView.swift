@@ -9,13 +9,25 @@ import SwiftUI
 
 struct EmailVerificationView: View {
     
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.dismiss) var dismiss
     @GestureState private var dragOffset = CGSize.zero
     
     var navigationTitle: String
+    var parentMode: Binding<PresentationMode>?
+    
     @FocusState private var codeKeyboardFocused: Bool
     
     @State var verificationCode = ""
+    
+    @State var inputBoxColor = Color(red: 235/255, green: 235/255, blue: 245/255, opacity: 0.2)
+    @State var inputBoxBorder = Color(red: 196/255, green: 196/255, blue: 196/255)
+    
+    @State var isLoading = false
+    @State var isVerified = false
+    @Binding var isFinished: Bool
+    
+    var successMessage = ""
+    var successSubtitle = ""
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -47,10 +59,10 @@ struct EmailVerificationView: View {
                         .font(Font.custom("DMSans-Medium", size: 20))
                         .foregroundColor(.black)
                         .frame(width: 40, height: 40)
-                        .background(Color(red: 235/255, green: 235/255, blue: 245/255, opacity: 0.2))
+                        .background(inputBoxColor)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color(red: 196/255, green: 196/255, blue: 196/255), lineWidth: 1)
+                                .stroke(inputBoxBorder, lineWidth: 1)
                         )
                         .cornerRadius(8)
                         .onTapGesture {
@@ -113,7 +125,7 @@ struct EmailVerificationView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action : {
             codeKeyboardFocused = false
-            self.mode.wrappedValue.dismiss()
+            dismiss()
         }){
             Image("backArrowBlack")
                 .padding(0)
@@ -125,7 +137,7 @@ struct EmailVerificationView: View {
         
             if(value.startLocation.x < 20 && value.translation.width > 100) {
                 codeKeyboardFocused = false
-                self.mode.wrappedValue.dismiss()
+                dismiss()
             }
         }))
         .onAppear {
@@ -133,18 +145,43 @@ struct EmailVerificationView: View {
                 codeKeyboardFocused = true
             }
         }
+        .sheet(isPresented: $isVerified) {
+            SuccessContentView(message: "You have created your account sucessfully!", subtitle: "", isPresenting: $isVerified, finishedProcess: $isFinished)
+        }
+        .onChange(of: verificationCode) { newValue in
+            if verificationCode.count == 6 {
+                
+//                // Correct Color
+//                inputBoxColor = Color(red: 37/255, green: 194/255, blue: 110/255, opacity: 0.1)
+//                inputBoxBorder = Color(red: 37/255, green: 194/255, blue: 110/255)
+//
+//                // Incorrect Color
+//                inputBoxColor = Color(red: 252/255, green: 225/255, blue: 223/255)
+//                inputBoxBorder = Color(red: 255/255, green: 85/255, blue: 74/255)
+                isVerified = true
+                
+            }
+            else {
+                inputBoxColor = Color(red: 235/255, green: 235/255, blue: 245/255, opacity: 0.2)
+                inputBoxBorder = Color(red: 196/255, green: 196/255, blue: 196/255)
+            }
+        }
+        .onChange(of: isFinished) { newValue in
+            dismiss()
+        }
     }
 }
 
 struct EmailVerificationView_Previews: PreviewProvider {
     static var previews: some View {
+        
         Group {
             NavigationView {
-                EmailVerificationView(navigationTitle: "")
+                EmailVerificationView(navigationTitle: "", isFinished: .constant(false))
             }
             
             NavigationView {
-                EmailVerificationView(navigationTitle: "Forgot password")
+                EmailVerificationView(navigationTitle: "Forgot password", isFinished: .constant(false))
             }
         }
     }

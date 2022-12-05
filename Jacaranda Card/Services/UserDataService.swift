@@ -48,6 +48,11 @@ class UserDataService {
                 return
             }
             
+            guard userDataResponse.code == "200" else {
+                completion(.failure(.custom(errorMessage: "Fail to get balance")))
+                return
+            }
+            
             guard let response = userDataResponse.data else {
                 completion(.failure(.invalidData))
                 return

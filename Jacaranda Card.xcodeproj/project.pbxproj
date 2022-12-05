@@ -58,6 +58,7 @@
 		0436ACEB293DC56800C90050 /* UserDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACEA293DC56800C90050 /* UserDataViewModel.swift */; };
 		0436ACED293DC85500C90050 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACEC293DC85500C90050 /* UserDataService.swift */; };
 		0436ACEF293DDE5300C90050 /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACEE293DDE5300C90050 /* EmailVerificationView.swift */; };
+		0436ACF1293E56D100C90050 /* SuccessContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACF0293E56D100C90050 /* SuccessContentView.swift */; };
 		04452BBA290EB028009E9374 /* ActivityDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04452BB9290EB028009E9374 /* ActivityDetailedView.swift */; };
 		04452BBE290EBD5B009E9374 /* BusinessPartnerDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04452BBD290EBD5B009E9374 /* BusinessPartnerDetailedView.swift */; };
 		044A91572896A300008D5864 /* JacarandaPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A91562896A300008D5864 /* JacarandaPayView.swift */; };
@@ -124,6 +125,7 @@
 		0436ACEA293DC56800C90050 /* UserDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewModel.swift; sourceTree = "<group>"; };
 		0436ACEC293DC85500C90050 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		0436ACEE293DDE5300C90050 /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
+		0436ACF0293E56D100C90050 /* SuccessContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessContentView.swift; sourceTree = "<group>"; };
 		04452BB9290EB028009E9374 /* ActivityDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailedView.swift; sourceTree = "<group>"; };
 		04452BBD290EBD5B009E9374 /* BusinessPartnerDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessPartnerDetailedView.swift; sourceTree = "<group>"; };
 		044A91562896A300008D5864 /* JacarandaPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaPayView.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				041EA327289FB29B00FDD336 /* LoadingView.swift */,
 				04452BBD290EBD5B009E9374 /* BusinessPartnerDetailedView.swift */,
 				042E8CA72938D22C003A2016 /* TermsOfUseView.swift */,
+				0436ACF0293E56D100C90050 /* SuccessContentView.swift */,
 				042E8CB1293A2468003A2016 /* ConfirmLogoutView.swift */,
 				042E8CAB293A1E4B003A2016 /* TestingPromotionView.swift */,
 			);
@@ -383,6 +386,7 @@
 				0436ACE0293CFC4000C90050 /* NetworkManagerViewModel.swift in Sources */,
 				041EA33228A111B200FDD336 /* TextFieldModifer.swift in Sources */,
 				0431614C288A70080050DB2A /* ActivityModel.swift in Sources */,
+				0436ACF1293E56D100C90050 /* SuccessContentView.swift in Sources */,
 				042E8CA82938D22C003A2016 /* TermsOfUseView.swift in Sources */,
 				044A91572896A300008D5864 /* JacarandaPayView.swift in Sources */,
 				04316140288982A50050DB2A /* JacarandaProfileView.swift in Sources */,

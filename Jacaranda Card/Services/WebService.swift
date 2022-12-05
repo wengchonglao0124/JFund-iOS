@@ -56,6 +56,11 @@ class WebService {
                 return
             }
             
+            guard loginResponse.code == "200" else {
+                completion(.failure(.custom(errorMessage: "Fail to Login")))
+                return
+            }
+            
             guard let response = loginResponse.data else {
                 completion(.failure(.invalidCredentials))
                 return
