@@ -65,6 +65,7 @@
 		044A91592896A465008D5864 /* JacarandaTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A91582896A465008D5864 /* JacarandaTransferView.swift */; };
 		044A915B2896C0EF008D5864 /* PaySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A915A2896C0EF008D5864 /* PaySettingView.swift */; };
 		0486914F293E64EC00E63301 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486914E293E64EC00E63301 /* SignUpViewModel.swift */; };
+		04869151293F1D5400E63301 /* InitialSetupPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04869150293F1D5400E63301 /* InitialSetupPinView.swift */; };
 		048740A7293CA6F4001A85F3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048740A6293CA6F4001A85F3 /* WebService.swift */; };
 		04E52238292D0547000D4AFC /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */; };
 		04E52239292D0547000D4AFC /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52233292D0547000D4AFC /* DMSans-Regular.ttf */; };
@@ -133,6 +134,7 @@
 		044A91582896A465008D5864 /* JacarandaTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaTransferView.swift; sourceTree = "<group>"; };
 		044A915A2896C0EF008D5864 /* PaySettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaySettingView.swift; sourceTree = "<group>"; };
 		0486914E293E64EC00E63301 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		04869150293F1D5400E63301 /* InitialSetupPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSetupPinView.swift; sourceTree = "<group>"; };
 		048740A5293B7033001A85F3 /* TestingAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestingAPI.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		048740A6293CA6F4001A85F3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				0436ACDB293CFB1600C90050 /* JacarandaInitialView.swift */,
 				040F01FE2935F4750098ACFE /* JacarandaSignInView.swift */,
+				04869150293F1D5400E63301 /* InitialSetupPinView.swift */,
 				040F020229360AB50098ACFE /* JacarandaSignUpView.swift */,
 				0436ACEE293DDE5300C90050 /* EmailVerificationView.swift */,
 				040F0200293600AB0098ACFE /* ForgotPasswordView.swift */,
@@ -428,6 +431,7 @@
 				04316162288AFCF40050DB2A /* RestaurantDataService.swift in Sources */,
 				041EA32E28A00B8200FDD336 /* StringModifier.swift in Sources */,
 				04316150288A97410050DB2A /* HomeEventView.swift in Sources */,
+				04869151293F1D5400E63301 /* InitialSetupPinView.swift in Sources */,
 				04452BBA290EB028009E9374 /* ActivityDetailedView.swift in Sources */,
 				0436ACEF293DDE5300C90050 /* EmailVerificationView.swift in Sources */,
 				042E8CBA293A400A003A2016 /* Authentication.swift in Sources */,

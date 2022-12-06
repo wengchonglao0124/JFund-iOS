@@ -25,6 +25,7 @@ enum KeychainService {
             return true
         }
         else {
+            print("Fail to save Credentials")
             return false
         }
     }

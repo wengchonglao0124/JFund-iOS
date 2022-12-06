@@ -12,6 +12,10 @@ struct Credentials: Codable {
     var AccessToken: String
     var RefreshToken: String
     
+    // info == "0": not setup payment pin
+    // info == "1": setup payment pin
+    var info: String
+    
     func encoded() -> String {
         let encoder = JSONEncoder()
         let credentialsData = try! encoder.encode(self)

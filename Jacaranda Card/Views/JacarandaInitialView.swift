@@ -10,6 +10,7 @@ import SwiftUI
 struct JacarandaInitialView: View {
     
     @StateObject var authentication = Authentication()
+    @StateObject var userDataVM = UserDataViewModel()
     
     @ObservedObject var networkManagerVM = NetworkManagerViewModel()
     
@@ -17,7 +18,14 @@ struct JacarandaInitialView: View {
         
         ZStack(alignment: .top) {
             if authentication.isValidated {
-                JacarandaTabView()
+                
+                if userDataVM.didSetupPin {
+                    JacarandaTabView()
+                }
+                else {
+                    InitialSetupPinView(type: "initial", subtitle: "Enter a 6-digit code")
+                        .environmentObject(userDataVM)
+                }
             }
             else {
                 JacarandaSignInView()
@@ -30,6 +38,9 @@ struct JacarandaInitialView: View {
             }
         }
         .environmentObject(authentication)
+        .onChange(of: authentication.isValidated) { newValue in
+            userDataVM.updateDidSetupPaymentPin()
+        }
     }
 }
 
