@@ -30,6 +30,11 @@ struct EmailVerificationView: View {
     var successMessage = ""
     var successSubtitle = ""
     
+    // Timer: 1 minutes
+    @State private var timeRemaining = 60
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -101,12 +106,39 @@ struct EmailVerificationView: View {
                         .padding(.trailing, 2)
                     
                     Button {
-                        print("Resend")
+                        if timeRemaining < 0 {
+                            print("Resend")
+                            
+                            // if success
+                            timeRemaining = 60
+                        }
                         
                     } label: {
-                        Text("Resend")
-                            .font(Font.custom("DMSans-Medium", size: 12))
-                            .foregroundColor(Color(red: 82/255, green: 36/255, blue: 121/255))
+                        if timeRemaining >= 0 {
+                            if timeRemaining == 60 {
+                                Text("01:00")
+                                .font(Font.custom("DMSans-Medium", size: 12))
+                                .foregroundColor(Color(red: 25/255, green: 73/255, blue: 216/255))
+                                .underline(true)
+                            }
+                            else if timeRemaining >= 10 {
+                                Text("00:\(timeRemaining)")
+                                .font(Font.custom("DMSans-Medium", size: 12))
+                                .foregroundColor(Color(red: 25/255, green: 73/255, blue: 216/255))
+                                .underline(true)
+                            }
+                            else {
+                                Text("00:0\(timeRemaining)")
+                                .font(Font.custom("DMSans-Medium", size: 12))
+                                .foregroundColor(Color(red: 25/255, green: 73/255, blue: 216/255))
+                                .underline(true)
+                            }
+                        }
+                        else {
+                            Text("Resend")
+                                .font(Font.custom("DMSans-Medium", size: 12))
+                                .foregroundColor(Color(red: 82/255, green: 36/255, blue: 121/255))
+                        }
                     }
                     Spacer()
                 }
@@ -187,6 +219,11 @@ struct EmailVerificationView: View {
         }
         .onChange(of: isFinished) { newValue in
             dismiss()
+        }
+        .onReceive(timer) { time in
+            if timeRemaining >= 0 {
+                timeRemaining -= 1
+            }
         }
     }
 }
