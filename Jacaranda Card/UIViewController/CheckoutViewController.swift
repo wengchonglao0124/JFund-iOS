@@ -133,7 +133,7 @@ class CheckoutViewController: UIViewController {
             return
         }
         
-        var customerConfiguration = PaymentSheet.CustomerConfiguration(id: paymentIntentCustomer, ephemeralKeySecret: paymentIntentEphemeralKey)
+        let customerConfiguration = PaymentSheet.CustomerConfiguration(id: paymentIntentCustomer, ephemeralKeySecret: paymentIntentEphemeralKey)
         var configuration = PaymentSheet.Configuration()
         configuration.merchantDisplayName = "Jacaranda, Inc."
         configuration.customer = customerConfiguration

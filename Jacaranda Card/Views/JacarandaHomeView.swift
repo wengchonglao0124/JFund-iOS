@@ -17,6 +17,13 @@ struct JacarandaHomeView: View {
     var body: some View {
         
         ScrollView {
+            PullToRefreshView(coordinateSpaceName: "pullToRefresh") {
+                // do your stuff when pulled
+                let impact = UIImpactFeedbackGenerator(style: .light)
+                impact.impactOccurred()
+                userDataVM.updateBalance()
+            }
+            
             VStack(spacing: 0) {
                 // MARK: Notification Section
                 HStack {
@@ -79,6 +86,7 @@ struct JacarandaHomeView: View {
         }
         .padding(.top, 1)
         .background(Color("screenBg"))
+        .coordinateSpace(name: "pullToRefresh")
     }
 }
 
