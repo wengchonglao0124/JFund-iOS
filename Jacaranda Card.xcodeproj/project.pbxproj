@@ -70,6 +70,8 @@
 		0486917E294097FA00E63301 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486917D294097FA00E63301 /* CheckoutViewController.swift */; };
 		048691802940987900E63301 /* StripeTopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486917F2940987900E63301 /* StripeTopUpView.swift */; };
 		048691822940EC9D00E63301 /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048691812940EC9D00E63301 /* PullToRefreshView.swift */; };
+		048691842940F1D800E63301 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048691832940F1D800E63301 /* TransferViewModel.swift */; };
+		048691862940F23000E63301 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048691852940F23000E63301 /* PaymentService.swift */; };
 		048740A7293CA6F4001A85F3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048740A6293CA6F4001A85F3 /* WebService.swift */; };
 		04E52238292D0547000D4AFC /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */; };
 		04E52239292D0547000D4AFC /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52233292D0547000D4AFC /* DMSans-Regular.ttf */; };
@@ -142,6 +144,8 @@
 		0486917D294097FA00E63301 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		0486917F2940987900E63301 /* StripeTopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeTopUpView.swift; sourceTree = "<group>"; };
 		048691812940EC9D00E63301 /* PullToRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
+		048691832940F1D800E63301 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
+		048691852940F23000E63301 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
 		048740A5293B7033001A85F3 /* TestingAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestingAPI.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		048740A6293CA6F4001A85F3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 				048740A6293CA6F4001A85F3 /* WebService.swift */,
 				0436ACE6293DAFCB00C90050 /* KeychainService.swift */,
 				0436ACEC293DC85500C90050 /* UserDataService.swift */,
+				048691852940F23000E63301 /* PaymentService.swift */,
 				048740A5293B7033001A85F3 /* TestingAPI.playground */,
 			);
 			path = Services;
@@ -296,6 +301,7 @@
 				042E8CAD293A2181003A2016 /* LoginViewModel.swift */,
 				0436ACDF293CFC4000C90050 /* NetworkManagerViewModel.swift */,
 				0436ACEA293DC56800C90050 /* UserDataViewModel.swift */,
+				048691832940F1D800E63301 /* TransferViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				040F01FB293494AB0098ACFE /* JacarandaShopView.swift in Sources */,
+				048691842940F1D800E63301 /* TransferViewModel.swift in Sources */,
 				0436ACE0293CFC4000C90050 /* NetworkManagerViewModel.swift in Sources */,
 				041EA33228A111B200FDD336 /* TextFieldModifer.swift in Sources */,
 				0431614C288A70080050DB2A /* ActivityModel.swift in Sources */,
@@ -444,6 +451,7 @@
 				040F020329360AB50098ACFE /* JacarandaSignUpView.swift in Sources */,
 				0436ACED293DC85500C90050 /* UserDataService.swift in Sources */,
 				043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */,
+				048691862940F23000E63301 /* PaymentService.swift in Sources */,
 				041EA326289FA86500FDD336 /* SuccessPaymentView.swift in Sources */,
 				040F0201293600AB0098ACFE /* ForgotPasswordView.swift in Sources */,
 				042E8CB4293A27D6003A2016 /* BalanceTopUpView.swift in Sources */,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct JacarandaTransferView: View {
     
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.dismiss) var dismiss
     @GestureState private var dragOffset = CGSize.zero
     
     @State var transferID = ""
@@ -22,6 +22,7 @@ struct JacarandaTransferView: View {
     @State var finishedTransfer = false
     @State var invalidTransferID = false
     @State var isPresentingIDInformation = false
+    @State var isConfirm = false
     
     @FocusState private var userIDKeyboardFocused: Bool
     @FocusState private var transferAmountKeyboardFocused: Bool
@@ -32,6 +33,11 @@ struct JacarandaTransferView: View {
         formatter.maximumFractionDigits = 2
         return formatter
     }()
+    
+    @State var invalidMessages = ""
+    
+    @StateObject var transferVM = TransferViewModel()
+    @EnvironmentObject var userDataVM: UserDataViewModel
     
     var body: some View {
         ZStack {
@@ -46,10 +52,14 @@ struct JacarandaTransferView: View {
                                     Circle()
                                         .fill(Color(red: 215/255, green: 199/255, blue: 228/255))
                                         .frame(width: 63, height: 63)
+                                    
+                                    Text(transferVM.payeeName.prefix(1))
+                                        .font(Font.custom("DMSans-Bold", size: 32))
+                                        .foregroundColor(.white)
                                 }
                             
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("Irene qq")
+                                    Text(transferVM.payeeName)
                                         .font(Font.custom("DMSans-Bold", size: 18))
                                     Text(transferID.applyPattern())
                                         .font(Font.custom("DMSans-Medium", size: 14))
@@ -108,10 +118,31 @@ struct JacarandaTransferView: View {
                         .padding(.bottom, 81)
                         .animation(.easeInOut, value: foundUser)
                         
+                        // MARK: Invalid Messages Section
+                        if !invalidMessages.isEmpty {
+                            HStack {
+                                Spacer()
+                                Text(invalidMessages)
+                                    .font(Font.custom("DMSans-Medium", size: 10))
+                                    .foregroundColor(.red)
+                                Spacer()
+                            }
+                            .padding(.bottom, 5)
+                        }
+                        
                         // MARK: Continue Transfer Section
                         Button {
                             transferAmountKeyboardFocused = false
-                            isPresentingConfirmPayment = true
+                            invalidMessages = ""
+                            
+                            if transferVM.checkBalance(balanceString: userDataVM.userBalance, amountString: transferAmount) {
+                                isPresentingConfirmPayment = true
+                                
+                            } else {
+                                invalidMessages = "Insufficient balance."
+                            }
+                            
+                            
                         } label: {
                             if transferAmount == "" || transferAmount == "0.00" {
                                 Image("continueButtonInactive")
@@ -177,6 +208,7 @@ struct JacarandaTransferView: View {
                                 }
                         }
                         .background(Color(red: 252/255, green: 252/255, blue: 252/255))
+                        .disabled(isLoading)
                         
                         if isPresentingIDInformation {
                             Text("User ID should contain 16 digits")
@@ -198,13 +230,27 @@ struct JacarandaTransferView: View {
                     
                     Button {
                         let countTransferID = transferID.filter {!$0.isWhitespace}
+                        invalidTransferID = false
+                        
                         if countTransferID.count < 16 {
                             invalidTransferID = true
                         }
                         else {
                             userIDKeyboardFocused = false
-                            foundUser = true
+                            isLoading = true
+                            
+                            transferVM.checkPayeeID(accessToken: userDataVM.getAccessToken()!, payeeID: countTransferID) { success in
+                                
+                                if success {
+                                    foundUser = true
+                                }
+                                else {
+                                    invalidTransferID = true
+                                }
+                                isLoading = false
+                            }
                         }
+                        
                     } label: {
                         let countTransferID = transferID.filter {!$0.isWhitespace}
                         if countTransferID.count < 16 {
@@ -218,7 +264,7 @@ struct JacarandaTransferView: View {
                     }
                     .disabled({
                         let countTransferID = transferID.filter {!$0.isWhitespace}
-                        if countTransferID.count < 16 {
+                        if countTransferID.count < 16 || isLoading {
                             return true
                         }
                         else {
@@ -242,7 +288,7 @@ struct JacarandaTransferView: View {
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: Button(action : {
-                self.mode.wrappedValue.dismiss()
+                dismiss()
             }){
                 Image("backArrowBlack")
                     .padding(0)
@@ -254,48 +300,43 @@ struct JacarandaTransferView: View {
             .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
             
                 if(value.startLocation.x < 20 && value.translation.width > 100) {
-                    self.mode.wrappedValue.dismiss()
+                    dismiss()
                 }
             }))
             
-            ConfirmPaymentView(isPresenting: $isPresentingConfirmPayment, title: "details", subtitle: "Transfer", amount: String(transferAmount), account: "Balance", buttonTitle: "Transfer", isLoading: $isLoading)
+            ConfirmPaymentView(isPresenting: $isPresentingConfirmPayment, title: "details", subtitle: "Transfer", amount: String(transferAmount), account: "Balance", buttonTitle: "Transfer", isConfirm: $isConfirm)
             
-            LoadingView(message: "Loading", isLoading: $isLoading, isFinished: $isPresentingSuccessPayment)
+            LoadingView(message: "Loading", isLoading: $isLoading, isFinished: .constant(true))
         }
         .sheet(isPresented: $isPresentingSuccessPayment) {
-            SuccessPaymentView(subtitle: "Successfully transferred", amount: String(transferAmount), message: " To Irene qq", isPresenting: $isPresentingSuccessPayment, finishedProcess: $finishedTransfer)
+            SuccessPaymentView(subtitle: "Successfully transferred", amount: String(transferAmount), message: " To \(transferVM.payeeName)", isPresenting: $isPresentingSuccessPayment, finishedProcess: $finishedTransfer)
         }
         .onChange(of: finishedTransfer) { newValue in
-            self.mode.wrappedValue.dismiss()
+            dismiss()
         }
         .onChange(of: transferAmountKeyboardFocused) { newValue in
             if transferAmountKeyboardFocused == true && transferAmount == "" {
                 transferAmount = "0.00"
             }
         }
+        .onChange(of: isConfirm) { newValue in
+            if isConfirm {
+                isLoading = true
+                
+                transferVM.transfer(accessToken: userDataVM.getAccessToken()!, payeeID: transferID.filter {!$0.isWhitespace}, amount: transferAmount) { success in
+                    if success {
+                        isPresentingSuccessPayment = true
+                    }
+                    else {
+                        isConfirm = false
+                        invalidMessages = "Insufficient balance."
+                    }
+                    isLoading = false
+                }
+            }
+        }
     }
 }
-
-
-//struct TextFieldLimitModifer: ViewModifier {
-//    @Binding var value: String
-//    var length: Int
-//
-//    func body(content: Content) -> some View {
-//        content
-//            .onReceive(value.publisher.collect()) {
-//                value = value.filter {!$0.isWhitespace}
-//                value = String($0.prefix(length))
-//                value = value.applyPattern()
-//            }
-//    }
-//}
-//
-//extension View {
-//    func limitInputLength(value: Binding<String>, length: Int) -> some View {
-//        self.modifier(TextFieldLimitModifer(value: value, length: length))
-//    }
-//}
 
 
 struct JacarandaTransferView_Previews: PreviewProvider {

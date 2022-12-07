@@ -17,7 +17,7 @@ struct ConfirmPaymentView: View {
     var account: String
     var buttonTitle: String
     
-    @Binding var isLoading: Bool
+    @Binding var isConfirm: Bool
     
     var body: some View {
         VStack {
@@ -85,7 +85,8 @@ struct ConfirmPaymentView: View {
                         Button {
                             print(buttonTitle)
                             isPresenting = false
-                            isLoading = true
+                            isConfirm = true
+                            
                         } label: {
                             HStack {
                                 Spacer()
@@ -117,9 +118,9 @@ struct ConfirmPaymentView: View {
 struct ConfirmPaymentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ConfirmPaymentView(isPresenting: .constant(true), title: "details", subtitle: "Transfer", amount: "180.00", account: "Balance", buttonTitle: "Transfer", isLoading: .constant(false))
+            ConfirmPaymentView(isPresenting: .constant(true), title: "details", subtitle: "Transfer", amount: "180.00", account: "Balance", buttonTitle: "Transfer", isConfirm: .constant(false))
             
-            ConfirmPaymentView(isPresenting: .constant(true), title: "Top up amount", subtitle: "Top up to Balance", amount: "230.00", account: "Debit Card (5623)", buttonTitle: "Add Balance", isLoading: .constant(false))
+            ConfirmPaymentView(isPresenting: .constant(true), title: "Top up amount", subtitle: "Top up to Balance", amount: "230.00", account: "Debit Card (5623)", buttonTitle: "Add Balance", isConfirm: .constant(false))
         }
     }
 }

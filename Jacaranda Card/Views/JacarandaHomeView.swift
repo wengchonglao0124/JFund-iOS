@@ -55,7 +55,7 @@ struct JacarandaHomeView: View {
                     }
                     Spacer()
                     Spacer()
-                    NavigationLink(destination: JacarandaTransferView()) {
+                    NavigationLink(destination: JacarandaTransferView().environmentObject(userDataVM)) {
                         VStack {
                             Image("transferButton")
                             Text("Transfer")

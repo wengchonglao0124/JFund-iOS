@@ -71,8 +71,10 @@ class UserDataViewModel: ObservableObject {
     // Must be check first
     func getAccessToken() -> String? {
         guard let accessToken = KeychainService.getCredentials()?.AccessToken else {
+            print("Fail to get access token")
             return nil
         }
+        print("Success to get access token")
         return accessToken
     }
     
