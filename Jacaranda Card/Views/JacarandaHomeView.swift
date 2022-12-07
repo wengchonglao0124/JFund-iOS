@@ -12,6 +12,7 @@ struct JacarandaHomeView: View {
     @Binding var tabViewSelectionIndex: Int
     
     @StateObject var userDataVM = UserDataViewModel()
+    @State var userBalance = "..."
     
     var body: some View {
         
@@ -26,10 +27,13 @@ struct JacarandaHomeView: View {
                 .padding(.bottom, 14)
                 
                 // MARK: Balance Section
-                HomeBalanceView(balance: userDataVM.userBalance, carID: userDataVM.getUserID())
+                HomeBalanceView(balance: userBalance, carID: userDataVM.getUserID(), accessToken: userDataVM.getAccessToken()!)
                     .cornerRadius(16)
                     .padding([.leading, .trailing], 20)
                     .padding(.bottom, 30)
+                    .onAppear(perform: {
+                        userDataVM.updateBalance()
+                    })
                 
                 // MARK: Payment Section
                 HStack {
@@ -68,6 +72,9 @@ struct JacarandaHomeView: View {
                 
                 // MARK: Business Partner Section
                 HomeBusinessPartnerView(businessPartnerModel: BusinessPartnerModel())
+            }
+            .onChange(of: userDataVM.userBalance) { newValue in
+                userBalance = userDataVM.userBalance
             }
         }
         .padding(.top, 1)

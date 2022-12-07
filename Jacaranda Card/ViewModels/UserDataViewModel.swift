@@ -19,7 +19,6 @@ class UserDataViewModel: ObservableObject {
     @Published var didSetupPin = true
     
     init() {
-        updateBalance()
         updateDidSetupPaymentPin()
     }
     

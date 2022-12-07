@@ -65,7 +65,7 @@ struct GeneralResponseBody: Codable {
 }
 
 
-struct pinCodeRequestBody: Codable {
+struct PinCodeRequestBody: Codable {
     let pin: String
 }
 
@@ -199,7 +199,7 @@ class WebService {
             return
         }
         
-        let body = pinCodeRequestBody(pin: pinCode)
+        let body = PinCodeRequestBody(pin: pinCode)
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

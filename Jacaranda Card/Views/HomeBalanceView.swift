@@ -11,6 +11,7 @@ struct HomeBalanceView: View {
     
     var balance: String
     var carID: String
+    var accessToken: String
     
     var body: some View {
         
@@ -29,7 +30,7 @@ struct HomeBalanceView: View {
                     .font(Font.custom("DMSans-Bold", size: 14))
             }
             Spacer()
-            NavigationLink(destination: BalanceTopUpView()) {
+            NavigationLink(destination: BalanceTopUpView(accessToken: accessToken)) {
                 Image("addBalance")
             }
         }
@@ -42,7 +43,7 @@ struct HomeBalanceView: View {
 
 struct HomeBalanceView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeBalanceView(balance: "0.00", carID: "1234 5678 3657 5623")
+        HomeBalanceView(balance: "0.00", carID: "1234 5678 3657 5623", accessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiaWxseWxhbzg4OEBnbWFpbC5jb20iLCJleHAiOjE2NzA0OTY3NzMsImp0aSI6ImFjY2Vzc1Rva2VuIn0.qFBINXPMAihxjEp3UuxjOsJLNv_Z1-pyf3KmMMjN2fY")
             .previewLayout(.sizeThatFits)
     }
 }

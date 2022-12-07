@@ -66,6 +66,9 @@
 		044A915B2896C0EF008D5864 /* PaySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A915A2896C0EF008D5864 /* PaySettingView.swift */; };
 		0486914F293E64EC00E63301 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486914E293E64EC00E63301 /* SignUpViewModel.swift */; };
 		04869151293F1D5400E63301 /* InitialSetupPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04869150293F1D5400E63301 /* InitialSetupPinView.swift */; };
+		04869156293F83D600E63301 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 04869155293F83D600E63301 /* StripePaymentSheet */; };
+		0486917E294097FA00E63301 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486917D294097FA00E63301 /* CheckoutViewController.swift */; };
+		048691802940987900E63301 /* StripeTopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486917F2940987900E63301 /* StripeTopUpView.swift */; };
 		048740A7293CA6F4001A85F3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048740A6293CA6F4001A85F3 /* WebService.swift */; };
 		04E52238292D0547000D4AFC /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */; };
 		04E52239292D0547000D4AFC /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52233292D0547000D4AFC /* DMSans-Regular.ttf */; };
@@ -135,6 +138,8 @@
 		044A915A2896C0EF008D5864 /* PaySettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaySettingView.swift; sourceTree = "<group>"; };
 		0486914E293E64EC00E63301 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		04869150293F1D5400E63301 /* InitialSetupPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSetupPinView.swift; sourceTree = "<group>"; };
+		0486917D294097FA00E63301 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		0486917F2940987900E63301 /* StripeTopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeTopUpView.swift; sourceTree = "<group>"; };
 		048740A5293B7033001A85F3 /* TestingAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestingAPI.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		048740A6293CA6F4001A85F3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -150,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04869156293F83D600E63301 /* StripePaymentSheet in Frameworks */,
 				0436ACE5293DAF1F00C90050 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +185,7 @@
 				0431612828897FCE0050DB2A /* Jacaranda_CardApp.swift */,
 				043161392889814D0050DB2A /* Models */,
 				04316136288981160050DB2A /* Views */,
+				0486917C294097BB00E63301 /* UIViewController */,
 				0431613A288981570050DB2A /* ViewModels */,
 				04316138288981410050DB2A /* Data */,
 				04316137288981320050DB2A /* Services */,
@@ -218,6 +225,7 @@
 				041EA325289FA86500FDD336 /* SuccessPaymentView.swift */,
 				043161412889950C0050DB2A /* HomeBalanceView.swift */,
 				042E8CB3293A27D6003A2016 /* BalanceTopUpView.swift */,
+				0486917F2940987900E63301 /* StripeTopUpView.swift */,
 				04316143288A693D0050DB2A /* HomeActivityView.swift */,
 				0431614F288A97410050DB2A /* HomeEventView.swift */,
 				04316151288AA7240050DB2A /* HomeBusinessPartnerView.swift */,
@@ -289,6 +297,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		0486917C294097BB00E63301 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0486917D294097FA00E63301 /* CheckoutViewController.swift */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
 		04E52221292D0152000D4AFC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +336,7 @@
 			name = "Jacaranda Card";
 			packageProductDependencies = (
 				0436ACE4293DAF1F00C90050 /* SwiftKeychainWrapper */,
+				04869155293F83D600E63301 /* StripePaymentSheet */,
 			);
 			productName = "Jacaranda Card";
 			productReference = 0431612528897FCE0050DB2A /* Jacaranda Card.app */;
@@ -351,6 +368,7 @@
 			mainGroup = 0431611C28897FCE0050DB2A;
 			packageReferences = (
 				0436ACE3293DAF1F00C90050 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				04869154293F83D600E63301 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */,
 			);
 			productRefGroup = 0431612628897FCE0050DB2A /* Products */;
 			projectDirPath = "";
@@ -425,6 +443,7 @@
 				041EA326289FA86500FDD336 /* SuccessPaymentView.swift in Sources */,
 				040F0201293600AB0098ACFE /* ForgotPasswordView.swift in Sources */,
 				042E8CB4293A27D6003A2016 /* BalanceTopUpView.swift in Sources */,
+				0486917E294097FA00E63301 /* CheckoutViewController.swift in Sources */,
 				04316148288A6C3C0050DB2A /* ActivityDataService.swift in Sources */,
 				04452BBE290EBD5B009E9374 /* BusinessPartnerDetailedView.swift in Sources */,
 				04316144288A693D0050DB2A /* HomeActivityView.swift in Sources */,
@@ -435,6 +454,7 @@
 				04452BBA290EB028009E9374 /* ActivityDetailedView.swift in Sources */,
 				0436ACEF293DDE5300C90050 /* EmailVerificationView.swift in Sources */,
 				042E8CBA293A400A003A2016 /* Authentication.swift in Sources */,
+				048691802940987900E63301 /* StripeTopUpView.swift in Sources */,
 				0431614A288A6C5D0050DB2A /* Activity.swift in Sources */,
 				040F01FD2934961C0098ACFE /* ShopOnlineStoreView.swift in Sources */,
 				04316158288AED870050DB2A /* ListBusinessPartnerView.swift in Sources */,
@@ -663,6 +683,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		04869154293F83D600E63301 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -670,6 +698,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0436ACE3293DAF1F00C90050 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
 			productName = SwiftKeychainWrapper;
+		};
+		04869155293F83D600E63301 /* StripePaymentSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04869154293F83D600E63301 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripePaymentSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
