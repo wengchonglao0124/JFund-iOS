@@ -16,7 +16,9 @@ struct TopUpRequestBody: Codable {
 
 
 struct TopUpResponseBody: Codable {
+    let ephemeralKey: String?
     let clientSecret: String?
+    let customer: String?
 }
 
 
@@ -29,7 +31,9 @@ class CheckoutViewController: UIViewController {
 
     private static let backendURL = URL(string: "https://xp.lycyy.cc")!
 
+    private var paymentIntentEphemeralKey: String?
     private var paymentIntentClientSecret: String?
+    private var paymentIntentCustomer: String?
 
     private lazy var payButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -78,7 +82,9 @@ class CheckoutViewController: UIViewController {
                 let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : String],
                 let jsonData = json["data"],
                 let topUpResponse = try? JSONDecoder().decode(TopUpResponseBody.self, from: Data(jsonData.utf8)),
-                let clientSecret = topUpResponse.clientSecret
+                let ephemeralKey = topUpResponse.ephemeralKey,
+                let clientSecret = topUpResponse.clientSecret,
+                let customer = topUpResponse.customer
                
             else {
                 let message = error?.localizedDescription ?? "Failed to decode response from server."
@@ -88,7 +94,9 @@ class CheckoutViewController: UIViewController {
             }
 
             print("Created PaymentIntent")
+            self?.paymentIntentEphemeralKey = ephemeralKey
             self?.paymentIntentClientSecret = clientSecret
+            self?.paymentIntentCustomer = customer
             completion(.success("Created PaymentIntent"))
 
             DispatchQueue.main.async {
@@ -110,13 +118,26 @@ class CheckoutViewController: UIViewController {
     @objc
     func pay(completion: @escaping (String) -> Void) {
         
+        guard let paymentIntentCustomer = self.paymentIntentCustomer else {
+            completion("fail")
+            return
+        }
+        
         guard let paymentIntentClientSecret = self.paymentIntentClientSecret else {
             completion("fail")
             return
         }
         
+        guard let paymentIntentEphemeralKey = self.paymentIntentEphemeralKey else {
+            completion("fail")
+            return
+        }
+        
+        var customerConfiguration = PaymentSheet.CustomerConfiguration(id: paymentIntentCustomer, ephemeralKeySecret: paymentIntentEphemeralKey)
         var configuration = PaymentSheet.Configuration()
-        configuration.merchantDisplayName = "Example, Inc."
+        configuration.merchantDisplayName = "Jacaranda, Inc."
+        configuration.customer = customerConfiguration
+        configuration.allowsDelayedPaymentMethods = true
 
         let paymentSheet = PaymentSheet(
             paymentIntentClientSecret: paymentIntentClientSecret,
