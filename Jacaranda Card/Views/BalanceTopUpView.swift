@@ -73,19 +73,24 @@ struct BalanceTopUpView: View {
                 Button {
                     invalidMessages = ""
                     topUpAmountKeyboardFocused = false
-                    print("Top Up")
                     
-                    isLoading = true
-                    stripeTopUpView.fetchPaymentIntent(accessToken: accessToken, amounts: topUpAmount) { success in
-                        
-                        if success {
-                            isPaying = true
+                    let amount = Float(topUpAmount)!
+                    if amount >= 0.5 {
+                        isLoading = true
+                        stripeTopUpView.fetchPaymentIntent(accessToken: accessToken, amounts: topUpAmount) { success in
                             
+                            if success {
+                                isPaying = true
+                                
+                            }
+                            else {
+                                invalidMessages = "Please try again."
+                            }
+                            isLoading = false
                         }
-                        else {
-                            invalidMessages = "Please try again."
-                        }
-                        isLoading = false
+                    }
+                    else {
+                        invalidMessages = "Minimum top-up amount is $ 0.50"
                     }
                     
                 } label: {

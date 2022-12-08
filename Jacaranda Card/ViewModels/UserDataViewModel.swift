@@ -94,7 +94,12 @@ class UserDataViewModel: ObservableObject {
                 let balance = try! decoder.decode((Balance.self), from: jsonData!)
                 DispatchQueue.main.sync {
                     if balance.balanceof != "0" {
-                        self.userBalance = balance.balanceof ?? "0.00"
+                        guard let amountString = balance.balanceof else {
+                            self.userBalance = "..."
+                            return
+                        }
+                        let amount = Float(amountString)!
+                        self.userBalance = String(format: "%.2f", amount)
                     }
                     else {
                         self.userBalance = "0.00"
