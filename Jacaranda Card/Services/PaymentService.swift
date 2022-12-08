@@ -19,6 +19,11 @@ struct TransferRequestBody: Codable {
 }
 
 
+struct CheckPaymentPinRequestBody: Codable {
+    let pin: String
+}
+
+
 class PaymentService {
     
     static func checkPayeeID(accessToken: String, payeeID: String, completion: @escaping (Result<String, GeneralError>) -> Void) {
@@ -65,12 +70,12 @@ class PaymentService {
     }
     
     
-    static func transfer(accessToken: String, payeeID: String, amount: String, completion: @escaping (Result<String, GeneralError>) -> Void) {
+    static func transfer(accessToken: String, payeeID: String, amount: String, completion: @escaping (Result<String, GeneralError>) -> Void) -> URLSessionDataTask? {
         
         // MARK: Server URL: https://xp.lycyy.cc
         guard let url = URL(string: "https://xp.lycyy.cc/transferTo") else {
             completion(.failure(.custom(errorMessage: "URL is not correct")))
-            return
+            return nil
         }
         
         var request = URLRequest(url: url)
@@ -81,7 +86,7 @@ class PaymentService {
         let body = TransferRequestBody(UserID: payeeID, Amount: amount)
         request.httpBody = try? JSONEncoder().encode(body)
         
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             guard let data = data, error == nil else {
                 completion(.failure(.custom(errorMessage: "No data")))
@@ -92,7 +97,7 @@ class PaymentService {
                 completion(.failure(.custom(errorMessage: "Cannot decode from data")))
                 return
             }
-            print(generalResponse.msg)
+            
             guard generalResponse.code == "200" else {
                 completion(.failure(.custom(errorMessage: "Fail to transfer")))
                 return
@@ -100,6 +105,47 @@ class PaymentService {
             
             completion(.success(""))
             
-        }.resume()
+        }
+        task.resume()
+        return task
+    }
+    
+    
+    static func verifyPin(accessToken: String, pin: String, completion: @escaping (Result<String, GeneralError>) -> Void) {
+        
+        // MARK: Server URL: https://xp.lycyy.cc
+        guard let url = URL(string: "https://xp.lycyy.cc/checkPin") else {
+            completion(.failure(.custom(errorMessage: "URL is not correct")))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(accessToken, forHTTPHeaderField: "token")
+        
+        let body = CheckPaymentPinRequestBody(pin: pin)
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                completion(.failure(.custom(errorMessage: "No data")))
+                return
+            }
+           
+            guard let generalResponse = try? JSONDecoder().decode(GeneralResponseBody.self, from: data) else {
+                completion(.failure(.custom(errorMessage: "Cannot decode from data")))
+                return
+            }
+            
+            guard generalResponse.code == "200" else {
+                completion(.failure(.custom(errorMessage: "Fail to verify payment pin")))
+                return
+            }
+            
+            completion(.success(""))
+            
+        }
+        task.resume()
     }
 }

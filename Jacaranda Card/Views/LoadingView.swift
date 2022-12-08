@@ -11,7 +11,6 @@ struct LoadingView: View {
     
     var message: String
     @Binding var isLoading: Bool
-    @Binding var isFinished: Bool
     
     var body: some View {
         if isLoading {
@@ -39,20 +38,12 @@ struct LoadingView: View {
                 }
                 Spacer()
             }
-            .onAppear(
-                perform: {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                        isLoading = false
-                        isFinished = true
-                    }
-                }
-            )
         }
     }
 }
 
 struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingView(message: "Loading", isLoading: .constant(true), isFinished: .constant(false))
+        LoadingView(message: "Loading", isLoading: .constant(true))
     }
 }

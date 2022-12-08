@@ -146,7 +146,7 @@ struct EmailVerificationView: View {
             }
             .disabled(isLoading)
             
-            LoadingView(message: "Loading", isLoading: $isLoading, isFinished: .constant(true))
+            LoadingView(message: "Loading", isLoading: $isLoading)
         }
         .background(Color(red: 246/255, green: 246/255, blue: 246/255))
         .navigationBarTitleDisplayMode(.inline)

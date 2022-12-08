@@ -16,6 +16,7 @@ struct Payee: Codable {
 class TransferViewModel: ObservableObject {
     
     @Published var payeeName = ""
+    var task: URLSessionDataTask? = nil
     
     func checkPayeeID(accessToken: String, payeeID: String, completion: @escaping (Bool) -> Void) {
         
@@ -60,7 +61,7 @@ class TransferViewModel: ObservableObject {
     
     func transfer(accessToken: String, payeeID: String, amount: String, completion: @escaping (Bool) -> Void) {
         
-        PaymentService.transfer(accessToken: accessToken, payeeID: payeeID, amount: amount) { result in
+        let task = PaymentService.transfer(accessToken: accessToken, payeeID: payeeID, amount: amount) { result in
             
             switch result {
             case .success:
@@ -71,5 +72,16 @@ class TransferViewModel: ObservableObject {
                 completion(false)
             }
         }
+        self.task = task
+    }
+    
+    
+    func cancel() {
+        guard let task = task else {
+            print("Fail to cancel task")
+            return
+        }
+        task.cancel()
+        print("Successful to cancel task")
     }
 }

@@ -24,6 +24,10 @@ struct JacarandaTransferView: View {
     @State var isPresentingIDInformation = false
     @State var isConfirm = false
     
+    @State var isCancel = false
+    @State var isConfirmingPin = false
+    @State var confirmPinSuccess = false
+    
     @FocusState private var userIDKeyboardFocused: Bool
     @FocusState private var transferAmountKeyboardFocused: Bool
     
@@ -57,7 +61,7 @@ struct JacarandaTransferView: View {
                                         .font(Font.custom("DMSans-Bold", size: 32))
                                         .foregroundColor(.white)
                                 }
-                            
+                                
                                 VStack(alignment: .leading, spacing: 10) {
                                     Text(transferVM.payeeName)
                                         .font(Font.custom("DMSans-Bold", size: 18))
@@ -72,8 +76,8 @@ struct JacarandaTransferView: View {
                             .padding(.vertical, 15.5)
                             .background(Color(red: 252/255, green: 252/255, blue: 252/255))
                         }
-                            .padding(.top, 30)
-                            .animation(.easeInOut, value: foundUser)
+                        .padding(.top, 30)
+                        .animation(.easeInOut, value: foundUser)
                         
                         // MARK: Transfer Amount Section
                         VStack(alignment: .leading, spacing: 11) {
@@ -82,7 +86,7 @@ struct JacarandaTransferView: View {
                                 .foregroundColor(Color(red: 172/255, green: 172/255, blue: 176/255))
                                 .padding(.top, 15)
                                 .padding(.leading, 30)
-                  
+                            
                             HStack(spacing: 0) {
                                 Text("$")
                                     .font(Font.custom("DMSans-Medium", size: 24))
@@ -306,7 +310,13 @@ struct JacarandaTransferView: View {
             
             ConfirmPaymentView(isPresenting: $isPresentingConfirmPayment, title: "details", subtitle: "Transfer", amount: String(transferAmount), account: "Balance", buttonTitle: "Transfer", isConfirm: $isConfirm)
             
-            LoadingView(message: "Loading", isLoading: $isLoading, isFinished: .constant(true))
+            if foundUser {
+                ConfirmPaymentPinView(accessToken: userDataVM.getAccessToken()!, isPresenting: $isConfirmingPin, isCancel: $isCancel, isFinish: $confirmPinSuccess)
+            }
+            
+            if confirmPinSuccess || !foundUser {
+                LoadingView(message: "Loading", isLoading: $isLoading)
+            }
         }
         .sheet(isPresented: $isPresentingSuccessPayment) {
             SuccessPaymentView(subtitle: "Successfully transferred", amount: String(transferAmount), message: " To \(transferVM.payeeName)", isPresenting: $isPresentingSuccessPayment, finishedProcess: $finishedTransfer)
@@ -320,19 +330,48 @@ struct JacarandaTransferView: View {
             }
         }
         .onChange(of: isConfirm) { newValue in
+            
+            print(isConfirmingPin)
+            print(isCancel)
+            print(confirmPinSuccess)
+            print("")
+            print(isConfirm)
+            print("")
+            print("")
+            
+            
             if isConfirm {
                 isLoading = true
                 
                 transferVM.transfer(accessToken: userDataVM.getAccessToken()!, payeeID: transferID.filter {!$0.isWhitespace}, amount: transferAmount) { success in
-                    if success {
-                        isPresentingSuccessPayment = true
+                    
+                    if !isCancel {
+                        if success {
+                            isPresentingSuccessPayment = true
+                        }
+                        else {
+                            isConfirm = false
+                            invalidMessages = "Insufficient balance."
+                        }
                     }
                     else {
+                        invalidMessages = "Please try again."
                         isConfirm = false
-                        invalidMessages = "Insufficient balance."
+                        isCancel = false
                     }
                     isLoading = false
                 }
+                
+                isConfirmingPin = true
+            }
+        }
+        .onChange(of: isCancel) { newValue in
+            if isCancel {
+                isLoading = false
+                
+                transferVM.cancel()
+                
+                confirmPinSuccess = false
             }
         }
     }
@@ -376,3 +415,7 @@ struct JacarandaTransferView_Previews: PreviewProvider {
         }
     }
 }
+
+// backend transfer request cancel
+// check 90s disable
+// extend transfer receive time

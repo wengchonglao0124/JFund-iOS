@@ -325,7 +325,7 @@ struct JacarandaSignUpView: View {
             }
             .disabled(isLoading)
             
-            LoadingView(message: "Loading", isLoading: $isLoading, isFinished: .constant(true))
+            LoadingView(message: "Loading", isLoading: $isLoading)
         }
         .padding(.leading, 32)
         .padding(.trailing, 22)

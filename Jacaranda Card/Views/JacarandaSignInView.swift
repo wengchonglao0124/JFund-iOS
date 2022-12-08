@@ -225,7 +225,7 @@ struct JacarandaSignInView: View {
             }
             .disabled(isLoading)
             
-            LoadingView(message: "Loading", isLoading: $isLoading, isFinished: .constant(true))
+            LoadingView(message: "Loading", isLoading: $isLoading)
         }
         .onTapGesture {
             if emailKeyboardFocused {
