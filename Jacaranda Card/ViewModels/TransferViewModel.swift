@@ -13,10 +13,14 @@ struct Payee: Codable {
 }
 
 
+struct TransferResponse: Codable {
+    var fid: String?
+}
+
+
 class TransferViewModel: ObservableObject {
     
     @Published var payeeName = ""
-    var task: URLSessionDataTask? = nil
     
     func checkPayeeID(accessToken: String, payeeID: String, completion: @escaping (Bool) -> Void) {
         
@@ -59,29 +63,27 @@ class TransferViewModel: ObservableObject {
     }
     
     
-    func transfer(accessToken: String, payeeID: String, amount: String, completion: @escaping (Bool) -> Void) {
+    func transfer(accessToken: String, payeeID: String, amount: String, completion: @escaping (Result<String, GeneralError>) -> Void) {
         
-        let task = PaymentService.transfer(accessToken: accessToken, payeeID: payeeID, amount: amount) { result in
+        PaymentService.transfer(accessToken: accessToken, payeeID: payeeID, amount: amount) { result in
             
             switch result {
-            case .success:
-                completion(true)
+            case .success(let data):
+                
+                let decoder = JSONDecoder()
+                let jsonData = data.data(using: .utf8)
+                let response = try! decoder.decode((TransferResponse.self), from: jsonData!)
+                
+                guard let fid = response.fid else {
+                    completion(.failure(.custom(errorMessage: "Cannot decode for fid")))
+                    return
+                }
+                completion(.success(fid))
                 
             case .failure(let error):
                 print(error.localizedDescription)
-                completion(false)
+                completion(.failure(.custom(errorMessage: error.localizedDescription)))
             }
         }
-        self.task = task
-    }
-    
-    
-    func cancel() {
-        guard let task = task else {
-            print("Fail to cancel task")
-            return
-        }
-        task.cancel()
-        print("Successful to cancel task")
     }
 }

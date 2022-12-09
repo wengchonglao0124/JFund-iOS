@@ -26,7 +26,6 @@ struct JacarandaTransferView: View {
     
     @State var isCancel = false
     @State var isConfirmingPin = false
-    @State var confirmPinSuccess = false
     
     @FocusState private var userIDKeyboardFocused: Bool
     @FocusState private var transferAmountKeyboardFocused: Bool
@@ -42,6 +41,8 @@ struct JacarandaTransferView: View {
     
     @StateObject var transferVM = TransferViewModel()
     @EnvironmentObject var userDataVM: UserDataViewModel
+    
+    @State var fid = ""
     
     var body: some View {
         ZStack {
@@ -311,12 +312,10 @@ struct JacarandaTransferView: View {
             ConfirmPaymentView(isPresenting: $isPresentingConfirmPayment, title: "details", subtitle: "Transfer", amount: String(transferAmount), account: "Balance", buttonTitle: "Transfer", isConfirm: $isConfirm)
             
             if foundUser {
-                ConfirmPaymentPinView(accessToken: userDataVM.getAccessToken()!, isPresenting: $isConfirmingPin, isCancel: $isCancel, isFinish: $confirmPinSuccess)
+                ConfirmPaymentPinView(accessToken: userDataVM.getAccessToken()!, isPresenting: $isConfirmingPin, isCancel: $isCancel, isFinish: $isPresentingSuccessPayment, fid: fid, serverAddress: "/checkTransferTo")
             }
             
-            if confirmPinSuccess || !foundUser {
-                LoadingView(message: "Loading", isLoading: $isLoading)
-            }
+            LoadingView(message: "Loading", isLoading: $isLoading)
         }
         .sheet(isPresented: $isPresentingSuccessPayment) {
             SuccessPaymentView(subtitle: "Successfully transferred", amount: String(transferAmount), message: " To \(transferVM.payeeName)", isPresenting: $isPresentingSuccessPayment, finishedProcess: $finishedTransfer)
@@ -330,48 +329,30 @@ struct JacarandaTransferView: View {
             }
         }
         .onChange(of: isConfirm) { newValue in
-            
-            print(isConfirmingPin)
-            print(isCancel)
-            print(confirmPinSuccess)
-            print("")
-            print(isConfirm)
-            print("")
-            print("")
-            
-            
+          
             if isConfirm {
                 isLoading = true
                 
-                transferVM.transfer(accessToken: userDataVM.getAccessToken()!, payeeID: transferID.filter {!$0.isWhitespace}, amount: transferAmount) { success in
+                transferVM.transfer(accessToken: userDataVM.getAccessToken()!, payeeID: transferID.filter {!$0.isWhitespace}, amount: transferAmount) { result in
                     
-                    if !isCancel {
-                        if success {
-                            isPresentingSuccessPayment = true
-                        }
-                        else {
-                            isConfirm = false
-                            invalidMessages = "Insufficient balance."
-                        }
-                    }
-                    else {
-                        invalidMessages = "Please try again."
-                        isConfirm = false
-                        isCancel = false
+                    switch result {
+                    case .success(let fid):
+                        self.fid = fid
+                        isConfirmingPin = true
+                        
+                    case .failure(let error):
+                        invalidMessages = error.localizedDescription
                     }
                     isLoading = false
+                    isConfirm = false
                 }
-                
-                isConfirmingPin = true
             }
         }
         .onChange(of: isCancel) { newValue in
             if isCancel {
-                isLoading = false
-                
-                transferVM.cancel()
-                
-                confirmPinSuccess = false
+                fid = ""
+                invalidMessages = "Please try again."
+                isCancel = false
             }
         }
     }
@@ -415,7 +396,3 @@ struct JacarandaTransferView_Previews: PreviewProvider {
         }
     }
 }
-
-// backend transfer request cancel
-// check 90s disable
-// extend transfer receive time

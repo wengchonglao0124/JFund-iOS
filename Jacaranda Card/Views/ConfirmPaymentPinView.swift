@@ -20,8 +20,11 @@ struct ConfirmPaymentPinView: View {
     @Binding var isCancel: Bool
     @Binding var isFinish: Bool
     
-    // Timer: 60 seconds
-    @State private var timeRemaining = 60
+    var fid: String
+    var serverAddress: String
+    
+    // Timer: 90 seconds
+    @State private var timeRemaining = 90
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -118,12 +121,11 @@ struct ConfirmPaymentPinView: View {
                 .background(Color(red: 0, green: 0, blue: 0, opacity: 0.2))
                 .onChange(of: pinCode) { newValue in
                     
-                    invalidMessages = ""
-                    
                     if pinCode.count == 6 {
-                        
+                        invalidMessages = ""
                         isLoading = true
-                        PaymentService.verifyPin(accessToken: accessToken, pin: pinCode) { result in
+                        
+                        PaymentService.verifyPin(accessToken: accessToken, pin: pinCode, fid: fid, serverAddress: serverAddress) { result in
                             
                             switch result {
                             case .success(_):
@@ -134,6 +136,7 @@ struct ConfirmPaymentPinView: View {
                                 print(error.localizedDescription)
                             }
                             isLoading = false
+                            pinCode = ""
                         }
                     }
                 }
@@ -142,18 +145,18 @@ struct ConfirmPaymentPinView: View {
                     isFinish = true
                 }
                 .onReceive(timer) { time in
-                    if timeRemaining >= 0 {
-                        if !isSuccess {
-                            timeRemaining -= 1
-                        }
+                    if timeRemaining > 0 {
+                        timeRemaining -= 1
                     }
                     else {
                         isCancel = true
+                        isPresenting = false
                     }
                 }
                 .onAppear(perform: {
                     pinCode = ""
                     invalidMessages = ""
+                    timeRemaining = 90
                 })
             }
         }
@@ -165,8 +168,6 @@ struct ConfirmPaymentPinView: View {
 struct ConfirmPaymentPinView_Previews: PreviewProvider {
     static var previews: some View {
         
-        ConfirmPaymentPinView(accessToken: "", isPresenting: .constant(true), isCancel: .constant(false), isFinish: .constant(true))
+        ConfirmPaymentPinView(accessToken: "", isPresenting: .constant(true), isCancel: .constant(false), isFinish: .constant(true), fid: "", serverAddress: "")
     }
 }
-
-
