@@ -56,7 +56,7 @@ struct ConfirmPaymentPinView: View {
                             Spacer()
                         }
                         .padding(.top, 25)
-                        .padding(.bottom, 65)
+                        .padding(.bottom, 45)
                         
                         // MARK: Subtitle Section
                         if isLoading {
@@ -97,7 +97,7 @@ struct ConfirmPaymentPinView: View {
                             Spacer()
                         }
                         .padding(.top, 35)
-                        .padding(.bottom, 115)
+                        .padding(.bottom, 100)
                         
                         // MARK: Invalid Messages Section
                         if !invalidMessages.isEmpty {
@@ -168,6 +168,11 @@ struct ConfirmPaymentPinView: View {
 struct ConfirmPaymentPinView_Previews: PreviewProvider {
     static var previews: some View {
         
-        ConfirmPaymentPinView(accessToken: "", isPresenting: .constant(true), isCancel: .constant(false), isFinish: .constant(true), fid: "", serverAddress: "")
+        Group {
+            ConfirmPaymentPinView(accessToken: "", isPresenting: .constant(true), isCancel: .constant(false), isFinish: .constant(true), fid: "", serverAddress: "")
+            
+            ConfirmPaymentPinView(accessToken: "", isPresenting: .constant(true), isCancel: .constant(false), isFinish: .constant(true), fid: "", serverAddress: "")
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+        }
     }
 }
