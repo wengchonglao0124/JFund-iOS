@@ -1,68 +1,50 @@
 [
     {
-        "name": "Dribbble",
-        "dateString": "15 Jul 2022",
-        "amount": -19,
-        "imageName": "dribbble"
+        "type":"top-up",
+        "payUser":"4468674852519615",
+        "payColor":"#a2d2ff",
+        "payUsername":"billylao",
+        "receiveUser":"4468674852519615",
+        "receiveColor":"#a2d2ff",
+        "receiveUsername":"billylao",
+        "dateString":"2022-11-11 14:02:53",
+        "amount":"100",
+        "receipt":"20221211140253634208"
     },
     {
-        "name": "Payoneer",
-        "dateString": "10 Jul 2022",
-        "amount": 120,
-        "imageName": "payoneer"
+        "type":"top-up",
+        "payUser":"4468674852519615",
+        "payColor":"#a2d2ff",
+        "payUsername":"billylao",
+        "receiveUser":"4468674852519615",
+        "receiveColor":"#a2d2ff",
+        "receiveUsername":"billylao",
+        "dateString":"2022-12-11 14:02:53",
+        "amount":"0.8",
+        "receipt":"20221211140253634208"
     },
     {
-        "name": "Payoneer",
-        "dateString": "07 Apr 2022",
-        "amount": 120,
-        "imageName": "payoneer"
+        "type":"receive",
+        "payUser":"4619357019381804",
+        "payColor":"#cdb4db",
+        "payUsername":"Weng",
+        "receiveUser":"4468674852519615",
+        "receiveColor":"#a2d2ff",
+        "receiveUsername":"billylao",
+        "dateString":"2022-12-11 14:13:53",
+        "amount":"80.0",
+        "receipt":"20221211141353147188"
     },
     {
-        "name": "Apple inc.",
-        "dateString": "16 May 2022",
-        "amount": -305.49,
-        "imageName": "apple"
-    },
-    {
-        "name": "Apple inc.",
-        "dateString": "16 Apr 2022",
-        "amount": -20,
-        "imageName": "apple"
-    },
-    {
-        "name": "Apple inc.",
-        "dateString": "01 Apr 2022",
-        "amount": -49.49,
-        "imageName": "apple"
-    },
-    {
-        "name": "Uber",
-        "dateString": "9 Jul 2022",
-        "amount": -16.23,
-        "imageName": "uber"
-    },
-    {
-        "name": "Uber",
-        "dateString": "9 May 2022",
-        "amount": -20.23,
-        "imageName": "uber"
-    },
-    {
-        "name": "Frame.io",
-        "dateString": "20 Jun 2022",
-        "amount": -155.95,
-        "imageName": "frameIo"
-    },
-    {
-        "name": "Webflow",
-        "dateString": "28 Jun 2022",
-        "amount": -35.75,
-        "imageName": "webflow"
-    },
-    {
-        "name": "Apple inc.",
-        "dateString": "29 Jun 2022",
-        "amount": -124.35,
-        "imageName": "apple"
+        "type":"pay",
+        "payUser":"4468674852519615",
+        "payColor":"#a2d2ff",
+        "payUsername":"billylao",
+        "receiveUser":"4619357019381804",
+        "receiveColor":"#cdb4db",
+        "receiveUsername":"Weng",
+        "dateString":"2022-12-11 14:27:47",
+        "amount":"70.0",
+        "receipt":"20221211142747287243"
     }
 ]

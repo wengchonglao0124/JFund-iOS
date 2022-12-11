@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeActivityView: View {
     
-    @State var activityModel: ActivityModel
+    @StateObject var activityModel: ActivityModel
     
     @Binding var tabViewSelectionIndex: Int
     
@@ -92,20 +92,18 @@ struct HomeActivityView_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
         
         // Recent Activities greater than 3
-        let activityModel = ActivityModel()
+        let activityModel: ActivityModel = {
+            let model = ActivityModel()
+            model.updateActivityForTestingOnly()
+            return model
+        }()
         HomeActivityView(activityModel: activityModel, tabViewSelectionIndex: .constant(1))
             .previewLayout(.sizeThatFits)
         
         // Recent Activities equal to 3
         let activityModelEqualToThree: ActivityModel = {
             let model = ActivityModel()
-            model.activies.removeLast()
-            model.activies.removeLast()
-            model.activies.removeLast()
-            model.activies.removeLast()
-            model.activies.removeLast()
-            model.activies.removeLast()
-            model.activies.removeLast()
+            model.updateActivityForTestingOnly()
             model.activies.removeLast()
             return model
         }()
@@ -115,17 +113,12 @@ struct HomeActivityView_Previews: PreviewProvider {
         // Recent Activities less than 3
         let activityModelLessThanThree: ActivityModel = {
             let model = ActivityModel()
-            model.activies.removeLast()
-            model.activies.removeLast()
-            model.activies.removeLast()
-            model.activies.removeLast()
-            model.activies.removeLast()
-            model.activies.removeLast()
-            model.activies.removeLast()
+            model.updateActivityForTestingOnly()
             model.activies.removeLast()
             model.activies.removeLast()
             return model
         }()
+        
         HomeActivityView(activityModel: activityModelLessThanThree, tabViewSelectionIndex: .constant(1))
             .previewLayout(.sizeThatFits)
     }

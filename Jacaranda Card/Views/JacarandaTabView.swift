@@ -12,6 +12,9 @@ struct JacarandaTabView: View {
     @State var selectionIndex = 1
     let textColorSelected = Color("tabViewColorSelected")
     
+    @StateObject var userDataVM = UserDataViewModel()
+    @StateObject var activityVM = ActivityModel()
+    
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color("tabBarColor"))
     }
@@ -23,42 +26,46 @@ struct JacarandaTabView: View {
                 
                 // MARK: Home View
                 JacarandaHomeView(tabViewSelectionIndex: $selectionIndex)
-                .tabItem({
-                    VStack {
-                        if selectionIndex == 1 {
-                            Image("homeSelected")
+                    .environmentObject(userDataVM)
+                    .environmentObject(activityVM)
+                    .tabItem({
+                        VStack {
+                            if selectionIndex == 1 {
+                                Image("homeSelected")
+                            }
+                            else {
+                                Image("home")
+                            }
+                            Text("Home")
+                                .font(Font.custom("DMSans-Bold", size: 12))
                         }
-                        else {
-                            Image("home")
-                        }
-                        Text("Home")
-                            .font(Font.custom("DMSans-Bold", size: 12))
-                    }
-                })
-                .tag(1)
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
+                    })
+                    .tag(1)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
                 
                 // MARK: Shop View
                 JacarandaShopView()
-                .tabItem({
-                    VStack {
-                        if selectionIndex == 2 {
-                            Image("shopSelected")
+                    .tabItem({
+                        VStack {
+                            if selectionIndex == 2 {
+                                Image("shopSelected")
+                            }
+                            else {
+                                Image("shop")
+                            }
+                            Text("Shop")
+                                .font(Font.custom("DMSans-Bold", size: 12))
                         }
-                        else {
-                            Image("shop")
-                        }
-                        Text("Shop")
-                            .font(Font.custom("DMSans-Bold", size: 12))
-                    }
-                })
-                .tag(2)
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
+                    })
+                    .tag(2)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
                 
                 // MARK: Activity View
-                JacarandaActivityView(activities: ActivityModel().activies)
+                JacarandaActivityView()
+                    .environmentObject(userDataVM)
+                    .environmentObject(activityVM)
                     .tabItem({
                         VStack {
                             if selectionIndex == 3 {

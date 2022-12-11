@@ -15,12 +15,33 @@ struct ListActivityView: View {
         NavigationLink(destination: ActivityDetailedView(activity: activity)) {
             HStack {
                 HStack(spacing: 16) {
-                    Image(activity.imageName)
+                    
+                    if activity.imageName.first == "#" {
+                        ZStack(alignment: .center) {
+                            Rectangle()
+                                .fill(Color(hex: activity.imageName)!)
+                            
+                            Text(activity.username.prefix(1))
+                                .font(Font.custom("DMSans-Bold", size: 18))
+                                .foregroundColor(.white)
+                        }
                         .frame(width: 40, height: 40, alignment: .center)
-                        .cornerRadius(12)
+                        .cornerRadius(20)
+                    }
+                    else if activity.imageName == "topUpIcon" {
+                        
+                        Image(activity.imageName)
+                            .frame(width: 40, height: 40, alignment: .center)
+                            .cornerRadius(12)
+                    }
+                    else {
+                        Image("apple")
+                            .frame(width: 40, height: 40, alignment: .center)
+                            .cornerRadius(12)
+                    }
                     
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(activity.name)
+                        Text(activity.username)
                             .font(Font.custom("DMSans-Medium", size: 14))
                             .foregroundColor(Color("activityTextColor"))
                         
@@ -30,7 +51,7 @@ struct ListActivityView: View {
                     }
                 }
                 Spacer()
-                if activity.amount >= 0 {
+                if activity.type == "receive" || activity.type == "top-up" {
                     Text(activity.amountString)
                         .font(Font.custom("DMSans-Medium", size: 16))
                         .foregroundColor(Color("activityAddAmountColor"))
@@ -53,8 +74,21 @@ struct ListActivityView: View {
 struct ListActivityView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let activityModel = ActivityModel()
-        ListActivityView(activity: activityModel.activies[0])
-            .previewLayout(.sizeThatFits)
+        let activityModel: ActivityModel = {
+            let model = ActivityModel()
+            model.updateActivityForTestingOnly()
+            return model
+        }()
+        
+        Group {
+            ListActivityView(activity: activityModel.activies[0])
+                .previewLayout(.sizeThatFits)
+            
+            ListActivityView(activity: activityModel.activies[2])
+                .previewLayout(.sizeThatFits)
+            
+            ListActivityView(activity: activityModel.activies[3])
+                .previewLayout(.sizeThatFits)
+        }
     }
 }

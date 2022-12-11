@@ -18,17 +18,53 @@ struct ActivityDetailedView: View {
         VStack(spacing: 0) {
             // MARK: Top Section
             VStack(spacing: 0) {
-                Image(activity.imageName)
-                    .frame(width: 50, height: 50, alignment: .center)
-                    .cornerRadius(12)
-                    .padding(.vertical, 22)
                 
-                Text("To \(activity.name)")
-                    .font(Font.custom("DMSans-Bold", size: 16))
-                    .foregroundColor(Color("activityTextColor"))
-                    .padding(.bottom, 18)
+                VStack {
+                    if activity.imageName.first == "#" {
+                        ZStack(alignment: .center) {
+                            Rectangle()
+                                .fill(Color(hex: activity.imageName)!)
+                            
+                            Text(activity.username.prefix(1))
+                                .font(Font.custom("DMSans-Bold", size: 22))
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 50, height: 50, alignment: .center)
+                        .cornerRadius(30)
+                    }
+                    else if activity.imageName == "topUpIcon" {
+                        
+                        Image(activity.imageName)
+                            .frame(width: 50, height: 50, alignment: .center)
+                            .cornerRadius(12)
+                    }
+                    else {
+                        Image("apple")
+                            .frame(width: 50, height: 50, alignment: .center)
+                            .cornerRadius(12)
+                    }
+                }
+                .padding(.vertical, 22)
                 
-                if activity.amount >= 0 {
+                if activity.type == "top-up" {
+                    Text(activity.username)
+                        .font(Font.custom("DMSans-Bold", size: 16))
+                        .foregroundColor(Color("activityTextColor"))
+                        .padding(.bottom, 18)
+                } else if activity.type == "receive" {
+                    Text("From \(activity.username)")
+                        .font(Font.custom("DMSans-Bold", size: 16))
+                        .foregroundColor(Color("activityTextColor"))
+                        .padding(.bottom, 18)
+                } else {
+                    // type = "pay"
+                    Text("To \(activity.username)")
+                        .font(Font.custom("DMSans-Bold", size: 16))
+                        .foregroundColor(Color("activityTextColor"))
+                        .padding(.bottom, 18)
+                }
+                
+                if activity.type == "receive" || activity.type == "top-up" {
                     Text(activity.amountString)
                         .font(Font.custom("DMSans-Bold", size: 16))
                         .foregroundColor(Color("activityAddAmountColor"))
@@ -57,7 +93,7 @@ struct ActivityDetailedView: View {
                             .font(Font.custom("DMSans-Medium", size: 12))
                             .foregroundColor(Color("activityDataColor"))
                         
-                        Text("18:24 (AEST/AEDT)")
+                        Text("\(DateService.getDateString(format: "HH:mm", date: activity.date)) (AEST/AEDT)")
                             .font(Font.custom("DMSans-Medium", size: 12))
                             .foregroundColor(Color("activityDataColor"))
                     }
@@ -72,7 +108,7 @@ struct ActivityDetailedView: View {
                     
                     Spacer()
                     
-                    Text("1234 5678 0000")
+                    Text("\(activity.receipt)")
                         .font(Font.custom("DMSans-Medium", size: 12))
                         .foregroundColor(Color("activityDataColor"))
                 }
@@ -105,10 +141,24 @@ struct ActivityDetailedView: View {
 struct ActivityDetailedView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let activityModel = ActivityModel()
+        let activityModel: ActivityModel = {
+            let model = ActivityModel()
+            model.updateActivityForTestingOnly()
+            return model
+        }()
         
-        NavigationView {
-            ActivityDetailedView(activity: activityModel.activies[0])
+        Group {
+            NavigationView {
+                ActivityDetailedView(activity: activityModel.activies[0])
+            }
+            
+            NavigationView {
+                ActivityDetailedView(activity: activityModel.activies[2])
+            }
+            
+            NavigationView {
+                ActivityDetailedView(activity: activityModel.activies[3])
+            }
         }
     }
 }

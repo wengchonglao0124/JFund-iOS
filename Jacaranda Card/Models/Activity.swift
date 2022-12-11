@@ -10,14 +10,41 @@ import Foundation
 class Activity: Identifiable, Decodable {
     
     var id: UUID?
-    var name: String
+    var receipt: String
+    var type: String
+    
+    // ID
+    var receiveUser: String
+    var receiveUsername: String
+    // Image name or Color code
+    var receiveColor: String
+   
+    // ID
+    var payUser: String
+    var payUsername: String
+    // Image name or Color code
+    var payColor: String
+    
+    var username: String {
+        if type == "receive" {
+            return payUsername
+        }
+        else if type == "top-up" {
+            return "Top up to Balance"
+        }
+        else {
+            // type = "pay"
+            return receiveUsername
+        }
+    }
+    
     var dateString: String
     var date: Date {
         // Create Date Formatter
         let dateFormatter = DateFormatter()
 
         // Set Date Format
-        dateFormatter.dateFormat = "dd MMM yy"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
         // Convert String to Date
         if let dateUnwrap = dateFormatter.date(from: dateString) {
@@ -25,14 +52,35 @@ class Activity: Identifiable, Decodable {
         }
         return Date.now
     }
-    var imageName: String
-    var amount: Float
-    var amountString: String {
-        if amount >= 0 {
-            return String(format: "+ $ %.2f", amount)
+    
+    var imageName: String {
+        
+        if type == "top-up" {
+            return "topUpIcon"
+        }
+        else if type == "receive" {
+            return payColor
         }
         else {
-            return String(format: "- $ %.2f", abs(amount))
+            // type = "pay"
+            return receiveColor
         }
+    }
+    
+    var amount: String
+    var amountString: String {
+        
+        let amountFloat = Float(amount)!
+        
+        if type == "receive" || type == "top-up" {
+            return String(format: "+ $ %.2f", amountFloat)
+        }
+        else {
+            return String(format: "- $ %.2f", abs(amountFloat))
+        }
+    }
+    
+    var extraAmount: String {
+        return ""
     }
 }

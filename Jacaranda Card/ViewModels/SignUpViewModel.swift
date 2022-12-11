@@ -9,7 +9,15 @@ import Foundation
 
 class SignUpViewModel: ObservableObject {
     
+    var email: String?
+    var password: String?
+    var username: String?
+    
     func signUp(email: String, password: String, username: String, completion: @escaping (Bool) -> Void) {
+        
+        self.email = email
+        self.password = password
+        self.username = username
         
         WebService.signUp(email: email, password: password, username: username) { result in
             
@@ -23,4 +31,21 @@ class SignUpViewModel: ObservableObject {
             }
         }
     }
+    
+    
+    func signUpEmailResend() {
+        
+        signUp(email: self.email!, password: self.password!, username: self.username!) { success in
+            
+            if success {
+                print(true)
+            }
+            else {
+                print(false)
+            }
+        }
+    }
 }
+
+// Resend
+// Check re-enter email address 

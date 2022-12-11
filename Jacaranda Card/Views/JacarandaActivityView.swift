@@ -9,7 +9,12 @@ import SwiftUI
 
 struct JacarandaActivityView: View {
     
-    var activities: [Activity]
+    @EnvironmentObject var userDataVM: UserDataViewModel
+    @EnvironmentObject var activityVM: ActivityModel
+    
+    var activities: [Activity] {
+        activityVM.activies
+    }
     var activitiesSorted: [Activity] {
         activities.sorted(by: { $0.date.compare($1.date) == .orderedDescending })
     }
@@ -24,6 +29,9 @@ struct JacarandaActivityView: View {
                 .font(Font.custom("DMSans-Bold", size: 18))
                 .padding(.leading, 22)
                 .padding(.bottom, 15)
+//                .onAppear(perform: {
+//                    activityVM.updateActivityRecords(accessToken: userDataVM.getAccessToken()!)
+//                })
             
             VStack {
                 // MARK: Searching Section
@@ -51,6 +59,15 @@ struct JacarandaActivityView: View {
                 
                 // MARK: Activities Section
                 ScrollView {
+                    
+                    PullToRefreshView(coordinateSpaceName: "pullToRefreshActivityView") {
+                        // do your stuff when pulled
+                        let impact = UIImpactFeedbackGenerator(style: .light)
+                        impact.impactOccurred()
+                        
+                        activityVM.updateActivityRecords(accessToken: userDataVM.getAccessToken()!)
+                    }
+                    
                     LazyVStack(spacing: 0) {
                         
                         // activity collection by date
@@ -83,6 +100,7 @@ struct JacarandaActivityView: View {
                     }
                 }
                 .padding(.horizontal, 15)
+                .coordinateSpace(name: "pullToRefreshActivityView")
             }
             .background(Color(red: 252/255, green: 252/255, blue: 252/255, opacity: 0.8))
         }
@@ -93,10 +111,19 @@ struct JacarandaActivityView: View {
 
 struct JacarandaActivityView_Previews: PreviewProvider {
     static var previews: some View {
+        
+        let activityModel: ActivityModel = {
+            let model = ActivityModel()
+            model.updateActivityForTestingOnly()
+            return model
+        }()
+        
         Group {
-            JacarandaActivityView(activities: ActivityModel().activies)
+            JacarandaActivityView()
+                .environmentObject(activityModel)
             
-            JacarandaActivityView(activities: ActivityModel().activies)
+            JacarandaActivityView()
+                .environmentObject(activityModel)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
         }
     }

@@ -74,6 +74,7 @@
 		048691862940F23000E63301 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048691852940F23000E63301 /* PaymentService.swift */; };
 		048691882941816A00E63301 /* ConfirmPaymentPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048691872941816A00E63301 /* ConfirmPaymentPinView.swift */; };
 		048740A7293CA6F4001A85F3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048740A6293CA6F4001A85F3 /* WebService.swift */; };
+		04CC1E712945CA3C007A7556 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E702945CA3C007A7556 /* HexColor.swift */; };
 		04D3A9762942231700204F2A /* CustomNumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D3A9752942231700204F2A /* CustomNumberPadView.swift */; };
 		04E52238292D0547000D4AFC /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */; };
 		04E52239292D0547000D4AFC /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52233292D0547000D4AFC /* DMSans-Regular.ttf */; };
@@ -151,6 +152,7 @@
 		048691872941816A00E63301 /* ConfirmPaymentPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentPinView.swift; sourceTree = "<group>"; };
 		048740A5293B7033001A85F3 /* TestingAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestingAPI.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		048740A6293CA6F4001A85F3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		04CC1E702945CA3C007A7556 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		04D3A9752942231700204F2A /* CustomNumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberPadView.swift; sourceTree = "<group>"; };
 		04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
 		04E52233292D0547000D4AFC /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				041EA32D28A00B8200FDD336 /* StringModifier.swift */,
 				041EA33128A111B200FDD336 /* TextFieldModifer.swift */,
 				0436ACE8293DB12C00C90050 /* Credentials.swift */,
+				04CC1E702945CA3C007A7556 /* HexColor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				04316168288AFE630050DB2A /* BusinessPartnerModel.swift in Sources */,
 				0431613E2889828E0050DB2A /* JacarandaActivityView.swift in Sources */,
 				041EA324289F8D7700FDD336 /* ConfirmPaymentView.swift in Sources */,
+				04CC1E712945CA3C007A7556 /* HexColor.swift in Sources */,
 				041EA328289FB29B00FDD336 /* LoadingView.swift in Sources */,
 				042E8CB2293A2468003A2016 /* ConfirmLogoutView.swift in Sources */,
 				0436ACEB293DC56800C90050 /* UserDataViewModel.swift in Sources */,

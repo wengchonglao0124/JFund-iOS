@@ -11,17 +11,21 @@ struct JacarandaHomeView: View {
     
     @Binding var tabViewSelectionIndex: Int
     
-    @StateObject var userDataVM = UserDataViewModel()
+    @EnvironmentObject var userDataVM: UserDataViewModel
     @State var userBalance = "..."
+    
+    @EnvironmentObject var activityVM: ActivityModel
     
     var body: some View {
         
         ScrollView {
-            PullToRefreshView(coordinateSpaceName: "pullToRefresh") {
+            PullToRefreshView(coordinateSpaceName: "pullToRefreshHomeView") {
                 // do your stuff when pulled
                 let impact = UIImpactFeedbackGenerator(style: .light)
                 impact.impactOccurred()
                 userDataVM.updateBalance()
+                
+                activityVM.updateActivityRecords(accessToken: userDataVM.getAccessToken()!)
             }
             
             VStack(spacing: 0) {
@@ -39,7 +43,9 @@ struct JacarandaHomeView: View {
                     .padding([.leading, .trailing], 20)
                     .padding(.bottom, 30)
                     .onAppear(perform: {
-                        userDataVM.updateBalance()
+                        if tabViewSelectionIndex == 1 {
+                            userDataVM.updateBalance()
+                        }
                     })
                 
                 // MARK: Payment Section
@@ -68,9 +74,15 @@ struct JacarandaHomeView: View {
                 .padding(.bottom, 24)
                 
                 // MARK: Activity Section
-                HomeActivityView(activityModel: ActivityModel(), tabViewSelectionIndex: $tabViewSelectionIndex)
+                HomeActivityView(activityModel: activityVM, tabViewSelectionIndex: $tabViewSelectionIndex)
+                    .environmentObject(userDataVM)
                     .cornerRadius(16)
                     .padding(.bottom, 30)
+                    .onAppear(perform: {
+                        if tabViewSelectionIndex == 1 {
+                            activityVM.updateActivityRecords(accessToken: userDataVM.getAccessToken()!)
+                        }
+                    })
                 
                 // MARK: Event Section
 //                HomeEventView()
@@ -86,25 +98,37 @@ struct JacarandaHomeView: View {
         }
         .padding(.top, 1)
         .background(Color("screenBg"))
-        .coordinateSpace(name: "pullToRefresh")
+        .coordinateSpace(name: "pullToRefreshHomeView")
     }
 }
 
 struct JacarandaHomeView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let credentials = Credentials.decode("{\"UserName\":\"billylao\",\"RefreshToken\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiaWxseWxhbzg4OEBnbWFpbC5jb20iLCJleHAiOjE2NzA4MjQyNDcsImp0aSI6InJlZnJlc2hUb2tlbiJ9.tnENuGgjbK1wzbgfcN2ofvPSzw54orfGGesg5Xp7c68\",\"UserID\":\"1234567890348372\",\"AccessToken\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiaWxseWxhbzg4OEBnbWFpbC5jb20iLCJleHAiOjE2NzAzMDU4NDcsImp0aSI6ImFjY2Vzc1Rva2VuIn0.jmrb2FHgh_uJHtuy7PrdzxXL_kaJxVtl-pgLuUrOX7I\",\"info\":\"0\"}")
+        let credentials = Credentials.decode("{\"image\":\"#a2d2ff\",\"UserName\":\"billylao\",\"RefreshToken\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiaWxseWxhbzg4OEBnbWFpbC5jb20iLCJleHAiOjE2NzEzMzk3MDEsImp0aSI6InJlZnJlc2hUb2tlbiJ9.KJSENeGG5vaCMfWh01irNlsUPgvU4jd0_2vB_Xlnwps\",\"UserID\":\"4468674852519615\",\"AccessToken\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiaWxseWxhbzg4OEBnbWFpbC5jb20iLCJleHAiOjE2NzA4MjEzMDEsImp0aSI6ImFjY2Vzc1Rva2VuIn0.4Nj-KpJUznS86VSHaRn4NlgCZVJiqoe6DT-7IkKAk0M\",\"info\":\"1\"}")
         let isSuccess = KeychainService.saveCredentials(credentials)
+        
+        let activityModel: ActivityModel = {
+            let model = ActivityModel()
+            model.updateActivityForTestingOnly()
+            return model
+        }()
+        
+        let userDataVM = UserDataViewModel()
         
         if isSuccess {
             Group {
                 NavigationView {
-                    JacarandaHomeView(tabViewSelectionIndex: .constant(1))
+                    JacarandaHomeView(tabViewSelectionIndex: .constant(2))
                 }
+                .environmentObject(userDataVM)
+                .environmentObject(activityModel)
                 
                 NavigationView {
-                    JacarandaHomeView(tabViewSelectionIndex: .constant(1))
+                    JacarandaHomeView(tabViewSelectionIndex: .constant(2))
                 }
+                .environmentObject(userDataVM)
+                .environmentObject(activityModel)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
             }
         }
