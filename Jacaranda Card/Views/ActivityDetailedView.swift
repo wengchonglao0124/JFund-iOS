@@ -50,29 +50,52 @@ struct ActivityDetailedView: View {
                     Text(activity.username)
                         .font(Font.custom("DMSans-Bold", size: 16))
                         .foregroundColor(Color("activityTextColor"))
-                        .padding(.bottom, 18)
                 } else if activity.type == "receive" {
                     Text("From \(activity.username)")
                         .font(Font.custom("DMSans-Bold", size: 16))
                         .foregroundColor(Color("activityTextColor"))
-                        .padding(.bottom, 18)
                 } else {
                     // type = "pay"
                     Text("To \(activity.username)")
                         .font(Font.custom("DMSans-Bold", size: 16))
                         .foregroundColor(Color("activityTextColor"))
-                        .padding(.bottom, 18)
                 }
                 
-                if activity.type == "receive" || activity.type == "top-up" {
+                if activity.type == "receive" {
+                    
                     Text(activity.amountString)
                         .font(Font.custom("DMSans-Bold", size: 16))
                         .foregroundColor(Color("activityAddAmountColor"))
+                        .padding(.top, 20)
+                }
+                else if activity.type == "top-up" {
+                    if activity.isHavingBonus {
+                        
+                        VStack(spacing: 0) {
+                            
+                            Text(activity.extraAmount)
+                                .font(Font.custom("DMSans-Bold", size: 14))
+                                .foregroundColor(Color(red: 201/255, green: 37/255, blue: 45/255))
+                                .offset(x: 60, y: 5)
+                                .padding(.top, 10)
+                            
+                            Text(activity.amountString)
+                                .font(Font.custom("DMSans-Bold", size: 16))
+                                .foregroundColor(Color("activityAddAmountColor"))
+                        }
+                    }
+                    else {
+                        Text(activity.amountString)
+                            .font(Font.custom("DMSans-Bold", size: 16))
+                            .foregroundColor(Color("activityAddAmountColor"))
+                            .padding(.top, 20)
+                    }
                 }
                 else {
                     Text(activity.amountString)
                         .font(Font.custom("DMSans-Bold", size: 16))
                         .foregroundColor(Color("activityTextColor"))
+                        .padding(.top, 20)
                 }
             }
             .padding(.bottom, 29)

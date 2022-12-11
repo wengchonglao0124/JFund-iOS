@@ -80,7 +80,46 @@ class Activity: Identifiable, Decodable {
         }
     }
     
+    var isHavingBonus: Bool {
+        
+        if type == "top-up" {
+            let amountFloat = Float(amount)!
+            if amountFloat >= 100 {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    var bonusLength: Int {
+        
+        if type == "top-up" {
+            let amountFloat = Float(amount)!
+            if amountFloat < 1000 {
+                return 2
+            }
+            else {
+                return 3
+            }
+        }
+        return 0
+    }
+    
     var extraAmount: String {
-        return ""
+        
+        if type == "top-up" {
+            let amountFloat = Float(amount)!
+            let amountInt: Int = Int(amountFloat)
+            
+            let bonusStep: Int = 100
+            let bonus = 10*(amountInt/bonusStep)
+            
+            return "+ $ \(bonus)"
+            
+        }
+        else {
+            return ""
+        }
     }
 }

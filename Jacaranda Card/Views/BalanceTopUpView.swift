@@ -76,17 +76,23 @@ struct BalanceTopUpView: View {
                     
                     let amount = Float(topUpAmount)!
                     if amount >= 0.5 {
-                        isLoading = true
-                        stripeTopUpView.fetchPaymentIntent(accessToken: accessToken, amounts: topUpAmount) { success in
-                            
-                            if success {
-                                isPaying = true
+                        
+                        if amount < 10000 {
+                            isLoading = true
+                            stripeTopUpView.fetchPaymentIntent(accessToken: accessToken, amounts: topUpAmount) { success in
                                 
+                                if success {
+                                    isPaying = true
+                                    
+                                }
+                                else {
+                                    invalidMessages = "Please try again."
+                                }
+                                isLoading = false
                             }
-                            else {
-                                invalidMessages = "Please try again."
-                            }
-                            isLoading = false
+                        }
+                        else {
+                            invalidMessages = "Maximum top-up amount should not be greater than $ 10,000 for each time"
                         }
                     }
                     else {

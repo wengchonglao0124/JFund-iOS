@@ -12,59 +12,82 @@ struct ListActivityView: View {
     var activity: Activity
     
     var body: some View {
+    
         NavigationLink(destination: ActivityDetailedView(activity: activity)) {
-            HStack {
-                HStack(spacing: 16) {
-                    
-                    if activity.imageName.first == "#" {
-                        ZStack(alignment: .center) {
-                            Rectangle()
-                                .fill(Color(hex: activity.imageName)!)
-                            
-                            Text(activity.username.prefix(1))
-                                .font(Font.custom("DMSans-Bold", size: 18))
-                                .foregroundColor(.white)
-                        }
-                        .frame(width: 40, height: 40, alignment: .center)
-                        .cornerRadius(20)
-                    }
-                    else if activity.imageName == "topUpIcon" {
+            
+            ZStack {
+                HStack {
+                    HStack(spacing: 16) {
                         
-                        Image(activity.imageName)
+                        if activity.imageName.first == "#" {
+                            ZStack(alignment: .center) {
+                                Rectangle()
+                                    .fill(Color(hex: activity.imageName)!)
+                                
+                                Text(activity.username.prefix(1))
+                                    .font(Font.custom("DMSans-Bold", size: 18))
+                                    .foregroundColor(.white)
+                            }
                             .frame(width: 40, height: 40, alignment: .center)
-                            .cornerRadius(12)
+                            .cornerRadius(20)
+                        }
+                        else if activity.imageName == "topUpIcon" {
+                            
+                            Image(activity.imageName)
+                                .frame(width: 40, height: 40, alignment: .center)
+                                .cornerRadius(12)
+                        }
+                        else {
+                            Image("apple")
+                                .frame(width: 40, height: 40, alignment: .center)
+                                .cornerRadius(12)
+                        }
+                        
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(activity.username)
+                                .font(Font.custom("DMSans-Medium", size: 14))
+                                .foregroundColor(Color("activityTextColor"))
+                            
+                            Text(DateService.getDateString(format: "dd MMM", date: activity.date))
+                                .font(Font.custom("DMSans-Medium", size: 12))
+                                .foregroundColor(Color("activityDateColor"))
+                        }
+                    }
+                    Spacer()
+                    
+                    if activity.type == "receive" || activity.type == "top-up" {
+                        Text(activity.amountString)
+                            .font(Font.custom("DMSans-Medium", size: 16))
+                            .foregroundColor(Color("activityAddAmountColor"))
                     }
                     else {
-                        Image("apple")
-                            .frame(width: 40, height: 40, alignment: .center)
-                            .cornerRadius(12)
-                    }
-                    
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(activity.username)
-                            .font(Font.custom("DMSans-Medium", size: 14))
+                        Text(activity.amountString)
+                            .font(Font.custom("DMSans-Medium", size: 16))
                             .foregroundColor(Color("activityTextColor"))
-                        
-                        Text(DateService.getDateString(format: "dd MMM", date: activity.date))
-                            .font(Font.custom("DMSans-Medium", size: 12))
-                            .foregroundColor(Color("activityDateColor"))
                     }
                 }
-                Spacer()
-                if activity.type == "receive" || activity.type == "top-up" {
-                    Text(activity.amountString)
-                        .font(Font.custom("DMSans-Medium", size: 16))
-                        .foregroundColor(Color("activityAddAmountColor"))
-                }
-                else {
-                    Text(activity.amountString)
-                        .font(Font.custom("DMSans-Medium", size: 16))
-                        .foregroundColor(Color("activityTextColor"))
+                .padding([.leading, .top, .bottom], 13)
+                .padding(.trailing, 10)
+                
+                // MARK: Extra Bonus Section
+                if activity.type == "top-up" && activity.isHavingBonus {
+                    HStack {
+                        Spacer()
+                        Text(activity.extraAmount)
+                            .font(Font.custom("DMSans-Medium", size: 12))
+                            .foregroundColor(.white)
+                            .padding(.leading, activity.bonusLength == 2 ? 23 : 20)
+                            .padding(.trailing, activity.bonusLength == 2 ? 20 : 15)
+                            .padding(.vertical, 1)
+                            .background(.red)
+                            .offset(x: 10, y: -3.5)
+                            .shadow(color: Color(red: 0/255, green: 0/255, blue: 0/255, opacity: 0.25), radius: 2, x: 0, y: 1)
+                            .rotationEffect(Angle(degrees: 30), anchor: .bottom)
+                            .padding(.bottom, 49)
+                    }
                 }
             }
         }
-        .padding([.leading, .top, .bottom], 13)
-        .padding(.trailing, 10)
         .background(Color.white)
         .cornerRadius(12)
         .shadow(color: Color(red: 151/255, green: 151/255, blue: 151/255, opacity: 0.1), radius: 4, x: 2, y: 2)
