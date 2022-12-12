@@ -97,6 +97,15 @@ struct JacarandaActivityView: View {
                                 }
                             }
                         }
+                        
+                        if activities.count >= 10 {
+                            Text("")
+                                .onAppear(perform: {
+                                    print("Scroll to bottom to update activities")
+                                    
+                                    activityVM.updateActivityMoreRecords(accessToken: userDataVM.getAccessToken()!)
+                                })
+                        }
                     }
                 }
                 .padding(.horizontal, 15)

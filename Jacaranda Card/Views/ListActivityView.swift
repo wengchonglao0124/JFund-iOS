@@ -79,7 +79,7 @@ struct ListActivityView: View {
                             .padding(.leading, activity.bonusLength == 2 ? 23 : 20)
                             .padding(.trailing, activity.bonusLength == 2 ? 20 : 15)
                             .padding(.vertical, 1)
-                            .background(.red)
+                            .background(LinearGradient(colors: [Color(red: 240/255, green: 95/255, blue: 87/255), Color(red: 174/255, green: 10/255, blue: 10/255)], startPoint: .bottomLeading, endPoint: .topTrailing))
                             .offset(x: 10, y: -3.5)
                             .shadow(color: Color(red: 0/255, green: 0/255, blue: 0/255, opacity: 0.25), radius: 2, x: 0, y: 1)
                             .rotationEffect(Angle(degrees: 30), anchor: .bottom)

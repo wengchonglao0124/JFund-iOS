@@ -65,7 +65,7 @@ class ActivityDataService {
     static func getOnlineData(accessToken: String, time: String, completion: @escaping (Result<String, GeneralError>) -> Void) {
         
         // MARK: Server URL: https://xp.lycyy.cc
-        guard let url = URL(string: "https://xp.lycyy.cc/bill") else {
+        guard let url = URL(string: "https://xp.lycyy.cc/bill_before") else {
             completion(.failure(.custom(errorMessage: "URL is not correct")))
             return
         }
