@@ -83,7 +83,8 @@ struct JacarandaTabView: View {
                     .navigationBarHidden(true)
                 
                 // MARK: Profile View
-                JacarandaProfileView(userName: "UserName", carID: "1234 5678 3657 5623")
+                JacarandaProfileView()
+                    .environmentObject(userDataVM)
                     .tabItem({
                         VStack {
                             if selectionIndex == 4 {

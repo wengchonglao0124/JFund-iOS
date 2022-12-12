@@ -22,6 +22,7 @@ class UserDataViewModel: ObservableObject {
         updateDidSetupPaymentPin()
     }
     
+    
     func getUserID() -> String {
         
         guard let userID = KeychainService.getCredentials()?.UserID else {
@@ -29,6 +30,25 @@ class UserDataViewModel: ObservableObject {
         }
         
         return userID.applyPattern()
+    }
+    
+    
+    func getUserName() -> String {
+        guard let userName = UserDefaults.standard.string(forKey: "userName") else {
+            return "..."
+        }
+        
+        return userName
+    }
+    
+    
+    func getUserImage() -> String {
+        
+        guard let userImage = UserDefaults.standard.string(forKey: "userImage") else {
+            return "#74c69d"
+        }
+        
+        return userImage
     }
     
     

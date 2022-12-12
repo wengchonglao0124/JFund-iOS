@@ -9,8 +9,7 @@ import SwiftUI
 
 struct JacarandaProfileView: View {
     
-    @State var userName: String
-    var carID: String
+    @EnvironmentObject var userDataVM: UserDataViewModel
     
     @State var isShowingLogout = false
     
@@ -25,17 +24,17 @@ struct JacarandaProfileView: View {
                             HStack {
                                 ZStack {
                                     Circle()
-                                        .fill(Color(red: 215/255, green: 199/255, blue: 228/255))
+                                        .fill(Color(hex: userDataVM.getUserImage())!)
                                         .frame(width: 63, height: 63)
-                                    Text(userName.prefix(1))
+                                    Text(userDataVM.getUserName().prefix(1))
                                         .font(Font.custom("DMSans-Bold", size: 32))
                                         .foregroundColor(.white)
                                 }
                             
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text(userName)
+                                    Text(userDataVM.getUserName())
                                         .font(Font.custom("DMSans-Bold", size: 18))
-                                    Text(carID)
+                                    Text(userDataVM.getUserID())
                                         .font(Font.custom("DMSans-Medium", size: 14))
                                 }
                                 .padding(.leading, 10)
@@ -226,6 +225,23 @@ struct JacarandaProfileView: View {
 
 struct JacarandaProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        JacarandaProfileView(userName: "Lilyxoxo", carID: "1234 5678 3657 5623")
+        
+        let data = "{\"image\":\"#a2d2ff\",\"UserName\":\"billylao\",\"RefreshToken\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiaWxseWxhbzg4OEBnbWFpbC5jb20iLCJleHAiOjE2NzEzMzk3MDEsImp0aSI6InJlZnJlc2hUb2tlbiJ9.KJSENeGG5vaCMfWh01irNlsUPgvU4jd0_2vB_Xlnwps\",\"UserID\":\"4468674852519615\",\"AccessToken\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiaWxseWxhbzg4OEBnbWFpbC5jb20iLCJleHAiOjE2NzA4MjEzMDEsImp0aSI6ImFjY2Vzc1Rva2VuIn0.4Nj-KpJUznS86VSHaRn4NlgCZVJiqoe6DT-7IkKAk0M\",\"info\":\"1\"}"
+        
+        let credentials = Credentials.decode(data)
+        let isSuccess = KeychainService.saveCredentials(credentials)
+        
+        if isSuccess {
+            let userDataVM = UserDataViewModel()
+            
+            let userData = UserData.decode(data)
+            
+            JacarandaProfileView()
+                .environmentObject(userDataVM)
+                .onAppear(perform: {
+                    UserDefaults.standard.set(userData.UserName, forKey: "userName")
+                    UserDefaults.standard.set(userData.image, forKey: "userImage")
+                })
+        }
     }
 }

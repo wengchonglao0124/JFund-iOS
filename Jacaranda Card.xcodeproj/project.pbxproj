@@ -75,6 +75,7 @@
 		048691882941816A00E63301 /* ConfirmPaymentPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048691872941816A00E63301 /* ConfirmPaymentPinView.swift */; };
 		048740A7293CA6F4001A85F3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048740A6293CA6F4001A85F3 /* WebService.swift */; };
 		04CC1E712945CA3C007A7556 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E702945CA3C007A7556 /* HexColor.swift */; };
+		04CC1E732947982C007A7556 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E722947982C007A7556 /* UserData.swift */; };
 		04D3A9762942231700204F2A /* CustomNumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D3A9752942231700204F2A /* CustomNumberPadView.swift */; };
 		04E52238292D0547000D4AFC /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */; };
 		04E52239292D0547000D4AFC /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52233292D0547000D4AFC /* DMSans-Regular.ttf */; };
@@ -153,6 +154,7 @@
 		048740A5293B7033001A85F3 /* TestingAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestingAPI.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		048740A6293CA6F4001A85F3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		04CC1E702945CA3C007A7556 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
+		04CC1E722947982C007A7556 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		04D3A9752942231700204F2A /* CustomNumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberPadView.swift; sourceTree = "<group>"; };
 		04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
 		04E52233292D0547000D4AFC /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				041EA32D28A00B8200FDD336 /* StringModifier.swift */,
 				041EA33128A111B200FDD336 /* TextFieldModifer.swift */,
 				0436ACE8293DB12C00C90050 /* Credentials.swift */,
+				04CC1E722947982C007A7556 /* UserData.swift */,
 				04CC1E702945CA3C007A7556 /* HexColor.swift */,
 			);
 			path = Models;
@@ -474,6 +477,7 @@
 				041EA32E28A00B8200FDD336 /* StringModifier.swift in Sources */,
 				04316150288A97410050DB2A /* HomeEventView.swift in Sources */,
 				04D3A9762942231700204F2A /* CustomNumberPadView.swift in Sources */,
+				04CC1E732947982C007A7556 /* UserData.swift in Sources */,
 				04869151293F1D5400E63301 /* InitialSetupPinView.swift in Sources */,
 				04452BBA290EB028009E9374 /* ActivityDetailedView.swift in Sources */,
 				0436ACEF293DDE5300C90050 /* EmailVerificationView.swift in Sources */,
