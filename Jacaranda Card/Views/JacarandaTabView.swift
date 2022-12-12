@@ -63,7 +63,7 @@ struct JacarandaTabView: View {
                     .navigationBarHidden(true)
                 
                 // MARK: Activity View
-                JacarandaActivityView()
+                JacarandaActivityView(tabViewSelectionIndex: selectionIndex)
                     .environmentObject(userDataVM)
                     .environmentObject(activityVM)
                     .tabItem({

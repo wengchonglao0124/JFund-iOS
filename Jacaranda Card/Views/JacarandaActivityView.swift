@@ -12,6 +12,8 @@ struct JacarandaActivityView: View {
     @EnvironmentObject var userDataVM: UserDataViewModel
     @EnvironmentObject var activityVM: ActivityModel
     
+    var tabViewSelectionIndex: Int
+    
     var activities: [Activity] {
         activityVM.activies
     }
@@ -29,9 +31,6 @@ struct JacarandaActivityView: View {
                 .font(Font.custom("DMSans-Bold", size: 18))
                 .padding(.leading, 22)
                 .padding(.bottom, 15)
-//                .onAppear(perform: {
-//                    activityVM.updateActivityRecords(accessToken: userDataVM.getAccessToken()!)
-//                })
             
             VStack {
                 // MARK: Searching Section
@@ -98,13 +97,15 @@ struct JacarandaActivityView: View {
                             }
                         }
                         
-                        if activities.count >= 10 {
-                            Text("")
-                                .onAppear(perform: {
-                                    print("Scroll to bottom to update activities")
-                                    
-                                    activityVM.updateActivityMoreRecords(accessToken: userDataVM.getAccessToken()!)
-                                })
+                        if tabViewSelectionIndex == 3 {
+                            if activities.count >= 10 {
+                                Text("")
+                                    .onAppear(perform: {
+                                        print("Scroll to bottom to update activities")
+                                        
+                                        activityVM.updateActivityMoreRecords(accessToken: userDataVM.getAccessToken()!)
+                                    })
+                            }
                         }
                     }
                 }
@@ -128,10 +129,10 @@ struct JacarandaActivityView_Previews: PreviewProvider {
         }()
         
         Group {
-            JacarandaActivityView()
+            JacarandaActivityView(tabViewSelectionIndex: 4)
                 .environmentObject(activityModel)
             
-            JacarandaActivityView()
+            JacarandaActivityView(tabViewSelectionIndex: 4)
                 .environmentObject(activityModel)
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
         }
