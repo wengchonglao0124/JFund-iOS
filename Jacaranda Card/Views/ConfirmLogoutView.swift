@@ -45,6 +45,12 @@ struct ConfirmLogoutView: View {
                             Button {
                                 print("Yes: Are you sure to log out?")
                                 isPresenting = false
+                                
+                                UserDefaults.standard.removeObject(forKey: "userName")
+                                UserDefaults.standard.removeObject(forKey: "userImage")
+                                UserDefaults.standard.removeObject(forKey: "lastActivityDate")
+                                UserDefaults.standard.removeObject(forKey: "lastActivityReceipt")
+                                
                                 authentication.updateValidation(success: false)
                                 KeychainService.removeCredentials()
                                 
