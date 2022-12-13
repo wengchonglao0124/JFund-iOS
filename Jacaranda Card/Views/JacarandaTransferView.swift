@@ -55,7 +55,7 @@ struct JacarandaTransferView: View {
                             HStack {
                                 ZStack {
                                     Circle()
-                                        .fill(Color(red: 215/255, green: 199/255, blue: 228/255))
+                                        .fill(Color(hex: transferVM.payeeImage)!)
                                         .frame(width: 63, height: 63)
                                     
                                     Text(transferVM.payeeName.prefix(1))

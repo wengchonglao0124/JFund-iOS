@@ -10,6 +10,7 @@ import Foundation
 
 struct Payee: Codable {
     var UserName: String?
+    var Image: String?
 }
 
 
@@ -20,7 +21,8 @@ struct TransferResponse: Codable {
 
 class TransferViewModel: ObservableObject {
     
-    @Published var payeeName = ""
+    @Published var payeeName = "..."
+    @Published var payeeImage = "#74c69d"
     
     func checkPayeeID(accessToken: String, payeeID: String, completion: @escaping (Bool) -> Void) {
         
@@ -34,6 +36,7 @@ class TransferViewModel: ObservableObject {
                 let payee = try! decoder.decode((Payee.self), from: jsonData!)
                 DispatchQueue.main.sync {
                     self.payeeName = payee.UserName ?? "Error"
+                    self.payeeImage = payee.Image ?? "#74c69d"
                 }
                 completion(true)
                 
