@@ -20,29 +20,32 @@ struct JacarandaProfileView: View {
                 VStack {
                     VStack {
                         // MARK: Username Section
-                        HStack(spacing: 5) {
-                            HStack {
-                                ZStack {
-                                    Circle()
-                                        .fill(Color(hex: userDataVM.getUserImage())!)
-                                        .frame(width: 63, height: 63)
-                                    Text(userDataVM.getUserName().prefix(1))
-                                        .font(Font.custom("DMSans-Bold", size: 32))
-                                        .foregroundColor(.white)
+                        NavigationLink(destination: ProfileAccountInformationView()
+                            .environmentObject(userDataVM)) {
+                            HStack(spacing: 5) {
+                                HStack {
+                                    ZStack {
+                                        Circle()
+                                            .fill(Color(hex: userDataVM.getUserImage())!)
+                                            .frame(width: 63, height: 63)
+                                        Text(userDataVM.getUserName().prefix(1))
+                                            .font(Font.custom("DMSans-Bold", size: 32))
+                                            .foregroundColor(.white)
+                                    }
+                                    
+                                    VStack(alignment: .leading, spacing: 10) {
+                                        Text(userDataVM.getUserName())
+                                            .font(Font.custom("DMSans-Bold", size: 18))
+                                        Text(userDataVM.getUserID())
+                                            .font(Font.custom("DMSans-Medium", size: 14))
+                                    }
+                                    .padding(.leading, 10)
                                 }
-                            
-                                VStack(alignment: .leading, spacing: 10) {
-                                    Text(userDataVM.getUserName())
-                                        .font(Font.custom("DMSans-Bold", size: 18))
-                                    Text(userDataVM.getUserID())
-                                        .font(Font.custom("DMSans-Medium", size: 14))
-                                }
-                                .padding(.leading, 10)
+                                .padding(.leading, 16)
+                                Spacer()
                             }
-                            .padding(.leading, 16)
-                            Spacer()
+                            .padding(.vertical, 15.5)
                         }
-                        .padding(.vertical, 15.5)
                         .background(Color("profileSectionColor"))
                     }
                     .padding(.top, 47.5)

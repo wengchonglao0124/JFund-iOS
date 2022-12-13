@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ForgotPasswordView: View {
     
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Environment(\.dismiss) var dismiss
     @GestureState private var dragOffset = CGSize.zero
     
     @FocusState private var emailKeyboardFocused: Bool
@@ -74,7 +74,7 @@ struct ForgotPasswordView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action : {
-            self.mode.wrappedValue.dismiss()
+            dismiss()
         }){
             Image("backArrowBlack")
                 .padding(0)
@@ -85,7 +85,7 @@ struct ForgotPasswordView: View {
         .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
         
             if(value.startLocation.x < 20 && value.translation.width > 100) {
-                self.mode.wrappedValue.dismiss()
+                dismiss()
             }
         }))
     }

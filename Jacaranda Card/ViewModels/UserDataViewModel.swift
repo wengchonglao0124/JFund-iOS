@@ -52,6 +52,16 @@ class UserDataViewModel: ObservableObject {
     }
     
     
+    func getUserEmail() -> String {
+        
+        guard let userEmail = UserDefaults.standard.string(forKey: "userEmail") else {
+            return "..."
+        }
+        
+        return userEmail
+    }
+    
+    
     func updateDidSetupPaymentPin() {
         
         guard let info = KeychainService.getCredentials()?.info else {
@@ -128,6 +138,23 @@ class UserDataViewModel: ObservableObject {
                 
             case .failure(let error):
                 print(error)
+            }
+        }
+    }
+    
+    
+    func changeUsername(newUsername: String, completion: @escaping (Bool) -> Void) {
+        
+        UserDataService.changeUsername(accessToken: self.getAccessToken()!, newUsername: newUsername) { result in
+            
+            switch result {
+            case .success:
+                UserDefaults.standard.set(newUsername, forKey: "userName")
+                completion(true)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(false)
             }
         }
     }

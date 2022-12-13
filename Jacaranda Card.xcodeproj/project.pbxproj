@@ -76,6 +76,8 @@
 		048740A7293CA6F4001A85F3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048740A6293CA6F4001A85F3 /* WebService.swift */; };
 		04CC1E712945CA3C007A7556 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E702945CA3C007A7556 /* HexColor.swift */; };
 		04CC1E732947982C007A7556 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E722947982C007A7556 /* UserData.swift */; };
+		04CC1E7529484ED9007A7556 /* ProfileAccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */; };
+		04CC1E77294859EE007A7556 /* ChangeUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E76294859EE007A7556 /* ChangeUsernameView.swift */; };
 		04D3A9762942231700204F2A /* CustomNumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D3A9752942231700204F2A /* CustomNumberPadView.swift */; };
 		04E52238292D0547000D4AFC /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */; };
 		04E52239292D0547000D4AFC /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52233292D0547000D4AFC /* DMSans-Regular.ttf */; };
@@ -155,6 +157,8 @@
 		048740A6293CA6F4001A85F3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		04CC1E702945CA3C007A7556 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		04CC1E722947982C007A7556 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountInformationView.swift; sourceTree = "<group>"; };
+		04CC1E76294859EE007A7556 /* ChangeUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameView.swift; sourceTree = "<group>"; };
 		04D3A9752942231700204F2A /* CustomNumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberPadView.swift; sourceTree = "<group>"; };
 		04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
 		04E52233292D0547000D4AFC /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 				04316157288AED870050DB2A /* ListBusinessPartnerView.swift */,
 				041EA327289FB29B00FDD336 /* LoadingView.swift */,
 				04452BBD290EBD5B009E9374 /* BusinessPartnerDetailedView.swift */,
+				04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */,
+				04CC1E76294859EE007A7556 /* ChangeUsernameView.swift */,
 				042E8CA72938D22C003A2016 /* TermsOfUseView.swift */,
 				0436ACF0293E56D100C90050 /* SuccessContentView.swift */,
 				042E8CB1293A2468003A2016 /* ConfirmLogoutView.swift */,
@@ -447,6 +453,7 @@
 				0486914F293E64EC00E63301 /* SignUpViewModel.swift in Sources */,
 				0436ACDC293CFB1600C90050 /* JacarandaInitialView.swift in Sources */,
 				042E8CAC293A1E4B003A2016 /* TestingPromotionView.swift in Sources */,
+				04CC1E77294859EE007A7556 /* ChangeUsernameView.swift in Sources */,
 				044A91592896A465008D5864 /* JacarandaTransferView.swift in Sources */,
 				04316152288AA7240050DB2A /* HomeBusinessPartnerView.swift in Sources */,
 				04316166288AFE190050DB2A /* TourismDataService.swift in Sources */,
@@ -477,6 +484,7 @@
 				041EA32E28A00B8200FDD336 /* StringModifier.swift in Sources */,
 				04316150288A97410050DB2A /* HomeEventView.swift in Sources */,
 				04D3A9762942231700204F2A /* CustomNumberPadView.swift in Sources */,
+				04CC1E7529484ED9007A7556 /* ProfileAccountInformationView.swift in Sources */,
 				04CC1E732947982C007A7556 /* UserData.swift in Sources */,
 				04869151293F1D5400E63301 /* InitialSetupPinView.swift in Sources */,
 				04452BBA290EB028009E9374 /* ActivityDetailedView.swift in Sources */,

@@ -20,6 +20,8 @@ class LoginViewModel: ObservableObject {
                 UserDefaults.standard.set(userData.UserName, forKey: "userName")
                 UserDefaults.standard.set(userData.image, forKey: "userImage")
                 
+                UserDefaults.standard.set(email, forKey: "userEmail")
+                
                 let credentials = Credentials.decode(data)
                 if KeychainService.saveCredentials(credentials) {
                     completion(true)
