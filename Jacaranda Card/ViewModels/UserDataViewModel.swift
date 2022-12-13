@@ -169,4 +169,22 @@ class UserDataViewModel: ObservableObject {
             }
         }
     }
+    
+    
+    func changeUserImage(newUserImage: String, completion: @escaping (Bool) -> Void) {
+        
+        UserDataService.changeUserImage(accessToken: self.getAccessToken()!, newUserImage: newUserImage) { result in
+            
+            switch result {
+            case .success:
+                UserDefaults.standard.set(newUserImage, forKey: "userImage")
+                self.updateUserImage()
+                completion(true)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(false)
+            }
+        }
+    }
 }

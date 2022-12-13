@@ -1,5 +1,5 @@
 //
-//  ChangeUsernameView.swift
+//  ChangeUserImageView.swift
 //  Jacaranda Card
 //
 //  Created by weng chong lao on 13/12/2022.
@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-struct ChangeUsernameView: View {
+struct ChangeUserImageView: View {
     
     @Environment(\.dismiss) var dismiss
     @GestureState private var dragOffset = CGSize.zero
     
-    @State var newUsername = ""
-    @FocusState private var userNameKeyboardFocused: Bool
+    let colorSet = ["#cdb4db", "#ffafcc", "#ffcaca", "#fb6f92", "#449dd1", "#bccef8", "#a2d2ff", "#74c69d"]
+    
+    var username: String
+    @State var userImage: String
     
     @EnvironmentObject var userDataVM: UserDataViewModel
     
@@ -25,32 +27,39 @@ struct ChangeUsernameView: View {
     var body: some View {
         ZStack {
             VStack {
-                // MARK: New Username Input Section
-                VStack {
-                    TextField("Please enter username", text: $newUsername)
-                        .font(Font.custom("DMSans-Medium", size: 14))
-                        .foregroundColor({
-                            if newUsername.isEmpty {
-                                return Color(red: 151/255, green: 151/255, blue: 151/255)
-                            }
-                            else {
-                                return Color("FieldTextColor")
-                            }
-                        }())
-                        .keyboardType(.default)
-                        .focused($userNameKeyboardFocused)
-                        .padding(.leading, 21)
-                        .padding(.vertical, 19)
-                        .background(Color(red: 252/255, green: 252/255, blue: 252/255))
-                        .disabled(isLoading)
+                ZStack {
+                    Circle()
+                        .fill(Color(hex: userImage)!)
+                        .frame(width: 63, height: 63)
+                    Text(username.prefix(1))
+                        .font(Font.custom("DMSans-Bold", size: 32))
+                        .foregroundColor(.white)
                 }
-                .padding(.top, 35)
-                .padding(.bottom, 40)
-                .onTapGesture {
-                    userNameKeyboardFocused = true
-                }
+                .padding(.top, 30)
+                .padding(.bottom, 60)
                 
-                // MARK: Invalid Messages Section
+                HStack {
+                    Spacer()
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 40) {
+                        
+                        ForEach(colorSet, id: \.self) { value in
+                            
+                            Button {
+                                userImage = value
+                                
+                            } label: {
+                                Circle()
+                                    .fill(Color(hex: value)!)
+                                    .frame(width: 40, height: 40)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 40)
+                    Spacer()
+                }
+                .padding(.bottom, 50)
+                .disabled(isLoading)
+                
                 if !invalidMessages.isEmpty {
                     HStack {
                         Spacer()
@@ -62,13 +71,13 @@ struct ChangeUsernameView: View {
                     .padding(.bottom, 5)
                 }
                 
-                // MARK: Save Username Button Section
                 Button {
-                    print("Save username")
+                    print("Save user image")
                     isLoading = true
                     invalidMessages = ""
                     
-                    userDataVM.changeUsername(newUsername: newUsername) { success in
+                    userDataVM.changeUserImage(newUserImage: userImage) { success in
+                        
                         if success {
                             isFinish = true
                         }
@@ -78,15 +87,11 @@ struct ChangeUsernameView: View {
                         isLoading = false
                     }
                     
+                    
                 } label: {
-                    if newUsername.isEmpty {
-                        Image("saveButtonInactive")
-                    }
-                    else {
-                        Image("saveButton")
-                    }
+                    Image("saveButton")
                 }
-                .disabled(newUsername.isEmpty || isLoading)
+                .disabled(isLoading)
                 
                 Spacer()
             }
@@ -98,7 +103,7 @@ struct ChangeUsernameView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 HStack {
-                    Text("Username")
+                    Text("Icon color")
                         .font(Font.custom("DMSans-Bold", size: 16))
                         .foregroundColor(Color(red: 30/255, green: 30/255, blue: 32/255))
                     Spacer()
@@ -118,33 +123,16 @@ struct ChangeUsernameView: View {
                 dismiss()
             }
         }))
-        .onTapGesture {
-            if userNameKeyboardFocused {
-                userNameKeyboardFocused = false
-            }
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                userNameKeyboardFocused = true
-            }
-        }
         .onChange(of: isFinish) { newValue in
             dismiss()
         }
     }
 }
 
-struct ChangeUsernameView_Previews: PreviewProvider {
+struct ChangeUserImageView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            NavigationView {
-                ChangeUsernameView()
-            }
-            
-            NavigationView {
-                ChangeUsernameView()
-            }
-            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+        NavigationView {
+            ChangeUserImageView(username: "L", userImage: "#74c69d")
         }
     }
 }

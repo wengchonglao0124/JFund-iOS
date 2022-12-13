@@ -29,10 +29,8 @@ struct ProfileAccountInformationView: View {
             .padding(.top, 30)
             .padding(.bottom, 8)
             
-            Button {
-                print("Chnage icon color")
-                
-            } label: {
+            NavigationLink(destination: ChangeUserImageView(username: userDataVM.userName, userImage: userDataVM.userImage)
+                .environmentObject(userDataVM)) {
                 Text("Change icon color")
                     .font(Font.custom("DMSans-Medium", size: 12))
                     .foregroundColor(Color(red: 137/255, green: 138/255, blue: 141/255))

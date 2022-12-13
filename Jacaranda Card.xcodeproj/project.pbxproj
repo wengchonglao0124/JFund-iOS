@@ -78,6 +78,7 @@
 		04CC1E732947982C007A7556 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E722947982C007A7556 /* UserData.swift */; };
 		04CC1E7529484ED9007A7556 /* ProfileAccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */; };
 		04CC1E77294859EE007A7556 /* ChangeUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E76294859EE007A7556 /* ChangeUsernameView.swift */; };
+		04CC1E79294894E3007A7556 /* ChangeUserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E78294894E3007A7556 /* ChangeUserImageView.swift */; };
 		04D3A9762942231700204F2A /* CustomNumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D3A9752942231700204F2A /* CustomNumberPadView.swift */; };
 		04E52238292D0547000D4AFC /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */; };
 		04E52239292D0547000D4AFC /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52233292D0547000D4AFC /* DMSans-Regular.ttf */; };
@@ -159,6 +160,7 @@
 		04CC1E722947982C007A7556 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountInformationView.swift; sourceTree = "<group>"; };
 		04CC1E76294859EE007A7556 /* ChangeUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameView.swift; sourceTree = "<group>"; };
+		04CC1E78294894E3007A7556 /* ChangeUserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserImageView.swift; sourceTree = "<group>"; };
 		04D3A9752942231700204F2A /* CustomNumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberPadView.swift; sourceTree = "<group>"; };
 		04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
 		04E52233292D0547000D4AFC /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				04452BBD290EBD5B009E9374 /* BusinessPartnerDetailedView.swift */,
 				04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */,
 				04CC1E76294859EE007A7556 /* ChangeUsernameView.swift */,
+				04CC1E78294894E3007A7556 /* ChangeUserImageView.swift */,
 				042E8CA72938D22C003A2016 /* TermsOfUseView.swift */,
 				0436ACF0293E56D100C90050 /* SuccessContentView.swift */,
 				042E8CB1293A2468003A2016 /* ConfirmLogoutView.swift */,
@@ -436,6 +439,7 @@
 				040F01FB293494AB0098ACFE /* JacarandaShopView.swift in Sources */,
 				048691842940F1D800E63301 /* TransferViewModel.swift in Sources */,
 				0436ACE0293CFC4000C90050 /* NetworkManagerViewModel.swift in Sources */,
+				04CC1E79294894E3007A7556 /* ChangeUserImageView.swift in Sources */,
 				041EA33228A111B200FDD336 /* TextFieldModifer.swift in Sources */,
 				0431614C288A70080050DB2A /* ActivityModel.swift in Sources */,
 				048691822940EC9D00E63301 /* PullToRefreshView.swift in Sources */,
