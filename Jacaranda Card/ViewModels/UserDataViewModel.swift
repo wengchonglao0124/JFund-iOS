@@ -18,8 +18,14 @@ class UserDataViewModel: ObservableObject {
     @Published var userBalance = "..."
     @Published var didSetupPin = true
     
+    @Published var userName = "..."
+    @Published var userImage = "#74c69d"
+    
+    
     init() {
         updateDidSetupPaymentPin()
+        updateUserName()
+        updateUserImage()
     }
     
     
@@ -33,22 +39,26 @@ class UserDataViewModel: ObservableObject {
     }
     
     
-    func getUserName() -> String {
+    func updateUserName() {
         guard let userName = UserDefaults.standard.string(forKey: "userName") else {
-            return "..."
+            return
         }
         
-        return userName
+        DispatchQueue.main.async {
+            self.userName = userName
+        }
     }
     
     
-    func getUserImage() -> String {
+    func updateUserImage() {
         
         guard let userImage = UserDefaults.standard.string(forKey: "userImage") else {
-            return "#74c69d"
+            return
         }
         
-        return userImage
+        DispatchQueue.main.async {
+            self.userImage = userImage
+        }
     }
     
     
@@ -150,6 +160,7 @@ class UserDataViewModel: ObservableObject {
             switch result {
             case .success:
                 UserDefaults.standard.set(newUsername, forKey: "userName")
+                self.updateUserName()
                 completion(true)
                 
             case .failure(let error):

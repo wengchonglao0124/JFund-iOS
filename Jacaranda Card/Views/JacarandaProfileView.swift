@@ -26,15 +26,15 @@ struct JacarandaProfileView: View {
                                 HStack {
                                     ZStack {
                                         Circle()
-                                            .fill(Color(hex: userDataVM.getUserImage())!)
+                                            .fill(Color(hex: userDataVM.userImage)!)
                                             .frame(width: 63, height: 63)
-                                        Text(userDataVM.getUserName().prefix(1))
+                                        Text(userDataVM.userName.prefix(1))
                                             .font(Font.custom("DMSans-Bold", size: 32))
                                             .foregroundColor(.white)
                                     }
                                     
                                     VStack(alignment: .leading, spacing: 10) {
-                                        Text(userDataVM.getUserName())
+                                        Text(userDataVM.userName)
                                             .font(Font.custom("DMSans-Bold", size: 18))
                                         Text(userDataVM.getUserID())
                                             .font(Font.custom("DMSans-Medium", size: 14))

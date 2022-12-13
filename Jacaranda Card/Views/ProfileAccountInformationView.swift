@@ -20,9 +20,9 @@ struct ProfileAccountInformationView: View {
             // MARK: User Icon Section
             ZStack {
                 Circle()
-                    .fill(Color(hex: userDataVM.getUserImage())!)
+                    .fill(Color(hex: userDataVM.userImage)!)
                     .frame(width: 63, height: 63)
-                Text(userDataVM.getUserName().prefix(1))
+                Text(userDataVM.userName.prefix(1))
                     .font(Font.custom("DMSans-Bold", size: 32))
                     .foregroundColor(.white)
             }
@@ -50,7 +50,7 @@ struct ProfileAccountInformationView: View {
                                 .foregroundColor(Color(red: 137/255, green: 138/255, blue: 141/255))
                                 .font(Font.custom("DMSans-Medium", size: 12))
                             
-                            Text(userDataVM.getUserName())
+                            Text(userDataVM.userName)
                                 .foregroundColor(Color("profileSectionTextColor"))
                                 .font(Font.custom("DMSans-Medium", size: 14))
                         }
