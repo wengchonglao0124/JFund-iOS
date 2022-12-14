@@ -62,7 +62,7 @@ struct JacarandaProfileView: View {
                         
                         VStack {
                             // MARK: Account Security
-                            NavigationLink(destination: Text("Account Security")) {
+                            NavigationLink(destination: ProfileAccountSecurityView()) {
                                 HStack(spacing: 10) {
                                     Image("security")
                                         .frame(width: 40, height: 40)
