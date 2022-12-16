@@ -234,9 +234,16 @@ struct JacarandaSignUpView: View {
                         confirmPasswordKeyboardFocused = false
                         
                         invalidMessages = ""
+                        
                         if !PasswordService.checkSamePasswords(password1: password, password2: confirmPassword) {
                             print("Please make sure your passwords match.")
                             invalidMessages = "Please make sure your passwords match."
+                        }
+                        else if !PasswordService.checkPasswordLength(password: password) {
+                            invalidMessages = "Password must contain 6-20 characters."
+                        }
+                        else if !PasswordService.checkPasswordFormat(password: password) {
+                            invalidMessages = "Password must contain numbers, uppercase & lowercase letters."
                         }
                         else if !acceptInfo {
                             print("Please read and accept the Terms of use by checking the box.")
