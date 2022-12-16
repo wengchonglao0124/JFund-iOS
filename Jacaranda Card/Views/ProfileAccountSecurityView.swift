@@ -14,6 +14,8 @@ struct ProfileAccountSecurityView: View {
     
     @State var isEnableBiometricID = false
     
+    @EnvironmentObject var userDataVM: UserDataViewModel
+    
     var body: some View {
         VStack {
             
@@ -28,7 +30,8 @@ struct ProfileAccountSecurityView: View {
                 
                 VStack {
                     // MARK: Change Password Section
-                    NavigationLink(destination: Text("Change password")) {
+                    NavigationLink(destination: ChangePasswordView()
+                        .environmentObject(userDataVM)) {
                         HStack {
                             Text("Change password")
                                 .foregroundColor(Color("profileSectionTextColor"))
@@ -145,8 +148,12 @@ struct ProfileAccountSecurityView: View {
 
 struct ProfileAccountSecurityView_Previews: PreviewProvider {
     static var previews: some View {
+        
+        let userDataVM = UserDataViewModel()
+        
         NavigationView {
             ProfileAccountSecurityView()
         }
+        .environmentObject(userDataVM)
     }
 }

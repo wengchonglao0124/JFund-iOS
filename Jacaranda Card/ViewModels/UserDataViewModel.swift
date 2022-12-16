@@ -187,4 +187,20 @@ class UserDataViewModel: ObservableObject {
             }
         }
     }
+    
+    
+    func changePassword(oldPassword: String, newPassword: String, completion: @escaping (Bool) -> Void) {
+        
+        PasswordService.changePassword(accessToken: self.getAccessToken()!, oldPassword: oldPassword, newPassword: newPassword) { result in
+            
+            switch result {
+            case .success:
+                completion(true)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(false)
+            }
+        }
+    }
 }

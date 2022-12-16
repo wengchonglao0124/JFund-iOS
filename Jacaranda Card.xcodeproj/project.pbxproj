@@ -80,6 +80,7 @@
 		04CC1E77294859EE007A7556 /* ChangeUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E76294859EE007A7556 /* ChangeUsernameView.swift */; };
 		04CC1E79294894E3007A7556 /* ChangeUserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E78294894E3007A7556 /* ChangeUserImageView.swift */; };
 		04CC1E7B2949A7BD007A7556 /* ProfileAccountSecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E7A2949A7BD007A7556 /* ProfileAccountSecurityView.swift */; };
+		04CC1E7D2949C5C2007A7556 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E7C2949C5C2007A7556 /* ChangePasswordView.swift */; };
 		04D3A9762942231700204F2A /* CustomNumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D3A9752942231700204F2A /* CustomNumberPadView.swift */; };
 		04E52238292D0547000D4AFC /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */; };
 		04E52239292D0547000D4AFC /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E52233292D0547000D4AFC /* DMSans-Regular.ttf */; };
@@ -162,6 +163,7 @@
 		04CC1E76294859EE007A7556 /* ChangeUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameView.swift; sourceTree = "<group>"; };
 		04CC1E78294894E3007A7556 /* ChangeUserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserImageView.swift; sourceTree = "<group>"; };
 		04CC1E7A2949A7BD007A7556 /* ProfileAccountSecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountSecurityView.swift; sourceTree = "<group>"; };
+		04CC1E7C2949C5C2007A7556 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		04D3A9752942231700204F2A /* CustomNumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberPadView.swift; sourceTree = "<group>"; };
 		04E52232292D0547000D4AFC /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
 		04E52233292D0547000D4AFC /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				04CC1E76294859EE007A7556 /* ChangeUsernameView.swift */,
 				04CC1E78294894E3007A7556 /* ChangeUserImageView.swift */,
 				04CC1E7A2949A7BD007A7556 /* ProfileAccountSecurityView.swift */,
+				04CC1E7C2949C5C2007A7556 /* ChangePasswordView.swift */,
 				042E8CA72938D22C003A2016 /* TermsOfUseView.swift */,
 				0436ACF0293E56D100C90050 /* SuccessContentView.swift */,
 				042E8CB1293A2468003A2016 /* ConfirmLogoutView.swift */,
@@ -480,6 +483,7 @@
 				043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */,
 				048691862940F23000E63301 /* PaymentService.swift in Sources */,
 				041EA326289FA86500FDD336 /* SuccessPaymentView.swift in Sources */,
+				04CC1E7D2949C5C2007A7556 /* ChangePasswordView.swift in Sources */,
 				040F0201293600AB0098ACFE /* ForgotPasswordView.swift in Sources */,
 				042E8CB4293A27D6003A2016 /* BalanceTopUpView.swift in Sources */,
 				0486917E294097FA00E63301 /* CheckoutViewController.swift in Sources */,
