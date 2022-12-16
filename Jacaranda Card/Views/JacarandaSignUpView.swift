@@ -245,6 +245,9 @@ struct JacarandaSignUpView: View {
                         else if !PasswordService.checkPasswordFormat(password: password) {
                             invalidMessages = "Password must contain numbers, uppercase & lowercase letters."
                         }
+                        else if password.contains(" ") {
+                            invalidMessages = "Password should not contain any whitespace."
+                        }
                         else if !acceptInfo {
                             print("Please read and accept the Terms of use by checking the box.")
                             invalidMessages = "Please read and accept the Terms of use by checking the box."
@@ -253,7 +256,7 @@ struct JacarandaSignUpView: View {
                             print("Sign Up")
                             isLoading = true
                             
-                            signUpVM.signUp(email: email.trimmingCharacters(in: .whitespacesAndNewlines), password: password.trimmingCharacters(in: .whitespacesAndNewlines), username: userName) { success in
+                            signUpVM.signUp(email: email.trimmingCharacters(in: .whitespacesAndNewlines), password: password, username: userName) { success in
                                 
                                 if success {
                                     destinationKey = "emailVerication"

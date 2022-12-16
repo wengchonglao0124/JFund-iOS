@@ -278,16 +278,19 @@ struct ChangePasswordView: View {
                         }
                         
                         print("Change password")
-                        isLoading = true
                         invalidMessages = ""
                         
                         if !PasswordService.checkSamePasswords(password1: newPassword, password2: confirmNewPassword) {
                             
                             print("Please make sure your new passwords match.")
                             invalidMessages = "Please make sure your new passwords match."
-                            isLoading = false
+                        }
+                        else if newPassword.contains(" ") {
+                            invalidMessages = "Password should not contain any whitespace."
                         }
                         else {
+                            isLoading = true
+                            
                             userDataVM.changePassword(oldPassword: oldPassword, newPassword: newPassword) { success in
                                 
                                 if success {
