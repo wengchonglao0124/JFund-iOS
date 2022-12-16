@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SignUpViewModel: ObservableObject {
+class SignUpViewModel: EmailResendViewModel, ObservableObject {
     
     var email: String?
     var password: String?
@@ -33,7 +33,7 @@ class SignUpViewModel: ObservableObject {
     }
     
     
-    func signUpEmailResend() {
+    override func emailResend() {
         
         signUp(email: self.email!, password: self.password!, username: self.username!) { success in
             

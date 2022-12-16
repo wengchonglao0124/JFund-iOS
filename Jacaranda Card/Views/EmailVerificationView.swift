@@ -27,6 +27,8 @@ struct EmailVerificationView: View {
     @State var isVerified = false
     @Binding var isFinished: Bool
     
+    var emailResendVM: EmailResendViewModel
+    
     var successMessage = ""
     var successSubtitle = ""
     
@@ -109,7 +111,7 @@ struct EmailVerificationView: View {
                         if timeRemaining < 0 {
                             print("Resend")
                             
-                            // if success
+                            emailResendVM.emailResend()
                             timeRemaining = 60
                         }
                         
@@ -231,13 +233,15 @@ struct EmailVerificationView: View {
 struct EmailVerificationView_Previews: PreviewProvider {
     static var previews: some View {
         
+        let emailResendVM = EmailResendViewModel()
+        
         Group {
             NavigationView {
-                EmailVerificationView(navigationTitle: "", email: "", serverLocation: "", isFinished: .constant(false))
+                EmailVerificationView(navigationTitle: "", email: "", serverLocation: "", isFinished: .constant(false), emailResendVM: emailResendVM)
             }
             
             NavigationView {
-                EmailVerificationView(navigationTitle: "Forgot password", email: "", serverLocation: "", isFinished: .constant(false))
+                EmailVerificationView(navigationTitle: "Forgot password", email: "", serverLocation: "", isFinished: .constant(false), emailResendVM: emailResendVM)
             }
         }
     }

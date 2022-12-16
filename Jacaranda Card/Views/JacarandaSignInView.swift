@@ -82,6 +82,7 @@ struct JacarandaSignInView: View {
                                     }())
                                     .keyboardType(.default)
                                     .focused($passwordKeyboardFocused)
+                                    .textInputAutocapitalization(.never)
                             }
                             else {
                                 TextField("Password", text: $password)
@@ -96,6 +97,7 @@ struct JacarandaSignInView: View {
                                     }())
                                     .keyboardType(.default)
                                     .focused($passwordKeyboardFocused)
+                                    .textInputAutocapitalization(.never)
                             }
                                 
                             Button {

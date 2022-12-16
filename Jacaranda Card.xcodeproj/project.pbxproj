@@ -74,6 +74,7 @@
 		048691862940F23000E63301 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048691852940F23000E63301 /* PaymentService.swift */; };
 		048691882941816A00E63301 /* ConfirmPaymentPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048691872941816A00E63301 /* ConfirmPaymentPinView.swift */; };
 		048740A7293CA6F4001A85F3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048740A6293CA6F4001A85F3 /* WebService.swift */; };
+		04B09052294CC31000D21DC4 /* EmailResendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09051294CC31000D21DC4 /* EmailResendViewModel.swift */; };
 		04CC1E712945CA3C007A7556 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E702945CA3C007A7556 /* HexColor.swift */; };
 		04CC1E732947982C007A7556 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E722947982C007A7556 /* UserData.swift */; };
 		04CC1E7529484ED9007A7556 /* ProfileAccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */; };
@@ -157,6 +158,7 @@
 		048691852940F23000E63301 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
 		048691872941816A00E63301 /* ConfirmPaymentPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentPinView.swift; sourceTree = "<group>"; };
 		048740A6293CA6F4001A85F3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		04B09051294CC31000D21DC4 /* EmailResendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailResendViewModel.swift; sourceTree = "<group>"; };
 		04CC1E702945CA3C007A7556 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		04CC1E722947982C007A7556 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountInformationView.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				0431614B288A70080050DB2A /* ActivityModel.swift */,
 				04316167288AFE630050DB2A /* BusinessPartnerModel.swift */,
 				0486914E293E64EC00E63301 /* SignUpViewModel.swift */,
+				04B09051294CC31000D21DC4 /* EmailResendViewModel.swift */,
 				042E8CAD293A2181003A2016 /* LoginViewModel.swift */,
 				0436ACDF293CFC4000C90050 /* NetworkManagerViewModel.swift */,
 				0436ACEA293DC56800C90050 /* UserDataViewModel.swift */,
@@ -490,6 +493,7 @@
 				04316148288A6C3C0050DB2A /* ActivityDataService.swift in Sources */,
 				04452BBE290EBD5B009E9374 /* BusinessPartnerDetailedView.swift in Sources */,
 				04316144288A693D0050DB2A /* HomeActivityView.swift in Sources */,
+				04B09052294CC31000D21DC4 /* EmailResendViewModel.swift in Sources */,
 				04316162288AFCF40050DB2A /* RestaurantDataService.swift in Sources */,
 				041EA32E28A00B8200FDD336 /* StringModifier.swift in Sources */,
 				04316150288A97410050DB2A /* HomeEventView.swift in Sources */,

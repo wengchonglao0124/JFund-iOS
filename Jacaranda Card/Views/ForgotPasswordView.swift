@@ -45,6 +45,7 @@ struct ForgotPasswordView: View {
                             }
                         }())
                         .keyboardType(.emailAddress)
+                        .disableAutocorrection(true)
                         .textInputAutocapitalization(.never)
                         .focused($emailKeyboardFocused)
                 }

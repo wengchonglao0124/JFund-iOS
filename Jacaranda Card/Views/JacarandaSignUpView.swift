@@ -29,6 +29,7 @@ struct JacarandaSignUpView: View {
     @State var invalidMessages = ""
     
     @State var destinationKey: String? = nil
+    @State var destinationKeyTermOfUse: String? = nil
     
     @State var isLoading = false
     @State var isFinish = false
@@ -119,6 +120,7 @@ struct JacarandaSignUpView: View {
                                 }())
                                 .keyboardType(.default)
                                 .focused($passwordKeyboardFocused)
+                                .textInputAutocapitalization(.never)
                         }
                         else {
                             TextField("Password", text: $password)
@@ -133,6 +135,7 @@ struct JacarandaSignUpView: View {
                                 }())
                                 .keyboardType(.default)
                                 .focused($passwordKeyboardFocused)
+                                .textInputAutocapitalization(.never)
                         }
                         
                         Button {
@@ -174,6 +177,7 @@ struct JacarandaSignUpView: View {
                                 }())
                                 .keyboardType(.default)
                                 .focused($confirmPasswordKeyboardFocused)
+                                .textInputAutocapitalization(.never)
                         }
                         else {
                             TextField("Confirm Password", text: $confirmPassword)
@@ -188,6 +192,7 @@ struct JacarandaSignUpView: View {
                                 }())
                                 .keyboardType(.default)
                                 .focused($confirmPasswordKeyboardFocused)
+                                .textInputAutocapitalization(.never)
                         }
                         
                         Button {
@@ -278,7 +283,7 @@ struct JacarandaSignUpView: View {
                     }
                     .disabled(userName.isEmpty || email.isEmpty || password.isEmpty || confirmPassword.isEmpty)
                     .background(
-                        NavigationLink(destination: EmailVerificationView(navigationTitle: "", email: email.trimmingCharacters(in: .whitespacesAndNewlines), serverLocation: "/code", isFinished: $isFinish, successMessage: "You have created your account sucessfully!"), tag: "emailVerication", selection: $destinationKey) {
+                        NavigationLink(destination: EmailVerificationView(navigationTitle: "", email: email.trimmingCharacters(in: .whitespacesAndNewlines), serverLocation: "/code", isFinished: $isFinish, emailResendVM: signUpVM, successMessage: "You have created your account sucessfully!"), tag: "emailVerication", selection: $destinationKey) {
                             EmptyView()
                         }
                     )
@@ -308,11 +313,24 @@ struct JacarandaSignUpView: View {
                     .padding(.trailing, 5)
                     
                     // MARK: Terms Of Use Section
-                    NavigationLink(destination: TermsOfUseView()) {
+                    Button {
+                        userNameKeyboardFocused = false
+                        emailKeyboardFocused = false
+                        passwordKeyboardFocused = false
+                        confirmPasswordKeyboardFocused = false
+                        
+                        destinationKeyTermOfUse = "termOfUse"
+                        
+                    } label: {
                         Text("Terms of use")
                             .font(Font.custom("DMSans-Regular", size: 14))
                             .foregroundColor(Color(red: 87/255, green: 40/255, blue: 126/255))
                     }
+                    .background(
+                        NavigationLink(destination: TermsOfUseView(), tag: "termOfUse", selection: $destinationKeyTermOfUse) {
+                            EmptyView()
+                        }
+                    )
                 }
                 Spacer()
                 
