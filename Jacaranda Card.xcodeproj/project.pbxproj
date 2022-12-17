@@ -75,6 +75,7 @@
 		048691882941816A00E63301 /* ConfirmPaymentPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048691872941816A00E63301 /* ConfirmPaymentPinView.swift */; };
 		048740A7293CA6F4001A85F3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048740A6293CA6F4001A85F3 /* WebService.swift */; };
 		04B09052294CC31000D21DC4 /* EmailResendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09051294CC31000D21DC4 /* EmailResendViewModel.swift */; };
+		04B09054294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09053294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift */; };
 		04CC1E712945CA3C007A7556 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E702945CA3C007A7556 /* HexColor.swift */; };
 		04CC1E732947982C007A7556 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E722947982C007A7556 /* UserData.swift */; };
 		04CC1E7529484ED9007A7556 /* ProfileAccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */; };
@@ -159,6 +160,7 @@
 		048691872941816A00E63301 /* ConfirmPaymentPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentPinView.swift; sourceTree = "<group>"; };
 		048740A6293CA6F4001A85F3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		04B09051294CC31000D21DC4 /* EmailResendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailResendViewModel.swift; sourceTree = "<group>"; };
+		04B09053294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		04CC1E702945CA3C007A7556 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		04CC1E722947982C007A7556 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountInformationView.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				0436ACDF293CFC4000C90050 /* NetworkManagerViewModel.swift */,
 				0436ACEA293DC56800C90050 /* UserDataViewModel.swift */,
 				048691832940F1D800E63301 /* TransferViewModel.swift */,
+				04B09053294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				0436ACED293DC85500C90050 /* UserDataService.swift in Sources */,
 				043161422889950C0050DB2A /* HomeBalanceView.swift in Sources */,
 				048691862940F23000E63301 /* PaymentService.swift in Sources */,
+				04B09054294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift in Sources */,
 				041EA326289FA86500FDD336 /* SuccessPaymentView.swift in Sources */,
 				04CC1E7D2949C5C2007A7556 /* ChangePasswordView.swift in Sources */,
 				040F0201293600AB0098ACFE /* ForgotPasswordView.swift in Sources */,

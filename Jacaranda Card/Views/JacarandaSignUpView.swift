@@ -121,6 +121,7 @@ struct JacarandaSignUpView: View {
                                 .keyboardType(.default)
                                 .focused($passwordKeyboardFocused)
                                 .textInputAutocapitalization(.never)
+                                .disableAutocorrection(true)
                         }
                         else {
                             TextField("Password", text: $password)
@@ -136,6 +137,7 @@ struct JacarandaSignUpView: View {
                                 .keyboardType(.default)
                                 .focused($passwordKeyboardFocused)
                                 .textInputAutocapitalization(.never)
+                                .disableAutocorrection(true)
                         }
                         
                         Button {
@@ -178,6 +180,7 @@ struct JacarandaSignUpView: View {
                                 .keyboardType(.default)
                                 .focused($confirmPasswordKeyboardFocused)
                                 .textInputAutocapitalization(.never)
+                                .disableAutocorrection(true)
                         }
                         else {
                             TextField("Confirm Password", text: $confirmPassword)
@@ -193,6 +196,7 @@ struct JacarandaSignUpView: View {
                                 .keyboardType(.default)
                                 .focused($confirmPasswordKeyboardFocused)
                                 .textInputAutocapitalization(.never)
+                                .disableAutocorrection(true)
                         }
                         
                         Button {

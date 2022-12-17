@@ -14,6 +14,12 @@ struct ChangePasswordRequestBody: Codable {
 }
 
 
+struct ForgotPasswordRequestBody: Codable {
+    let email: String
+    let password: String
+}
+
+
 class PasswordService {
     
     static func checkSamePasswords(password1: String, password2: String) -> Bool {
@@ -80,6 +86,44 @@ class PasswordService {
             
             guard dataResponse.code == "200" else {
                 completion(.failure(.custom(errorMessage: "Fail to change password")))
+                return
+            }
+            
+            completion(.success(""))
+            
+        }.resume()
+    }
+    
+    
+    static func forgotPassword(email: String, newPassword: String, completion: @escaping (Result<String, GeneralError>) -> Void) {
+        
+        // MARK: Server URL: https://xp.lycyy.cc
+        guard let url = URL(string: "https://xp.lycyy.cc/setPswd") else {
+            completion(.failure(.custom(errorMessage: "URL is not correct")))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body = ForgotPasswordRequestBody(email: email, password: newPassword)
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            guard let data = data, error == nil else {
+                completion(.failure(.custom(errorMessage: "No data")))
+                return
+            }
+            
+            guard let dataResponse = try? JSONDecoder().decode(GeneralResponseBody.self, from: data) else {
+                completion(.failure(.custom(errorMessage: "Cannot decode from data")))
+                return
+            }
+            
+            guard dataResponse.code == "200" else {
+                completion(.failure(.custom(errorMessage: "Fail to request forgot password")))
                 return
             }
             

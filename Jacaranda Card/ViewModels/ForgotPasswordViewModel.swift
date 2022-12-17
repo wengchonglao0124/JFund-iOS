@@ -1,25 +1,24 @@
 //
-//  SignUpViewModel.swift
+//  ForgotPasswordViewModel.swift
 //  Jacaranda Card
 //
-//  Created by weng chong lao on 6/12/2022.
+//  Created by weng chong lao on 17/12/2022.
 //
 
 import Foundation
 
-class SignUpViewModel: EmailResendViewModel, ObservableObject {
+class ForgotPasswordViewModel: EmailResendViewModel {
     
     var email: String?
-    var password: String?
-    var username: String?
+    var newPassword: String?
     
-    func signUp(email: String, password: String, username: String, completion: @escaping (Bool) -> Void) {
+    
+    func requestChangePassword(email: String, newPassword: String, completion: @escaping (Bool) -> Void) {
         
         self.email = email
-        self.password = password
-        self.username = username
+        self.newPassword = newPassword
         
-        WebService.signUp(email: email, password: password, username: username) { result in
+        PasswordService.forgotPassword(email: email, newPassword: newPassword) { result in
             
             switch result {
             case .success:
@@ -35,7 +34,7 @@ class SignUpViewModel: EmailResendViewModel, ObservableObject {
     
     override func emailResend() {
         
-        signUp(email: self.email!, password: self.password!, username: self.username!) { success in
+        requestChangePassword(email: self.email!, newPassword: self.newPassword!) { success in
             
             if success {
                 print(true)

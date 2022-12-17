@@ -186,7 +186,7 @@ struct EmailVerificationView: View {
             }
         }
         .sheet(isPresented: $isVerified) {
-            SuccessContentView(message: "You have created your account sucessfully!", subtitle: "", isPresenting: $isVerified, finishedProcess: $isFinished)
+            SuccessContentView(message: successMessage, subtitle: successSubtitle, isPresenting: $isVerified, finishedProcess: $isFinished)
         }
         .onChange(of: verificationCode) { newValue in
             if verificationCode.count == 6 {

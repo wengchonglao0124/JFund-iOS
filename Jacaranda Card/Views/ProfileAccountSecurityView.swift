@@ -45,7 +45,7 @@ struct ProfileAccountSecurityView: View {
                     }
                     
                     // MARK: Forgot Password Section
-                    NavigationLink(destination: Text("Forgot Password")) {
+                    NavigationLink(destination: ForgotPasswordView()) {
                         HStack {
                             Text("Forgot password")
                                 .foregroundColor(Color("profileSectionTextColor"))
