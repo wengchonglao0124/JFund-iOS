@@ -36,7 +36,9 @@ struct EmailVerificationView: View {
     @State private var timeRemaining = 60
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-
+    var isUsingAccessToken = false
+    var accessToken = ""
+    
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -193,25 +195,50 @@ struct EmailVerificationView: View {
                 
                 isLoading = true
                 
-                WebService.emailVerification(email: email, verificationCode: verificationCode, serverLocation: serverLocation) { result in
-                    
-                    switch result {
-                    case .success:
-                        // Correct Color
-                        inputBoxColor = Color(red: 37/255, green: 194/255, blue: 110/255, opacity: 0.1)
-                        inputBoxBorder = Color(red: 37/255, green: 194/255, blue: 110/255)
+                if isUsingAccessToken {
+                    WebService.emailVerificationWithAccessToken(accessToken: accessToken, verificationCode: verificationCode, serverLocation: serverLocation) { result in
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            isVerified = true
+                        switch result {
+                        case .success:
+                            // Correct Color
+                            inputBoxColor = Color(red: 37/255, green: 194/255, blue: 110/255, opacity: 0.1)
+                            inputBoxBorder = Color(red: 37/255, green: 194/255, blue: 110/255)
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                isVerified = true
+                            }
+                            
+                        case .failure:
+                            // Incorrect Color
+                            inputBoxColor = Color(red: 252/255, green: 225/255, blue: 223/255)
+                            inputBoxBorder = Color(red: 255/255, green: 85/255, blue: 74/255)
+                            codeKeyboardFocused = true
                         }
-                        
-                    case .failure:
-                        // Incorrect Color
-                        inputBoxColor = Color(red: 252/255, green: 225/255, blue: 223/255)
-                        inputBoxBorder = Color(red: 255/255, green: 85/255, blue: 74/255)
-                        codeKeyboardFocused = true
+                        isLoading = false
                     }
-                    isLoading = false
+                    
+                }
+                else {
+                    WebService.emailVerification(email: email, verificationCode: verificationCode, serverLocation: serverLocation) { result in
+                        
+                        switch result {
+                        case .success:
+                            // Correct Color
+                            inputBoxColor = Color(red: 37/255, green: 194/255, blue: 110/255, opacity: 0.1)
+                            inputBoxBorder = Color(red: 37/255, green: 194/255, blue: 110/255)
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                isVerified = true
+                            }
+                            
+                        case .failure:
+                            // Incorrect Color
+                            inputBoxColor = Color(red: 252/255, green: 225/255, blue: 223/255)
+                            inputBoxBorder = Color(red: 255/255, green: 85/255, blue: 74/255)
+                            codeKeyboardFocused = true
+                        }
+                        isLoading = false
+                    }
                 }
             }
             else {

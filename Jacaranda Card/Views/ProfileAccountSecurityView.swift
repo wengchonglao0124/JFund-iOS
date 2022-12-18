@@ -87,7 +87,8 @@ struct ProfileAccountSecurityView: View {
                     }
                     
                     // MARK: Forgot Payment Pin Section
-                    NavigationLink(destination: Text("Forgot payment pin")) {
+                    NavigationLink(destination: ForgotPaymentPinView()
+                        .environmentObject(userDataVM)) {
                         HStack {
                             Text("Forgot payment pin")
                                 .foregroundColor(Color("profileSectionTextColor"))

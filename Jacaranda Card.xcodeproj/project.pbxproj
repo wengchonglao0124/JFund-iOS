@@ -77,6 +77,8 @@
 		04B09052294CC31000D21DC4 /* EmailResendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09051294CC31000D21DC4 /* EmailResendViewModel.swift */; };
 		04B09054294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09053294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift */; };
 		04B09056294ED7A400D21DC4 /* ChangePaymentPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09055294ED7A400D21DC4 /* ChangePaymentPinView.swift */; };
+		04B09058294EF45F00D21DC4 /* ForgotPaymentPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09057294EF45F00D21DC4 /* ForgotPaymentPinView.swift */; };
+		04B0905A294F034B00D21DC4 /* ForgotPaymentPinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09059294F034B00D21DC4 /* ForgotPaymentPinViewModel.swift */; };
 		04CC1E712945CA3C007A7556 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E702945CA3C007A7556 /* HexColor.swift */; };
 		04CC1E732947982C007A7556 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E722947982C007A7556 /* UserData.swift */; };
 		04CC1E7529484ED9007A7556 /* ProfileAccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */; };
@@ -163,6 +165,8 @@
 		04B09051294CC31000D21DC4 /* EmailResendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailResendViewModel.swift; sourceTree = "<group>"; };
 		04B09053294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		04B09055294ED7A400D21DC4 /* ChangePaymentPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePaymentPinView.swift; sourceTree = "<group>"; };
+		04B09057294EF45F00D21DC4 /* ForgotPaymentPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPaymentPinView.swift; sourceTree = "<group>"; };
+		04B09059294F034B00D21DC4 /* ForgotPaymentPinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPaymentPinViewModel.swift; sourceTree = "<group>"; };
 		04CC1E702945CA3C007A7556 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		04CC1E722947982C007A7556 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountInformationView.swift; sourceTree = "<group>"; };
@@ -271,6 +275,7 @@
 				04CC1E7A2949A7BD007A7556 /* ProfileAccountSecurityView.swift */,
 				04CC1E7C2949C5C2007A7556 /* ChangePasswordView.swift */,
 				04B09055294ED7A400D21DC4 /* ChangePaymentPinView.swift */,
+				04B09057294EF45F00D21DC4 /* ForgotPaymentPinView.swift */,
 				042E8CA72938D22C003A2016 /* TermsOfUseView.swift */,
 				0436ACF0293E56D100C90050 /* SuccessContentView.swift */,
 				042E8CB1293A2468003A2016 /* ConfirmLogoutView.swift */,
@@ -336,6 +341,7 @@
 				0436ACEA293DC56800C90050 /* UserDataViewModel.swift */,
 				048691832940F1D800E63301 /* TransferViewModel.swift */,
 				04B09053294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift */,
+				04B09059294F034B00D21DC4 /* ForgotPaymentPinViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -487,6 +493,7 @@
 				0431614E288A7E040050DB2A /* ListActivityView.swift in Sources */,
 				0436ACE9293DB12C00C90050 /* Credentials.swift in Sources */,
 				04B09056294ED7A400D21DC4 /* ChangePaymentPinView.swift in Sources */,
+				04B09058294EF45F00D21DC4 /* ForgotPaymentPinView.swift in Sources */,
 				044A915B2896C0EF008D5864 /* PaySettingView.swift in Sources */,
 				040F020329360AB50098ACFE /* JacarandaSignUpView.swift in Sources */,
 				0436ACED293DC85500C90050 /* UserDataService.swift in Sources */,
@@ -516,6 +523,7 @@
 				0431614A288A6C5D0050DB2A /* Activity.swift in Sources */,
 				040F01FD2934961C0098ACFE /* ShopOnlineStoreView.swift in Sources */,
 				04316158288AED870050DB2A /* ListBusinessPartnerView.swift in Sources */,
+				04B0905A294F034B00D21DC4 /* ForgotPaymentPinViewModel.swift in Sources */,
 				0431612B28897FCE0050DB2A /* JacarandaTabView.swift in Sources */,
 				0431612928897FCE0050DB2A /* Jacaranda_CardApp.swift in Sources */,
 				04316173288D921D0050DB2A /* DateService.swift in Sources */,
