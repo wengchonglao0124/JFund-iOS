@@ -50,6 +50,8 @@
 		04316168288AFE630050DB2A /* BusinessPartnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316167288AFE630050DB2A /* BusinessPartnerModel.swift */; };
 		0431616A288B03800050DB2A /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = 04316169288B03800050DB2A /* restaurants.json */; };
 		04316173288D921D0050DB2A /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04316172288D921D0050DB2A /* DateService.swift */; };
+		0432F8F72963E0FD00708333 /* PayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432F8F62963E0FD00708333 /* PayViewModel.swift */; };
+		0432F8F92963E6CB00708333 /* WebSocketStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432F8F82963E6CB00708333 /* WebSocketStream.swift */; };
 		0436ACDC293CFB1600C90050 /* JacarandaInitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACDB293CFB1600C90050 /* JacarandaInitialView.swift */; };
 		0436ACE0293CFC4000C90050 /* NetworkManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436ACDF293CFC4000C90050 /* NetworkManagerViewModel.swift */; };
 		0436ACE5293DAF1F00C90050 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 0436ACE4293DAF1F00C90050 /* SwiftKeychainWrapper */; };
@@ -77,6 +79,8 @@
 		04B09052294CC31000D21DC4 /* EmailResendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09051294CC31000D21DC4 /* EmailResendViewModel.swift */; };
 		04B09054294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09053294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift */; };
 		04B09056294ED7A400D21DC4 /* ChangePaymentPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09055294ED7A400D21DC4 /* ChangePaymentPinView.swift */; };
+		04B09058294EF45F00D21DC4 /* ForgotPaymentPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09057294EF45F00D21DC4 /* ForgotPaymentPinView.swift */; };
+		04B0905A294F034B00D21DC4 /* ForgotPaymentPinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09059294F034B00D21DC4 /* ForgotPaymentPinViewModel.swift */; };
 		04CC1E712945CA3C007A7556 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E702945CA3C007A7556 /* HexColor.swift */; };
 		04CC1E732947982C007A7556 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E722947982C007A7556 /* UserData.swift */; };
 		04CC1E7529484ED9007A7556 /* ProfileAccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */; };
@@ -138,6 +142,8 @@
 		04316167288AFE630050DB2A /* BusinessPartnerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessPartnerModel.swift; sourceTree = "<group>"; };
 		04316169288B03800050DB2A /* restaurants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = restaurants.json; sourceTree = "<group>"; };
 		04316172288D921D0050DB2A /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
+		0432F8F62963E0FD00708333 /* PayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewModel.swift; sourceTree = "<group>"; };
+		0432F8F82963E6CB00708333 /* WebSocketStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketStream.swift; sourceTree = "<group>"; };
 		0436ACDB293CFB1600C90050 /* JacarandaInitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacarandaInitialView.swift; sourceTree = "<group>"; };
 		0436ACDF293CFC4000C90050 /* NetworkManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerViewModel.swift; sourceTree = "<group>"; };
 		0436ACE6293DAFCB00C90050 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
@@ -163,6 +169,8 @@
 		04B09051294CC31000D21DC4 /* EmailResendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailResendViewModel.swift; sourceTree = "<group>"; };
 		04B09053294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		04B09055294ED7A400D21DC4 /* ChangePaymentPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePaymentPinView.swift; sourceTree = "<group>"; };
+		04B09057294EF45F00D21DC4 /* ForgotPaymentPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPaymentPinView.swift; sourceTree = "<group>"; };
+		04B09059294F034B00D21DC4 /* ForgotPaymentPinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPaymentPinViewModel.swift; sourceTree = "<group>"; };
 		04CC1E702945CA3C007A7556 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		04CC1E722947982C007A7556 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountInformationView.swift; sourceTree = "<group>"; };
@@ -271,6 +279,7 @@
 				04CC1E7A2949A7BD007A7556 /* ProfileAccountSecurityView.swift */,
 				04CC1E7C2949C5C2007A7556 /* ChangePasswordView.swift */,
 				04B09055294ED7A400D21DC4 /* ChangePaymentPinView.swift */,
+				04B09057294EF45F00D21DC4 /* ForgotPaymentPinView.swift */,
 				042E8CA72938D22C003A2016 /* TermsOfUseView.swift */,
 				0436ACF0293E56D100C90050 /* SuccessContentView.swift */,
 				042E8CB1293A2468003A2016 /* ConfirmLogoutView.swift */,
@@ -294,6 +303,7 @@
 				0436ACE6293DAFCB00C90050 /* KeychainService.swift */,
 				0436ACEC293DC85500C90050 /* UserDataService.swift */,
 				048691852940F23000E63301 /* PaymentService.swift */,
+				0432F8F82963E6CB00708333 /* WebSocketStream.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -336,6 +346,8 @@
 				0436ACEA293DC56800C90050 /* UserDataViewModel.swift */,
 				048691832940F1D800E63301 /* TransferViewModel.swift */,
 				04B09053294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift */,
+				04B09059294F034B00D21DC4 /* ForgotPaymentPinViewModel.swift */,
+				0432F8F62963E0FD00708333 /* PayViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -455,6 +467,7 @@
 				04CC1E79294894E3007A7556 /* ChangeUserImageView.swift in Sources */,
 				041EA33228A111B200FDD336 /* TextFieldModifer.swift in Sources */,
 				0431614C288A70080050DB2A /* ActivityModel.swift in Sources */,
+				0432F8F72963E0FD00708333 /* PayViewModel.swift in Sources */,
 				048691822940EC9D00E63301 /* PullToRefreshView.swift in Sources */,
 				0436ACF1293E56D100C90050 /* SuccessContentView.swift in Sources */,
 				042E8CA82938D22C003A2016 /* TermsOfUseView.swift in Sources */,
@@ -487,6 +500,7 @@
 				0431614E288A7E040050DB2A /* ListActivityView.swift in Sources */,
 				0436ACE9293DB12C00C90050 /* Credentials.swift in Sources */,
 				04B09056294ED7A400D21DC4 /* ChangePaymentPinView.swift in Sources */,
+				04B09058294EF45F00D21DC4 /* ForgotPaymentPinView.swift in Sources */,
 				044A915B2896C0EF008D5864 /* PaySettingView.swift in Sources */,
 				040F020329360AB50098ACFE /* JacarandaSignUpView.swift in Sources */,
 				0436ACED293DC85500C90050 /* UserDataService.swift in Sources */,
@@ -516,9 +530,11 @@
 				0431614A288A6C5D0050DB2A /* Activity.swift in Sources */,
 				040F01FD2934961C0098ACFE /* ShopOnlineStoreView.swift in Sources */,
 				04316158288AED870050DB2A /* ListBusinessPartnerView.swift in Sources */,
+				04B0905A294F034B00D21DC4 /* ForgotPaymentPinViewModel.swift in Sources */,
 				0431612B28897FCE0050DB2A /* JacarandaTabView.swift in Sources */,
 				0431612928897FCE0050DB2A /* Jacaranda_CardApp.swift in Sources */,
 				04316173288D921D0050DB2A /* DateService.swift in Sources */,
+				0432F8F92963E6CB00708333 /* WebSocketStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,13 +663,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Jacaranda Card/Preview Content\"";
-				DEVELOPMENT_TEAM = S7HBQ7384D;
+				DEVELOPMENT_TEAM = 6M858C2UR8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Jacaranda-Card-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = JFund;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To scan cards for payment";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location allows you to view restaurants nearby.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location allows you to view restaurants nearby.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -666,7 +683,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jacarandait.Jacaranda-Card";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacarandabne.jfund;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -682,13 +699,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Jacaranda Card/Preview Content\"";
-				DEVELOPMENT_TEAM = S7HBQ7384D;
+				DEVELOPMENT_TEAM = 6M858C2UR8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Jacaranda-Card-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = JFund;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To scan cards for payment";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location allows you to view restaurants nearby.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location allows you to view restaurants nearby.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -701,7 +719,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jacarandait.Jacaranda-Card";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacarandabne.jfund;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

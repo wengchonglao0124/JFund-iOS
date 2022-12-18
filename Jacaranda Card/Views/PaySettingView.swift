@@ -73,11 +73,27 @@ struct PaySettingView: View {
 
 struct PaySettingView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            PaySettingView(isPresentingSettingView: .constant(true))
+        
+        let data = "{\"image\":\"#a2d2ff\",\"UserName\":\"billylao\",\"RefreshToken\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiaWxseWxhbzg4OEBnbWFpbC5jb20iLCJleHAiOjE2NzEzMzk3MDEsImp0aSI6InJlZnJlc2hUb2tlbiJ9.KJSENeGG5vaCMfWh01irNlsUPgvU4jd0_2vB_Xlnwps\",\"UserID\":\"4468674852519615\",\"AccessToken\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiaWxseWxhbzg4OEBnbWFpbC5jb20iLCJleHAiOjE2NzA4MjEzMDEsImp0aSI6ImFjY2Vzc1Rva2VuIn0.4Nj-KpJUznS86VSHaRn4NlgCZVJiqoe6DT-7IkKAk0M\",\"info\":\"1\"}"
+        
+        let credentials = Credentials.decode(data)
+        let isSuccess = KeychainService.saveCredentials(credentials)
+        
+        if isSuccess {
+            let userDataVM = UserDataViewModel()
             
-            NavigationView {
-                JacarandaPayView(isPresentingSettingView: true, username: "Lilyxoxo", carID: "1234 5678 3657 5623")
+            let userData = UserData.decode(data)
+        
+            Group {
+                PaySettingView(isPresentingSettingView: .constant(true))
+                
+                NavigationView {
+                    JacarandaPayView(isPresentingSettingView: true)
+                }
+                .environmentObject(userDataVM)
+                .onAppear(perform: {
+                    UserDefaults.standard.set(userData.UserName, forKey: "userName")
+                })
             }
         }
     }

@@ -51,7 +51,8 @@ struct JacarandaHomeView: View {
                 // MARK: Payment Section
                 HStack {
                     Spacer()
-                    NavigationLink(destination: JacarandaPayView(username: "Lilyxoxo", carID: userDataVM.getUserID())) {
+                    NavigationLink(destination: JacarandaPayView()
+                        .environmentObject(userDataVM)) {
                         VStack {
                             Image("payButton")
                             Text("Pay")
@@ -61,7 +62,8 @@ struct JacarandaHomeView: View {
                     }
                     Spacer()
                     Spacer()
-                    NavigationLink(destination: JacarandaTransferView().environmentObject(userDataVM)) {
+                    NavigationLink(destination: JacarandaTransferView()
+                        .environmentObject(userDataVM)) {
                         VStack {
                             Image("transferButton")
                             Text("Transfer")

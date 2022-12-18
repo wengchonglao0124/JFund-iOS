@@ -58,6 +58,11 @@ struct EmailVerificationRequestBody: Codable {
 }
 
 
+struct EmailVerificationWithAccessTokenRequestBody: Codable {
+    let code: String
+}
+
+
 struct GeneralResponseBody: Codable {
     let code: String?
     let msg: String?
@@ -166,6 +171,45 @@ class WebService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            guard let data = data, error == nil else {
+                completion(.failure(.custom(errorMessage: "No data")))
+                return
+            }
+           
+            guard let emailVerificationResponse = try? JSONDecoder().decode(GeneralResponseBody.self, from: data) else {
+                completion(.failure(.custom(errorMessage: "Fail to verified")))
+                return
+            }
+            
+            guard emailVerificationResponse.code == "200" else {
+                completion(.failure(.custom(errorMessage: "Fail to verified")))
+                return
+            }
+            
+            completion(.success(""))
+            
+        }.resume()
+    }
+    
+    
+    static func emailVerificationWithAccessToken(accessToken: String, verificationCode: String, serverLocation: String, completion: @escaping (Result<String, GeneralError>) -> Void) {
+        
+        // MARK: Server URL: https://xp.lycyy.cc
+        guard let url = URL(string: "https://xp.lycyy.cc\(serverLocation)") else {
+            completion(.failure(.custom(errorMessage: "URL is not correct")))
+            return
+        }
+        
+        let body = EmailVerificationWithAccessTokenRequestBody(code: verificationCode)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(accessToken, forHTTPHeaderField: "token")
         request.httpBody = try? JSONEncoder().encode(body)
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
