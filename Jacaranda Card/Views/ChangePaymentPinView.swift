@@ -23,9 +23,12 @@ struct ChangePaymentPinView: View {
     @State var confirmPinCode = ""
     @FocusState private var confirmPinKeyboardFocused: Bool
     
+    @EnvironmentObject var userDataVM: UserDataViewModel
+    
     @State var invalidMessages = ""
     @State var isLoading = false
-    @State var isFinished = false
+    @State var isSuccess = false
+    @State var isFinish = false
     
     var body: some View {
         ZStack {
@@ -227,6 +230,16 @@ struct ChangePaymentPinView: View {
                             }
                             else {
                                 isLoading = true
+                                
+                                userDataVM.changePaymentPin(oldPin: oldPinCode, newPin: newPinCode) { success in
+                                    if success {
+                                        isSuccess = true
+                                    }
+                                    else {
+                                        invalidMessages = "Please make sure your old payment pin is valid."
+                                    }
+                                    isLoading = false
+                                }
                             }
                             
                         } label: {
@@ -284,6 +297,12 @@ struct ChangePaymentPinView: View {
             if confirmPinKeyboardFocused {
                 confirmPinKeyboardFocused = false
             }
+        }
+        .sheet(isPresented: $isSuccess) {
+            SuccessContentView(message: "Payment pin changed!", subtitle: "Your payment pin has been reset successfully.", isPresenting: $isSuccess, finishedProcess: $isFinish)
+        }
+        .onChange(of: isFinish) { newValue in
+            dismiss()
         }
     }
 }

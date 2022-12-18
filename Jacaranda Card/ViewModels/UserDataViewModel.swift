@@ -203,4 +203,20 @@ class UserDataViewModel: ObservableObject {
             }
         }
     }
+    
+    
+    func changePaymentPin(oldPin: String, newPin: String, completion: @escaping (Bool) -> Void) {
+        
+        PasswordService.changePaymentPin(accessToken: self.getAccessToken()!, oldPin: oldPin, newPin: newPin) { result in
+            
+            switch result {
+            case .success:
+                completion(true)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(false)
+            }
+        }
+    }
 }

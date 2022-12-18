@@ -72,7 +72,8 @@ struct ProfileAccountSecurityView: View {
                 
                 VStack {
                     // MARK: Change Payment Pin Section
-                    NavigationLink(destination: ChangePaymentPinView()) {
+                    NavigationLink(destination: ChangePaymentPinView()
+                        .environmentObject(userDataVM)) {
                         HStack {
                             Text("Change payment pin")
                                 .foregroundColor(Color("profileSectionTextColor"))
