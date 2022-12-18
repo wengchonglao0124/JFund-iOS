@@ -72,7 +72,7 @@ struct ProfileAccountSecurityView: View {
                 
                 VStack {
                     // MARK: Change Payment Pin Section
-                    NavigationLink(destination: Text("Change payment pin")) {
+                    NavigationLink(destination: ChangePaymentPinView()) {
                         HStack {
                             Text("Change payment pin")
                                 .foregroundColor(Color("profileSectionTextColor"))

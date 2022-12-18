@@ -76,6 +76,7 @@
 		048740A7293CA6F4001A85F3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048740A6293CA6F4001A85F3 /* WebService.swift */; };
 		04B09052294CC31000D21DC4 /* EmailResendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09051294CC31000D21DC4 /* EmailResendViewModel.swift */; };
 		04B09054294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09053294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift */; };
+		04B09056294ED7A400D21DC4 /* ChangePaymentPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09055294ED7A400D21DC4 /* ChangePaymentPinView.swift */; };
 		04CC1E712945CA3C007A7556 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E702945CA3C007A7556 /* HexColor.swift */; };
 		04CC1E732947982C007A7556 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E722947982C007A7556 /* UserData.swift */; };
 		04CC1E7529484ED9007A7556 /* ProfileAccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */; };
@@ -161,6 +162,7 @@
 		048740A6293CA6F4001A85F3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		04B09051294CC31000D21DC4 /* EmailResendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailResendViewModel.swift; sourceTree = "<group>"; };
 		04B09053294D8AEC00D21DC4 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		04B09055294ED7A400D21DC4 /* ChangePaymentPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePaymentPinView.swift; sourceTree = "<group>"; };
 		04CC1E702945CA3C007A7556 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		04CC1E722947982C007A7556 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		04CC1E7429484ED9007A7556 /* ProfileAccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountInformationView.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				04CC1E78294894E3007A7556 /* ChangeUserImageView.swift */,
 				04CC1E7A2949A7BD007A7556 /* ProfileAccountSecurityView.swift */,
 				04CC1E7C2949C5C2007A7556 /* ChangePasswordView.swift */,
+				04B09055294ED7A400D21DC4 /* ChangePaymentPinView.swift */,
 				042E8CA72938D22C003A2016 /* TermsOfUseView.swift */,
 				0436ACF0293E56D100C90050 /* SuccessContentView.swift */,
 				042E8CB1293A2468003A2016 /* ConfirmLogoutView.swift */,
@@ -483,6 +486,7 @@
 				0431615A288AEEDB0050DB2A /* BusinessPartner.swift in Sources */,
 				0431614E288A7E040050DB2A /* ListActivityView.swift in Sources */,
 				0436ACE9293DB12C00C90050 /* Credentials.swift in Sources */,
+				04B09056294ED7A400D21DC4 /* ChangePaymentPinView.swift in Sources */,
 				044A915B2896C0EF008D5864 /* PaySettingView.swift in Sources */,
 				040F020329360AB50098ACFE /* JacarandaSignUpView.swift in Sources */,
 				0436ACED293DC85500C90050 /* UserDataService.swift in Sources */,
