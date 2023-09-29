@@ -13,15 +13,17 @@ we're not only fostering ease of use but also promoting rapid, secure, and effic
 
 JFund is mainly developed for customers to pay at the restaurant after having their meals. The features of JFund:
 
-<I><b>Model–view–viewmodel (MVVM) architecture</b></I>
+```diff
+@@ Model–view–viewmodel (MVVM) architecture @@
 
-<I><b>WebSocket</b></I>
+@@ WebSocket @@
 
-<I><b>GET: To request data from the server</b></I>
+@@ GET: To request data from the server @@
 
-<I><b>POST: To submit data to be processed to the server</b></I>
+@@ POST: To submit data to be processed to the server @@
 
-<I><b>Token-based authentication</b></I>
+@@ Token-based authentication @@
+```
 
 </br>
 Business Model:
