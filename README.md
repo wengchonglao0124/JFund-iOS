@@ -15,6 +15,17 @@ JFund is mainly developed for customers to pay at the restaurant after having th
 
 <I><b>Model–view–viewmodel (MVVM) architecture</b></I>
 
+<I><b>WebSocket</b></I>
+
+<I><b>GET: To request data from the server</b></I>
+
+<I><b>POST: To submit data to be processed to the server</b></I>
+
+<I><b>Token-based authentication</b></I>
+
+</br>
+Business Model:
+
 Top up $100 AUD
 
 Get 10% more each time
