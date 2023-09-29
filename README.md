@@ -9,7 +9,7 @@ as I developed it entirely. This versatility ensures a broader reach to our targ
 By simplifying and enhancing the dining and payment experience, our goal is to redefine the way customers interact with restaurants in the digital age. Through this endeavour, 
 we're not only fostering ease of use but also promoting rapid, secure, and efficient transactions for all parties involved.
 
-![Simulator Screenshot - iPhone 15 Pro - 2023-09-29 at 18 47 35](https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/14c841cb-718a-4660-aecb-e2865a045819)
+<img src="https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/14c841cb-718a-4660-aecb-e2865a045819" width="589" height="1278" />
 
 JFund is mainly developed for customers to pay at the restaurant after having their meals. The features of JFund:
 
@@ -68,32 +68,32 @@ https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/eb46234f-5a7d-4eb6
 
 Home View - Customer Information
 
-![Simulator Screenshot - iPhone 15 Pro - 2023-09-29 at 18 47 35](https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/9c5e0076-33dc-45e4-88d5-27fd9dff6c2e)
+<img src="https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/9c5e0076-33dc-45e4-88d5-27fd9dff6c2e" width="589" height="1278" />
 
 Home View - Restaurant List
 
-![Simulator Screenshot - iPhone 15 Pro - 2023-09-29 at 18 47 58](https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/d2dca251-6070-4ca9-bb76-5fc3117440be)
+<img src="https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/d2dca251-6070-4ca9-bb76-5fc3117440be" width="589" height="1278" />
 
 Detailed View - Restaurant
 
-![Simulator Screenshot - iPhone 15 Pro - 2023-09-29 at 18 48 10](https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/f88601d5-e5b7-416e-a868-74effc70bff5)
+<img src="https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/f88601d5-e5b7-416e-a868-74effc70bff5" width="589" height="1278" />
 
 Shop View
 
-![Simulator Screenshot - iPhone 15 Pro - 2023-09-29 at 18 48 20](https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/3b4b11af-7789-4d65-b728-b9de9ebeedac)
+<img src="https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/3b4b11af-7789-4d65-b728-b9de9ebeedac" width="589" height="1278" />
 
 Activity View
 
-![Simulator Screenshot - iPhone 15 Pro - 2023-09-29 at 18 48 30](https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/d05c8264-fbf8-45a8-94c5-6923fbb5bc19)
+<img src="https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/d05c8264-fbf8-45a8-94c5-6923fbb5bc19" width="589" height="1278" />
 
 Detailed View - Activity
 
-![Simulator Screenshot - iPhone 15 Pro - 2023-09-29 at 18 48 57](https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/c0565fea-04a8-4cdd-9698-3ff30d4f38ff)
+<img src="https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/c0565fea-04a8-4cdd-9698-3ff30d4f38ff" width="589" height="1278" />
 
 Profile View
 
-![Simulator Screenshot - iPhone 15 Pro - 2023-09-29 at 18 49 17](https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/e540a0b0-359c-4777-9973-63923cd9ecba)
+<img src="https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/e540a0b0-359c-4777-9973-63923cd9ecba" width="589" height="1278" />
 
 Account Information View
 
-![Simulator Screenshot - iPhone 15 Pro - 2023-09-29 at 18 49 29](https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/f5bf5a23-2292-4a43-ae78-9d17f8407ef9)
+<img src="https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/f5bf5a23-2292-4a43-ae78-9d17f8407ef9" width="589" height="1278" />
