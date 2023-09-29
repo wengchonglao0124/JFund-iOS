@@ -13,7 +13,7 @@ we're not only fostering ease of use but also promoting rapid, secure, and effic
 
 JFund is mainly developed for customers to pay at the restaurant after having their meals. The features of JFund:
 
-Model–view–viewmodel (MVVM) architecture
+<I><b>Model–view–viewmodel (MVVM) architecture</b></I>
 
 Top up $100 AUD
 
