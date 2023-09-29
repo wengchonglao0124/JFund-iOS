@@ -59,7 +59,7 @@ Function - Sign Up
 
 https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/84a60874-b3ef-4534-8bbf-5a3b93a201b9
 
-Function - Payment (Interacting with JFund POS)
+Function - Payment (Interacting with JFund POS, Android and iOS) 
 
 https://github.com/wengchonglao0124/JFund-iOS/assets/85862169/eb46234f-5a7d-4eb6-b538-283733da4c2b
 
