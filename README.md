@@ -16,6 +16,8 @@ JFund is mainly developed for customers to pay at the restaurant after having th
 ```diff
 @@ Model–view–viewmodel (MVVM) architecture @@
 
+@@ SwiftUI @@
+
 @@ WebSocket @@
 
 @@ GET: To request data from the server @@
