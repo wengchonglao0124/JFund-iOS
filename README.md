@@ -1,7 +1,7 @@
 # JFund-iOS
 
 This project (JFund), undertaken by a dedicated team, revolves around creating a state-of-the-art mobile payment service application tailored specifically for customers and restaurants. 
-As the leader and project manager, I've taken a hands-on approach to ensure a seamless user experience and efficient payment processes.
+As the <I><b>leader and project manager</b></i>, I've taken a hands-on approach to ensure a seamless user experience and efficient payment processes.
 
 Our application boasts compatibility with both major mobile operating systems: iOS and Android. Notably, the iOS version is a testament to my individual skills and dedication, 
 as I developed it entirely. This versatility ensures a broader reach to our target audience, allowing users across different platforms to enjoy a unified, intuitive experience.
